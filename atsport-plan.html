@@ -173,111 +173,6 @@
     .card.win li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 600; }
     .card li strong { color: var(--text); }
 
-    /* Brand Grid */
-    .brand-grid { 
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-      gap: 20px; margin: 40px 0; 
-    }
-
-    .brand-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 24px;
-      border-left: 3px solid var(--gold);
-    }
-
-    .brand-card h4 { 
-      font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; 
-      color: var(--gold); 
-    }
-    .brand-card .brand-tagline { 
-      font-style: italic; color: var(--accent-hover); 
-      margin-bottom: 12px; font-size: 0.9rem; 
-    }
-    .brand-card p { 
-      color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; 
-    }
-
-    /* AI Integration */
-    .ai-roadmap { 
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 20px; padding: 40px; margin: 40px 0; 
-    }
-    .ai-roadmap h3 { 
-      color: var(--gold); text-align: center; margin-bottom: 30px; 
-      font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400;
-    }
-    .ai-phases { 
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-      gap: 20px; 
-    }
-    .ai-phase { 
-      background: var(--bg-elevated); border: 1px solid var(--border);
-      padding: 20px; border-radius: 10px; 
-    }
-    .ai-phase h5 { 
-      color: var(--accent-hover); margin-bottom: 10px; font-size: 1rem; 
-      font-weight: 600;
-    }
-    .ai-phase p { 
-      color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; 
-    }
-
-    /* Timeline */
-    .timeline { margin: 40px 0; }
-    .timeline-item { 
-      display: flex; align-items: flex-start; margin: 20px 0; 
-      padding: 24px; background: var(--bg-card); border-radius: 14px; 
-      border: 1px solid var(--border);
-    }
-    .timeline-number { 
-      background: var(--accent); color: var(--bg); 
-      width: 40px; height: 40px; border-radius: 50%; 
-      display: flex; align-items: center; justify-content: center; 
-      font-weight: bold; margin-right: 20px; flex-shrink: 0; 
-      font-size: 0.9rem;
-    }
-    .timeline-content h4 { 
-      margin: 0 0 8px 0; color: var(--text); font-size: 1.1rem; 
-      font-weight: 600;
-    }
-    .timeline-content p { 
-      color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; 
-    }
-
-    /* Pricing */
-    .pricing-grid { 
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-      gap: 24px; margin: 40px 0; 
-    }
-    .pricing-card { 
-      background: var(--bg-card); border: 1px solid var(--border);
-      padding: 32px; border-radius: 14px; text-align: center; 
-    }
-    .pricing-card.featured { 
-      border: 2px solid var(--accent); 
-      background: linear-gradient(135deg, var(--accent-glow), var(--bg-card));
-    }
-    .pricing-card h4 { 
-      margin-bottom: 16px; color: var(--gold); font-size: 1.2rem; 
-      font-weight: 700;
-    }
-    .pricing-card .price { 
-      font-family: var(--font-serif); font-size: 2rem; font-weight: 400; 
-      color: var(--accent-hover); margin: 16px 0; 
-    }
-    .pricing-card .price-note { 
-      color: var(--text-muted); font-size: 0.8rem; margin-bottom: 20px; 
-    }
-    .pricing-card ul { list-style: none; text-align: left; }
-    .pricing-card li { 
-      margin: 8px 0; padding-left: 20px; position: relative; 
-      color: var(--text-muted); font-size: 0.85rem;
-    }
-    .pricing-card li:before { 
-      content: "✓"; color: var(--gold); position: absolute; left: 0; 
-      font-weight: bold; 
-    }
-
     /* Big callout */
     .callout {
       text-align: center; padding: 48px 32px;
@@ -293,9 +188,9 @@
       font-family: var(--font-serif);
       font-size: clamp(2.5rem, 6vw, 4.5rem);
       font-weight: 400; margin-bottom: 10px; line-height: 1;
-      color: var(--accent-hover);
     }
     .callout .number.gold { color: var(--gold); }
+    .callout .number.muted { color: var(--muted); }
     .callout .label { font-size: 1.1rem; color: var(--text-muted); }
     .callout .sublabel { font-size: 0.85rem; color: var(--text-muted); opacity: 0.7; margin-top: 6px; }
 
@@ -314,77 +209,95 @@
       font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 2.5rem);
       font-weight: 400; margin-bottom: 16px; color: var(--text);
     }
-    .cta p { color: var(--text-muted); font-size: 1rem; margin-bottom: 32px; }
-    .cta-button {
-      display: inline-block; background: var(--accent); color: white; 
-      padding: 14px 32px; border-radius: 8px; text-decoration: none; 
+    .cta p { color: var(--text-muted); font-size: 1rem; margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta .button {
+      display: inline-block; background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: white; padding: 14px 32px; border-radius: 8px; text-decoration: none;
       font-weight: 600; font-size: 1rem; transition: all 0.3s ease;
     }
-    .cta-button:hover { 
-      background: var(--accent-hover); transform: translateY(-2px); 
+    .cta .button:hover { transform: translateY(-2px); }
+
+    /* Brand grid */
+    .brand-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; margin: 40px 0;
     }
+    .brand-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px;
+    }
+    .brand-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; color: var(--gold); }
+    .brand-card .tagline { font-style: italic; color: var(--accent-hover); margin-bottom: 12px; font-size: 0.9rem; }
+    .brand-card p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
+
+    /* AI phases */
+    .ai-phases {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px; margin: 40px 0;
+    }
+    .ai-phase {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 20px; text-align: center;
+    }
+    .ai-phase .phase-number {
+      font-family: var(--font-serif); font-size: 1.5rem; color: var(--accent-hover);
+      margin-bottom: 8px;
+    }
+    .ai-phase h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+    .ai-phase p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
 
     /* Responsive */
     @media (max-width: 768px) {
-      .hero-logos { flex-direction: column; gap: 20px; }
-      .stats-row, .brand-grid, .pricing-grid { grid-template-columns: 1fr; }
-      .timeline-item { flex-direction: column; text-align: center; }
-      .timeline-number { margin: 0 0 16px 0; }
+      .hero-logos { gap: 16px; flex-wrap: wrap; }
+      .stats-row { grid-template-columns: 1fr; gap: 12px; }
+      section { padding: 60px 0; }
+      .container { padding: 0 20px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Hero -->
-    <div class="hero">
-      <div>
-        <div class="hero-logos">
-          <img src="atsports-white-logo.png" alt="AT Sports" />
-          <span style="font-size: 1.5rem; color: var(--text-muted);">×</span>
-          <img src="gull-logo.png" alt="GullStack" />
-        </div>
+  <div class="hero">
+    <div class="container">
+      <div class="badge">AI Transformation Plan</div>
+      
+      <div class="hero-logos">
+        <img src="/atsports-white-logo.png" alt="AT Sports">
+        <span style="font-size: 2rem; opacity: 0.7;">×</span>
+        <img src="/gull-logo.png" alt="GullStack">
+      </div>
 
-        <div class="badge">AI Transformation Plan</div>
-        
-        <h1>
-          Transform AT Sports Into The 
-          <span class="glow">AI-Powered</span> 
-          Court Surface Authority
-        </h1>
-        
-        <p>Strategic digital transformation plan for AT Sports, Dwell Paint, Grit Paint, and ecosystem growth</p>
-        
-        <div class="prepared-for">
-          <div class="label">Prepared For</div>
-          <div class="name">Brad Carroll & Mallory Bateman</div>
-        </div>
+      <h1>Transform AT Sports Into The <span class="glow">AI-Powered</span> Court Surface Authority</h1>
+      <p>Strategic digital transformation for AT Sports, Dwell Paint, Grit Paint, and ecosystem growth</p>
+
+      <div class="prepared-for">
+        <div class="label">Prepared for</div>
+        <div class="name">Brad Carroll & Mallory Bateman</div>
       </div>
     </div>
+  </div>
 
-    <!-- The Opportunity -->
-    <section>
+  <section>
+    <div class="container">
       <div class="section-label">Market Opportunity</div>
-      <h2 class="section-title">The Opportunity</h2>
-      <p class="section-sub">
-        Current challenges holding back growth and the massive opportunity to transform through AI-powered strategies.
-      </p>
-      
+      <h2 class="section-title">The Transformation Opportunity</h2>
+      <p class="section-sub">Current challenges holding back growth and the massive opportunity to transform through AI-powered strategies across your entire brand ecosystem.</p>
+
       <div class="stats-row">
         <div class="stat gold">
           <div class="number">150-300%</div>
-          <div class="label">Expected Traffic Growth</div>
+          <div class="label">Expected traffic growth within 90 days</div>
         </div>
         <div class="stat">
           <div class="number">$2.3B</div>
-          <div class="label">Court Construction Market</div>
+          <div class="label">Court construction market size</div>
         </div>
         <div class="stat">
           <div class="number">4.8M</div>
-          <div class="label">US Pickleball Players</div>
+          <div class="label">US pickleball players (36% YoY growth)</div>
         </div>
         <div class="stat gold">
-          <div class="number">36%</div>
-          <div class="label">YoY Player Growth</div>
+          <div class="number">6 Phases</div>
+          <div class="label">AI integration roadmap</div>
         </div>
       </div>
 
@@ -392,238 +305,171 @@
         <h3>Current Challenges</h3>
         <ul>
           <li><strong>Installer Confidence Gap:</strong> Installers struggle to confidently sell court surfaces to clients</li>
-          <li><strong>Brand Management:</strong> Multiple brand coordination across AT Sports, Dwell Paint, Grit Paint</li>
-          <li><strong>Underutilized Asset:</strong> PPA partnership not fully leveraged for content amplification</li>
-          <li><strong>Traffic Plateau:</strong> Website growth has plateaued without strategic intervention</li>
+          <li><strong>Brand Management Complexity:</strong> Multiple brand coordination across AT Sports, Dwell Paint, Grit Paint</li>
+          <li><strong>Underutilized PPA Asset:</strong> Professional partnership not fully leveraged for content amplification</li>
+          <li><strong>Traffic Growth Plateau:</strong> Website growth has stagnated without strategic AI intervention</li>
         </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- AT Sports Website Strategy -->
-    <section>
-      <div class="section-label">Digital Strategy</div>
-      <h2 class="section-title">AT Sports Website Strategy</h2>
-      
+  <section>
+    <div class="container">
+      <div class="section-label">AI Strategy</div>
+      <h2 class="section-title">AT Sports Website Transformation</h2>
+      <p class="section-sub">Comprehensive AI-powered growth strategy targeting installers, schools, and municipal facilities with state-specific optimization.</p>
+
       <div class="card opportunity">
         <h3>Traffic Growth Strategy</h3>
         <ul>
           <li><strong>State-Specific Landing Pages:</strong> Custom pages for major markets (Texas, California, Florida)</li>
           <li><strong>School & Institution Targeting:</strong> Educational facilities, recreation centers, municipal courts</li>
-          <li><strong>Installer-Focused SEO:</strong> "court surface contractor [city]" and "court installation [state]" queries</li>
-          <li><strong>PPA Credibility Leverage:</strong> Professional tour association content to dominate searches</li>
-          <li><strong>AEO Implementation:</strong> Make AI assistants recommend AT Sports first</li>
-          <li><strong>Local Market Domination:</strong> Geographic-specific content for regional projects</li>
+          <li><strong>Installer-Focused SEO:</strong> Target "court surface contractor [city]" queries</li>
+          <li><strong>PPA Credibility Leverage:</strong> Professional tour content to dominate "professional court surface" searches</li>
+          <li><strong>AEO Implementation:</strong> Make AI assistants recommend AT Sports first for court questions</li>
+          <li><strong>Local Market Domination:</strong> Geographic-specific content for regional installation projects</li>
         </ul>
       </div>
 
-      <div class="ai-roadmap">
+      <div class="card win">
         <h3>AI Integration Roadmap</h3>
         <div class="ai-phases">
           <div class="ai-phase">
-            <h5>Phase 1</h5>
-            <p>Website chat assistant for instant customer support</p>
+            <div class="phase-number">Phase 1</div>
+            <h4>Website Chat Assistant</h4>
+            <p>Instant customer support and installer Q&A specialist</p>
           </div>
           <div class="ai-phase">
-            <h5>Phase 2</h5>
-            <p>Sales pipeline management integration</p>
+            <div class="phase-number">Phase 2</div>
+            <h4>Sales Pipeline Management</h4>
+            <p>Automated lead qualification and nurturing</p>
           </div>
           <div class="ai-phase">
-            <h5>Phase 3</h5>
-            <p>Calendar automation and scheduling optimization</p>
+            <div class="phase-number">Phase 3</div>
+            <h4>Calendar & Scheduling</h4>
+            <p>Automated booking and project coordination</p>
           </div>
           <div class="ai-phase">
-            <h5>Phase 4</h5>
-            <p>Reporting & analytics automation</p>
+            <div class="phase-number">Phase 4</div>
+            <h4>Analytics & Reporting</h4>
+            <p>Automated performance insights and optimization</p>
           </div>
           <div class="ai-phase">
-            <h5>Phase 5</h5>
-            <p>Scouting reports and opportunity identification</p>
+            <div class="phase-number">Phase 5</div>
+            <h4>Opportunity Identification</h4>
+            <p>AI-powered scouting for new market opportunities</p>
           </div>
           <div class="ai-phase">
-            <h5>Phase 6</h5>
-            <p>Customer insights and predictive recommendations</p>
+            <div class="phase-number">Phase 6</div>
+            <h4>Predictive Recommendations</h4>
+            <p>Customer insights and market trend analysis</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Brand Portfolio Strategy -->
-    <section>
+  <section>
+    <div class="container">
       <div class="section-label">Brand Ecosystem</div>
-      <h2 class="section-title">Brand Portfolio Strategy</h2>
-      
+      <h2 class="section-title">Multi-Brand Strategy</h2>
+      <p class="section-sub">Coordinated approach across your entire brand portfolio with distinct positioning and targeted audiences.</p>
+
       <div class="brand-grid">
         <div class="brand-card">
           <h4>Dwell Paint (Jet9 Brand)</h4>
-          <div class="brand-tagline">"Live in color."</div>
+          <div class="tagline">"Live in color."</div>
           <p>Premium residential court market targeting design-conscious women. Pinterest and Instagram focus with curated color palettes.</p>
         </div>
         <div class="brand-card">
           <h4>Grit Paint (Jet9 Brand)</h4>
-          <div class="brand-tagline">"Pro results. DIY prices."</div>
+          <div class="tagline">"Pro results. DIY prices."</div>
           <p>Consumer DIY market targeting project-focused men. TikTok and YouTube content with Home Depot appeal.</p>
         </div>
         <div class="brand-card">
           <h4>DIY Paint Solution</h4>
-          <div class="brand-tagline">White-label platform</div>
-          <p>Direct-consumer e-commerce strategy with customer education content and automated fulfillment.</p>
+          <div class="tagline">White-label platform</div>
+          <p>Direct-consumer e-commerce strategy with customer education content and automated fulfillment systems.</p>
         </div>
         <div class="brand-card">
           <h4>Hard Sport Marketing (Jet9)</h4>
-          <div class="brand-tagline">B2B installer network</div>
-          <p>Trade show and industry focus with professional contractor relationships and referral systems.</p>
+          <div class="tagline">B2B installer network</div>
+          <p>Trade show and industry focus with professional contractor relationships and referral automation.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Mallory's Marketing Arsenal -->
-    <section>
+  <section>
+    <div class="container">
       <div class="section-label">Content Strategy</div>
       <h2 class="section-title">Mallory's Marketing Arsenal</h2>
-      
+      <p class="section-sub">AI-powered content multiplication and community engagement strategy to amplify your expertise across all digital channels.</p>
+
       <div class="card win">
-        <h3>Content Production Capabilities</h3>
+        <h3>Content Production & AI Strategy</h3>
         <ul>
           <li><strong>Video Production:</strong> Raw video editing, animation creation, professional design and graphics</li>
-          <li><strong>Multi-Platform Content:</strong> Optimized content for each social platform's specific audience</li>
-          <li><strong>Brand Consistency:</strong> Unified visual identity across all touchpoints and platforms</li>
+          <li><strong>AI-Assisted Blog Content:</strong> Maintain authentic brand voice while scaling content production</li>
+          <li><strong>Reddit & Community Marketing:</strong> Grassroots engagement with human-inspired, AI-generated content</li>
+          <li><strong>Social Media Multiplication:</strong> Turn one piece content into multiple platform-specific posts</li>
+          <li><strong>Thought Leadership:</strong> Technical articles and industry insights with AI efficiency</li>
+          <li><strong>Community Building:</strong> Strategic engagement across relevant forums and industry groups</li>
         </ul>
       </div>
 
       <div class="card opportunity">
-        <h3>AI-Powered Content Strategy</h3>
+        <h3>PPA Partnership Content Amplification</h3>
         <ul>
-          <li><strong>Blog Content:</strong> AI-assisted writing that maintains Mallory's authentic brand voice</li>
-          <li><strong>Reddit & Community Marketing:</strong> Grassroots engagement with human-inspired content</li>
-          <li><strong>Social Media Multiplication:</strong> Turn one piece of content into multiple platform-specific posts</li>
-          <li><strong>Thought Leadership:</strong> Technical articles and industry insights with AI efficiency</li>
-          <li><strong>Community Building:</strong> Strategic engagement across relevant forums and groups</li>
+          <li><strong>Content Multiplication Strategy:</strong> Double social media output from current agreement terms</li>
+          <li><strong>Connor Commercial Integration:</strong> Maintain existing arrangement while scaling reach</li>
+          <li><strong>Cross-Platform Distribution:</strong> Turn single PPA content into multi-touchpoint campaigns</li>
+          <li><strong>Professional Credibility:</strong> Leverage tour association for industry authority building</li>
         </ul>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Implementation Timeline -->
-    <section>
-      <div class="section-label">Execution</div>
-      <h2 class="section-title">Implementation Timeline</h2>
-      
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-number">1</div>
-          <div class="timeline-content">
-            <h4>Weeks 1-2: Technical Foundation</h4>
-            <p>Google My Business verification, analytics setup, initial SEO foundation, AI chat integration planning</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-number">2</div>
-          <div class="timeline-content">
-            <h4>Weeks 3-6: Website Transformation</h4>
-            <p>Site redesign with Court Designer integration, content strategy implementation, state-specific landing pages</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-number">3</div>
-          <div class="timeline-content">
-            <h4>Weeks 7-10: AI Integration</h4>
-            <p>Advanced AI features, sales automation, customer insights, predictive recommendations</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-number">4</div>
-          <div class="timeline-content">
-            <h4>Weeks 11-12: Full Ecosystem</h4>
-            <p>Brand portfolio optimization, PPA content amplification, performance reporting and optimization</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Investment & Pricing -->
-    <section>
+  <section>
+    <div class="container">
       <div class="section-label">Investment</div>
-      <h2 class="section-title">Investment & Partnership Structure</h2>
-      
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <h4>AT Sports Website Transformation</h4>
-          <div class="price">$2,985</div>
-          <div class="price-note">Complete redesign & AI integration</div>
-          <ul>
-            <li>Court Designer integration</li>
-            <li>AI chat assistant</li>
-            <li>State-specific landing pages</li>
-            <li>Mobile optimization</li>
-            <li>Analytics & tracking</li>
-          </ul>
-        </div>
-        
-        <div class="pricing-card featured">
-          <h4>Monthly AI Services Package</h4>
-          <div class="price">$3,500</div>
-          <div class="price-note">Ongoing optimization & growth</div>
-          <ul>
-            <li>SEO optimization & content</li>
-            <li>Paid advertising management</li>
-            <li>Influencer coordination</li>
-            <li>Referral automation</li>
-            <li>AI-powered lead scoring</li>
-            <li>Strategic reporting</li>
-          </ul>
-        </div>
-        
-        <div class="pricing-card">
-          <h4>Brand Portfolio Projects</h4>
-          <div class="price">$3,000</div>
-          <div class="price-note">Each brand (Dwell & Grit)</div>
-          <ul>
-            <li>Complete website build</li>
-            <li>Brand identity system</li>
-            <li>E-commerce integration</li>
-            <li>Content strategy</li>
-            <li>Launch marketing</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+      <h2 class="section-title">Partnership Structure</h2>
+      <p class="section-sub">Strategic investment in AI transformation with clear ROI projections and scalable growth systems.</p>
 
-    <!-- ROI & Expected Impact -->
-    <section>
-      <div class="section-label">Results</div>
-      <h2 class="section-title">ROI & Expected Impact</h2>
-      
       <div class="stats-row">
+        <div class="stat">
+          <div class="number">$2,985</div>
+          <div class="label">AT Sports website transformation</div>
+        </div>
         <div class="stat gold">
-          <div class="number">150-300%</div>
-          <div class="label">Website Traffic Growth</div>
+          <div class="number">$3,500</div>
+          <div class="label">Monthly AI services package</div>
         </div>
         <div class="stat">
-          <div class="number">40%</div>
-          <div class="label">Lead Quality Improvement</div>
-        </div>
-        <div class="stat">
-          <div class="number">25%</div>
-          <div class="label">Conversion Rate Increase</div>
+          <div class="number">$3,000</div>
+          <div class="label">Per brand (Dwell & Grit projects)</div>
         </div>
         <div class="stat gold">
           <div class="number">90 Days</div>
-          <div class="label">Time to Results</div>
+          <div class="label">Time to measurable results</div>
         </div>
       </div>
 
       <div class="callout">
         <div class="number gold">2,400%</div>
         <div class="label">Projected Annual ROI</div>
-        <div class="sublabel">Based on conservative traffic and conversion improvements</div>
+        <div class="sublabel">Based on conservative traffic growth and conversion improvements</div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Call to Action -->
-    <div class="cta">
+  <div class="cta">
+    <div class="container">
       <h2>Ready to Transform AT Sports?</h2>
       <p>Let's build an AI-powered growth engine that scales across all your brands and dominates the court surface market.</p>
-      <a href="mailto:bryce@gullstack.com?subject=AT Sports AI Transformation" class="cta-button">Let's Get Started →</a>
+      <a href="mailto:bryce@gullstack.com?subject=AT Sports AI Transformation Plan" class="button">Let's Get Started →</a>
     </div>
   </div>
+
 </body>
 </html>
