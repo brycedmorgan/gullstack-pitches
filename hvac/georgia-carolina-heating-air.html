@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgia Carolina Heating & Air - Augusta Area's Trusted HVAC Experts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: #b91c1c;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #059669;
+        }
+        
+        .phone-header {
+            background: #059669;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .rating-badge {
+            background: #059669;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(185, 28, 28, 0.8), rgba(185, 28, 28, 0.8)), url('hvac-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 75vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .hero-rating {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            background: rgba(5, 150, 105, 0.9);
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .btn-primary {
+            background: #059669;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #047857;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #b91c1c;
+        }
+        
+        .trust-badges {
+            background: #f8fafc;
+            padding: 2rem 0;
+        }
+        
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .badge {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .badge h3 {
+            color: #b91c1c;
+            margin-bottom: 10px;
+        }
+        
+        .services {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #b91c1c;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(185, 28, 28, 0.1);
+            border-color: #059669;
+        }
+        
+        .service-card h3 {
+            color: #b91c1c;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .service-card li {
+            padding: 5px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .service-card li:before {
+            content: "✓ ";
+            color: #059669;
+            font-weight: bold;
+        }
+        
+        .emergency-banner {
+            background: linear-gradient(45deg, #059669, #047857);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .emergency-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .emergency-phone {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        
+        .service-area {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+        
+        .area-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        
+        .area-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #b91c1c;
+            transition: all 0.3s;
+        }
+        
+        .area-item:hover {
+            border-color: #059669;
+            transform: translateY(-2px);
+        }
+        
+        .testimonials {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 2rem;
+        }
+        
+        .testimonial {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #059669;
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: "⭐⭐⭐⭐⭐";
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 0.8rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: #b91c1c;
+        }
+        
+        .contact {
+            padding: 4rem 0;
+            background: #b91c1c;
+            color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+        
+        .hours {
+            background: rgba(5, 150, 105, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border: 1px solid rgba(5, 150, 105, 0.3);
+        }
+        
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                Georgia Carolina Heating & Air
+                <span class="rating-badge">4.7 ★ (34 Reviews)</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="phone-header">(803) 279-4915</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Georgia Carolina Heating & Air</h1>
+                <div class="hero-rating">⭐⭐⭐⭐⭐ 4.7 Stars • 34 Google Reviews</div>
+                <p>Augusta Area's Trusted HVAC Experts | 24/7 Emergency Service | Licensed & Insured</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">Get Free Estimate</a>
+                    <a href="#" class="btn btn-secondary">Call Now: (803) 279-4915</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+        <div class="container">
+            <div class="badges-grid">
+                <div class="badge">
+                    <h3>Licensed & Insured</h3>
+                    <p>Fully licensed and insured for your protection</p>
+                </div>
+                <div class="badge">
+                    <h3>18+ Years Experience</h3>
+                    <p>Proudly serving GA/SC Augusta area since 2008</p>
+                </div>
+                <div class="badge">
+                    <h3>⭐ 4.7 Star Rating</h3>
+                    <p>34 verified Google reviews from satisfied customers</p>
+                </div>
+                <div class="badge">
+                    <h3>24/7 Emergency Service</h3>
+                    <p>Always available when you need us most</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Our HVAC Services in the Augusta Area</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Cooling Services</h3>
+                    <ul>
+                        <li>Air Conditioning Repair</li>
+                        <li>AC Installation & Replacement</li>
+                        <li>Central Air Systems</li>
+                        <li>Emergency AC Repair</li>
+                        <li>Preventive Maintenance</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Heating Services</h3>
+                    <ul>
+                        <li>Heat Pump Services</li>
+                        <li>Furnace Repair & Installation</li>
+                        <li>Heating System Replacement</li>
+                        <li>Emergency Heating Repair</li>
+                        <li>Duct Work & Sealing</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>Professional Services</h3>
+                    <ul>
+                        <li>System Design & Installation</li>
+                        <li>Energy Efficiency Audits</li>
+                        <li>Indoor Air Quality</li>
+                        <li>24/7 Emergency Support</li>
+                        <li>Maintenance Agreements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Banner -->
+    <section class="emergency-banner">
+        <div class="container">
+            <h2>HVAC Emergency in Augusta Area? We're Here 24/7</h2>
+            <div class="emergency-phone">(803) 279-4915</div>
+            <p>Expert Augusta area HVAC service covering Georgia and South Carolina!</p>
+            <a href="#" class="btn btn-secondary">Emergency Service</a>
+        </div>
+    </section>
+
+    <!-- Service Area -->
+    <section class="service-area">
+        <div class="container">
+            <h2 class="section-title">Serving Georgia & South Carolina Augusta Area</h2>
+            <div class="area-grid">
+                <div class="area-item">North Augusta</div>
+                <div class="area-item">Evans</div>
+                <div class="area-item">Martinez</div>
+                <div class="area-item">Grovetown</div>
+                <div class="area-item">Columbia County</div>
+                <div class="area-item">Richmond County</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Why the Augusta Area Trusts Georgia Carolina</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">"Georgia Carolina Heating & Air provides excellent service to both sides of the Augusta area. Professional, reliable, and they know HVAC systems!"</div>
+                    <div class="testimonial-author">- Verified Google Review, North Augusta Homeowner</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"Best HVAC company serving the Georgia-Carolina Augusta region! They service our business and residential properties with consistent quality."</div>
+                    <div class="testimonial-author">- Verified Google Review, Commercial Client</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"Outstanding emergency service! Our system failed on the hottest day and they had us back up and running quickly. Highly recommend!"</div>
+                    <div class="testimonial-author">- Verified Google Review, Evans Resident</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">Ready for Expert HVAC Service in Augusta Area?</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Georgia Carolina Heating & Air</h3>
+                    <p><strong>Phone:</strong> (803) 279-4915</p>
+                    <p><strong>Email:</strong> service@georgiacarolinahvac.com</p>
+                    <p><strong>Address:</strong> 304 Belvedere Clearwater Rd<br>North Augusta, SC 29841</p>
+                    <div class="hours">
+                        <h4>Business Hours:</h4>
+                        <p>Monday - Friday: 7:00 AM - 6:00 PM</p>
+                        <p>Saturday: 8:00 AM - 4:00 PM</p>
+                        <p>Sunday: Emergency Service Available</p>
+                        <p><strong>24/7 Emergency Service Available</strong></p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h3>Why Choose Georgia Carolina?</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ Licensed in GA & SC</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ 18+ Years Serving Augusta Area</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ ⭐ 4.7 Star Google Rating (34 Reviews)</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ 24/7 Emergency Service</li>
+                        <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2);">✓ 100% Satisfaction Guarantee</li>
+                        <li style="padding: 8px 0;">✓ Bi-State Augusta Coverage</li>
+                    </ul>
+                    <br>
+                    <a href="#" class="btn btn-primary">Get Your Free Estimate Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Georgia Carolina Heating & Air. All rights reserved. | Licensed & Insured | Serving Augusta Area - GA & SC</p>
+        </div>
+    </footer>
+</body>
+</html>
