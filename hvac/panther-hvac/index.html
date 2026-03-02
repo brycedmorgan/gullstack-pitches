@@ -83,11 +83,10 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), 
-                        linear-gradient(rgba(230, 126, 34, 0.1), rgba(230, 126, 34, 0.1)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f8f9fa" width="1200" height="600"/><text x="600" y="250" text-anchor="middle" font-size="48" fill="%23666">Premier HVAC Service</text><text x="600" y="300" text-anchor="middle" font-size="36" fill="%23888">Serving Atlanta Metro Since 2010</text><text x="600" y="350" text-anchor="middle" font-size="24" fill="%23888">4.8 ★ Rated • 206 Reviews</text></svg>');
+                        url('/assets/hvac-hero.jpg');
             background-size: cover;
             background-position: center;
-            height: 100vh;
+            height: 75vh;
             display: flex;
             align-items: center;
             color: white;
@@ -371,6 +370,10 @@
         
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .hero {
+                height: 70vh;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
