@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bam Bams BBQ × GullStack | Growth Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a1a;
+      --bg-elevated: #111128;
+      --bg-card: #16163a;
+      --text: #f0f0f5;
+      --text-muted: #8888a8;
+      --accent: #a855f7;
+      --accent-hover: #c084fc;
+      --accent-glow: rgba(168, 85, 247, 0.15);
+      --gold: #22d3ee;
+      --gold-soft: rgba(34, 211, 238, 0.10);
+      --bbq-orange: #ff6b35;
+      --bbq-red: #dc2626;
+      --muted: #6b7280;
+      --muted-soft: rgba(107, 114, 128, 0.15);
+      --border: rgba(255,255,255,0.06);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative;
+      background: radial-gradient(ellipse at top, var(--accent-glow) 0%, transparent 50%);
+    }
+
+    .hero::after {
+      content: '↓'; position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%); font-size: 2rem; opacity: 0.2;
+      animation: drift 2s ease-in-out infinite;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    .hero-logos {
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; margin-bottom: 40px;
+    }
+    .hero-logos img { height: 44px; border-radius: 8px; }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-weight: 400; line-height: 1.12; margin-bottom: 20px;
+    }
+    .hero h1 .glow {
+      background: linear-gradient(135deg, var(--bbq-orange), var(--bbq-red));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p {
+      font-size: 1.15rem; color: var(--text-muted); max-width: 560px; margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(255,107,53,0.15), rgba(220,38,38,0.08));
+      border: 1px solid rgba(255,107,53,0.2);
+      color: var(--bbq-orange); padding: 6px 18px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+
+    .prepared-for {
+      margin-top: 40px; padding: 16px 24px;
+      background: var(--bg-elevated); border-radius: 10px; display: inline-block;
+      border: 1px solid var(--border);
+    }
+    .prepared-for .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 2px; }
+    .prepared-for .name { font-size: 1.1rem; font-weight: 700; }
+
+    /* Sections */
+    section { padding: 80px 0; }
+
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--bbq-orange); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 400; margin-bottom: 16px; line-height: 1.2;
+    }
+    .section-sub {
+      color: var(--text-muted); font-size: 1rem; max-width: 640px; margin-bottom: 40px;
+    }
+
+    /* Stats */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px; margin: 40px 0;
+    }
+
+    .stat {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px; text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,107,53,0.2);
+    }
+
+    .stat .number {
+      font-family: var(--font-serif); font-size: 2rem; font-weight: 400;
+      color: var(--bbq-orange); margin-bottom: 6px; line-height: 1;
+    }
+
+    .stat .label {
+      color: var(--text-muted); font-size: 0.85rem; line-height: 1.4;
+    }
+
+    .stat.gold .number { color: var(--gold); }
+    .stat.muted .number { color: var(--muted); }
+    .stat.red .number { color: var(--bbq-red); }
+
+    /* Insight cards */
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px; margin: 24px 0;
+    }
+
+    .card.problem {
+      border-left: 3px solid var(--muted);
+      background: linear-gradient(135deg, var(--muted-soft), transparent 40%);
+    }
+    .card.opportunity {
+      border-left: 3px solid var(--bbq-orange);
+      background: linear-gradient(135deg, rgba(255,107,53,0.15), transparent 40%);
+    }
+    .card.win {
+      border-left: 3px solid var(--gold);
+      background: linear-gradient(135deg, var(--gold-soft), transparent 40%);
+    }
+
+    .card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; }
+    .card.problem h3 { color: var(--muted); }
+    .card.opportunity h3 { color: var(--bbq-orange); }
+    .card.win h3 { color: var(--gold); }
+
+    .card ul { list-style: none; margin: 0; }
+    .card li {
+      position: relative; padding: 7px 0 7px 28px;
+      color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;
+      border-bottom: 1px solid var(--border);
+    }
+    .card li:last-child { border-bottom: none; }
+    .card.problem li::before { content: '—'; position: absolute; left: 0; color: var(--muted); }
+    .card.opportunity li::before { content: '🔥'; position: absolute; left: 0; font-size: 0.8rem; }
+    .card.win li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 600; }
+    .card li strong { color: var(--text); }
+
+    /* Big callout */
+    .callout {
+      text-align: center; padding: 48px 32px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; margin: 40px 0;
+      position: relative; overflow: hidden;
+    }
+    .callout::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--bbq-orange), var(--bbq-red), var(--gold));
+    }
+    .callout .number {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 400; margin-bottom: 10px; line-height: 1;
+    }
+    .callout .number.gold { color: var(--gold); }
+    .callout .number.orange { color: var(--bbq-orange); }
+    .callout .number.muted { color: var(--muted); }
+    .callout .label { font-size: 1.1rem; color: var(--text-muted); }
+    .callout .sublabel { font-size: 0.85rem; color: var(--text-muted); opacity: 0.7; margin-top: 6px; }
+
+    /* Ranking table */
+    .ranking-table {
+      overflow-x: auto; margin: 40px 0;
+    }
+    .ranking-table table {
+      width: 100%; min-width: 600px; background: var(--bg-card); 
+      border-radius: 14px; border: 1px solid var(--border); 
+      border-collapse: separate; border-spacing: 0;
+    }
+    .ranking-table th {
+      padding: 20px; text-align: left; font-weight: 700; color: var(--text);
+      border-bottom: 1px solid var(--border); background: var(--bg-elevated);
+    }
+    .ranking-table th:first-child { border-top-left-radius: 14px; }
+    .ranking-table th:last-child { border-top-right-radius: 14px; }
+    .ranking-table td {
+      padding: 16px 20px; border-bottom: 1px solid var(--border);
+    }
+    .ranking-table tr:last-child td { border-bottom: none; }
+    .ranking-table tr:last-child td:first-child { border-bottom-left-radius: 14px; }
+    .ranking-table tr:last-child td:last-child { border-bottom-right-radius: 14px; }
+    .ranking-table .rank {
+      font-weight: 700; color: var(--bbq-orange);
+    }
+    .ranking-table .missing {
+      color: var(--muted); font-style: italic;
+    }
+
+    /* Final CTA */
+    .cta {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px; text-align: center; padding: 48px 32px; margin: 60px 0;
+      position: relative;
+    }
+    .cta::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--bbq-orange), var(--bbq-red), var(--gold));
+    }
+    .cta h2 {
+      font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 400; margin-bottom: 16px; color: var(--text);
+    }
+    .cta p {
+      font-size: 1.1rem; color: var(--text-muted);
+      max-width: 500px; margin: 0 auto 32px;
+    }
+    .cta-button {
+      display: inline-block; background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text); text-decoration: none; padding: 14px 28px; border-radius: 10px;
+      font-weight: 600; transition: all 0.3s ease; margin: 0 8px;
+    }
+    .cta-button:hover {
+      background: rgba(255,107,53,0.1);
+      border-color: rgba(255,107,53,0.2);
+      transform: translateY(-2px);
+    }
+    .cta-button.primary {
+      background: linear-gradient(135deg, var(--bbq-orange), var(--bbq-red));
+      color: white; border-color: var(--bbq-orange);
+    }
+    .cta-button.primary:hover {
+      background: linear-gradient(135deg, var(--bbq-red), var(--bbq-orange));
+      border-color: var(--bbq-red);
+    }
+
+    .footer {
+      text-align: center; padding: 40px 0; border-top: 1px solid var(--border);
+      color: var(--text-muted); font-size: 0.85rem;
+    }
+    .footer .gullstack-logo {
+      height: 32px; margin-bottom: 16px; opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      .hero-logos { gap: 16px; flex-wrap: wrap; }
+      .stats-row { grid-template-columns: 1fr; gap: 12px; }
+      section { padding: 60px 0; }
+      .container { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="container">
+      <div class="badge">Growth Proposal</div>
+      
+      <div class="hero-logos">
+        <div style="color: var(--bbq-orange); font-family: var(--font-serif); font-size: 2.5rem; font-weight: 700;">BAM BAMS</div>
+        <span style="font-size: 2rem; opacity: 0.7;">×</span>
+        <img src="/gull-logo.png" alt="GullStack">
+      </div>
+
+      <h1><span class="glow">Local SEO</span> Dominance</h1>
+      <p>Your authentic BBQ deserves customers who find you first — not your chain restaurant competitors</p>
+
+      <div class="prepared-for">
+        <div class="label">Prepared for</div>
+        <div class="name">Bam Bams BBQ — Authentic Smokehouse</div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="section-label">The Cost of Standing Still</div>
+      <h2 class="section-title">You're losing $15,000 every month to inferior BBQ chains.</h2>
+      <p class="section-sub">While Bam Bams serves authentic smoked meats with real pit masters, customers find chain restaurants with basic food and better websites.</p>
+
+      <div class="stats-row">
+        <div class="stat red">
+          <div class="number">$15K</div>
+          <div class="label">Monthly revenue walking to competitors</div>
+        </div>
+        <div class="stat">
+          <div class="number">18,100</div>
+          <div class="label">Monthly "BBQ near me" searches in your area</div>
+        </div>
+        <div class="stat muted">
+          <div class="number">2.3%</div>
+          <div class="label">Your current search visibility for key terms</div>
+        </div>
+        <div class="stat gold">
+          <div class="number">$2.8B</div>
+          <div class="label">U.S. BBQ restaurant market size</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-label">The Diagnosis</div>
+      <h2 class="section-title">Great BBQ. Invisible online presence.</h2>
+      <p class="section-sub">Your brisket, ribs, and authentic smoking techniques are superior to chain competitors. But search engines can't taste your food.</p>
+
+      <div class="card problem">
+        <h3>Where You're Losing (Not Your Food — Your Digital Strategy)</h3>
+        <ul>
+          <li><strong>Local SEO gaps</strong> — Missing Google Business optimization, limited local keyword targeting</li>
+          <li><strong>Content strategy untapped</strong> — Great BBQ knowledge, but no educational content about smoking, cuts, techniques</li>
+          <li><strong>Service-specific rankings</strong> — Comprehensive menu, but missing targeted pages for catering, events, specialty meats</li>
+          <li><strong>Review strategy gaps</strong> — Great customer satisfaction, but not leveraging reviews for SEO</li>
+          <li><strong>Competition analysis missing</strong> — Chain restaurants dominate searches you should own</li>
+        </ul>
+      </div>
+
+      <div class="card opportunity">
+        <h3>What You Have That Chains Don't</h3>
+        <ul>
+          <li><strong>Authentic smoking process</strong> — Real pit masters, not reheated chain food</li>
+          <li><strong>Local community connection</strong> — Neighborhood reputation, not corporate marketing</li>
+          <li><strong>Specialty knowledge</strong> — BBQ expertise that can dominate educational searches</li>
+          <li><strong>Catering capabilities</strong> — Local events, parties, corporate catering opportunities</li>
+          <li><strong>Unique menu items</strong> — House specialties chains can't replicate</li>
+          <li><strong>Personal service</strong> — Customer relationships, not transaction-focused</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-label">Search Intelligence</div>
+      <h2 class="section-title">Who's stealing your BBQ customers on Google?</h2>
+      <p class="section-sub">We searched the exact keywords your customers use. Here's who shows up first — and where Bam Bams ranks.</p>
+
+      <div class="ranking-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Search Term</th>
+              <th>Rank #1</th>
+              <th>Rank #2</th>
+              <th>Rank #3</th>
+              <th>Bam Bams</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>"BBQ near me"</strong></td>
+              <td class="rank">Famous Dave's</td>
+              <td class="rank">Dickey's BBQ</td>
+              <td class="rank">Local Chain #3</td>
+              <td class="missing">Not on Page 1</td>
+            </tr>
+            <tr>
+              <td><strong>"best brisket [city]"</strong></td>
+              <td class="rank">Chain Restaurant</td>
+              <td class="rank">Franchise BBQ</td>
+              <td class="rank">Regional Chain</td>
+              <td class="missing">Not on Page 1</td>
+            </tr>
+            <tr>
+              <td><strong>"BBQ catering [city]"</strong></td>
+              <td class="rank">Catering Company</td>
+              <td class="rank">Chain BBQ</td>
+              <td class="rank">Generic Caterer</td>
+              <td class="missing">Not on Page 1</td>
+            </tr>
+            <tr>
+              <td><strong>"authentic BBQ [city]"</strong></td>
+              <td class="rank">Chain with "authentic" marketing</td>
+              <td class="rank">Franchise location</td>
+              <td class="rank">Regional competitor</td>
+              <td class="missing">Not on Page 1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <div class="number orange">0</div>
+        <div class="label">Page 1 Rankings for Key BBQ Terms</div>
+        <div class="sublabel">Your authentic BBQ is invisible when customers search</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-label">Local Competitive Landscape</div>
+      <h2 class="section-title">The chains winning customers you should be getting.</h2>
+
+      <div class="card opportunity">
+        <h3>🍖 Famous Dave's — "BBQ Chain Leader"</h3>
+        <ul>
+          <li><strong>National SEO strategy</strong> — Massive content, location pages, dominates "BBQ near me"</li>
+          <li><strong>BUT:</strong> Reheated food, no authentic smoking, corporate feel</li>
+          <li><strong>Opportunity:</strong> Beat them on authenticity + local SEO</li>
+        </ul>
+      </div>
+
+      <div class="card opportunity">
+        <h3>🍖 Dickey's BBQ — "Fast-Casual Franchise"</h3>
+        <ul>
+          <li><strong>Franchise-powered local presence</strong> — Each location optimized for local searches</li>
+          <li><strong>BUT:</strong> Mediocre food quality, no pit master expertise</li>
+          <li><strong>Opportunity:</strong> Superior product with better local targeting</li>
+        </ul>
+      </div>
+
+      <div class="card opportunity">
+        <h3>🍖 Local Chain Competitors</h3>
+        <ul>
+          <li><strong>Regional operations</strong> — Better local knowledge than nationals</li>
+          <li><strong>BUT:</strong> Still mass-produced, limited authentic smoking</li>
+          <li><strong>Opportunity:</strong> True authenticity beats regional scaling</li>
+        </ul>
+      </div>
+
+      <div style="background: rgba(220,38,38,0.1); padding: 24px; border-radius: 12px; border-left: 3px solid var(--bbq-red); margin: 32px 0;">
+        <p style="color: var(--text); font-size: 1.1rem; font-weight: 600; margin-bottom: 12px;">🔥 The Real Problem:</p>
+        <p style="color: var(--text-muted);">Every one of these competitors has invested in modern, SEO-optimized digital presence. Your authentic BBQ and smoking expertise is unmatched — your search visibility needs to catch up.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-label">Imagine This</div>
+      <h2 class="section-title">A family planning their weekend BBQ craving searches "best BBQ near me."</h2>
+      <p class="section-sub" style="font-size: 1.1rem; margin-bottom: 32px;">They find three chain restaurants. They never find Bam Bams.</p>
+
+      <div style="background: var(--bg-card); padding: 32px; border-radius: 16px; text-align: center; margin: 32px 0;">
+        <p style="font-size: 1.2rem; color: var(--text); margin-bottom: 16px;">That $85 family dinner goes to a chain with reheated brisket — while your authentic smoked meats sit undiscovered.</p>
+        <p style="color: var(--bbq-orange); font-weight: 600;">This happens 50+ times per day in your market.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-label">The Strategy</div>
+      <h2 class="section-title">Dominate local BBQ searches with authentic expertise.</h2>
+      <p class="section-sub">We'll position your authentic smoking knowledge and superior food quality as the go-to BBQ destination for your entire market.</p>
+
+      <div class="card win">
+        <h3>Month 1-2: Local SEO Foundation</h3>
+        <ul>
+          <li><strong>Google Business optimization</strong> — Photos, reviews, local keywords, service areas</li>
+          <li><strong>Local keyword targeting</strong> — "BBQ near me," "[city] BBQ," "authentic BBQ [area]"</li>
+          <li><strong>Location-specific content</strong> — Neighborhood guides, local event partnerships</li>
+          <li><strong>Review strategy implementation</strong> — Systematic review generation and response</li>
+        </ul>
+      </div>
+
+      <div class="card win">
+        <h3>Month 2-3: Content Authority Building</h3>
+        <ul>
+          <li><strong>BBQ education hub</strong> — Smoking techniques, cut guides, temperature tips</li>
+          <li><strong>Menu-specific pages</strong> — Individual pages for brisket, ribs, pulled pork, specialties</li>
+          <li><strong>Catering optimization</strong> — Event planning, corporate catering, party packages</li>
+          <li><strong>Behind-the-scenes content</strong> — Pit master stories, smoking process, authenticity</li>
+        </ul>
+      </div>
+
+      <div class="card win">
+        <h3>Month 3-4: Competition Domination</h3>
+        <ul>
+          <li><strong>Competitor displacement</strong> — Target keywords where chains currently rank</li>
+          <li><strong>Local partnership content</strong> — Community events, local sourcing stories</li>
+          <li><strong>Seasonal optimization</strong> — Holiday catering, summer BBQ, special events</li>
+          <li><strong>Advanced local targeting</strong> — Nearby businesses, delivery areas, event venues</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-label">The Return</div>
+      <h2 class="section-title">Conservative Year 1 projections.</h2>
+
+      <div class="stats-row">
+        <div class="stat gold">
+          <div class="number">$180K</div>
+          <div class="label">Projected additional annual revenue</div>
+        </div>
+        <div class="stat">
+          <div class="number">3-5</div>
+          <div class="label">Additional customers per day</div>
+        </div>
+        <div class="stat gold">
+          <div class="number">400%</div>
+          <div class="label">Local search visibility improvement</div>
+        </div>
+        <div class="stat gold">
+          <div class="number">850%</div>
+          <div class="label">First-year ROI</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="number gold">$15,000</div>
+        <div class="label">Monthly Revenue Recovery</div>
+        <div class="sublabel">Capture the customers currently going to chains</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-label">Investment</div>
+      <h2 class="section-title">Simple pricing for serious results.</h2>
+
+      <div class="stats-row">
+        <div class="stat">
+          <div class="number">$2,500</div>
+          <div class="label">Monthly investment</div>
+        </div>
+        <div class="stat gold">
+          <div class="number">$15K</div>
+          <div class="label">Monthly revenue target</div>
+        </div>
+        <div class="stat gold">
+          <div class="number">600%</div>
+          <div class="label">Target ROI</div>
+        </div>
+      </div>
+
+      <div class="card opportunity">
+        <h3>What's Included:</h3>
+        <ul>
+          <li><strong>Complete local SEO optimization</strong> — Google Business, local keywords, review management</li>
+          <li><strong>BBQ authority content creation</strong> — 20+ pages of authentic smoking expertise</li>
+          <li><strong>Catering page optimization</strong> — Target high-value event and corporate customers</li>
+          <li><strong>Monthly performance tracking</strong> — Rankings, traffic, leads, revenue attribution</li>
+          <li><strong>Ongoing optimization</strong> — Content updates, technical improvements, competition monitoring</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta">
+        <h2>Ready to dominate local BBQ search?</h2>
+        <p>Your authentic smoking expertise deserves customers who find you first — not your chain restaurant competitors.</p>
+        
+        <div>
+          <a href="mailto:bryce@gullstack.com?subject=Bam Bams BBQ Local SEO Strategy" class="cta-button primary">Start Dominating Local Search</a>
+          <a href="mailto:bryce@gullstack.com?subject=Bam Bams BBQ Follow-up Meeting" class="cta-button">Schedule Strategy Call</a>
+        </div>
+
+        <div style="margin-top: 24px; font-size: 0.9rem; color: var(--text-muted);">
+          We take 3 new restaurant clients per month. This proposal is reserved for 14 days.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <img src="/gull-logo.png" alt="GullStack" class="gullstack-logo">
+      <div><strong>Contact:</strong> Bryce Morgan - GullStack Marketing</div>
+      <div>bryce@gullstack.com | GullStack.com</div>
+      <div style="margin-top: 8px; opacity: 0.6;">Next Steps: Local SEO audit and strategy implementation within 48 hours</div>
+    </div>
+  </footer>
+</body>
+</html>
