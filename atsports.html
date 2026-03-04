@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AT Sports × GullStack | Website Rebuild + SEO Strategy</title>
+  <title>AT Sports × GullStack | Website Migration + SEO Strategy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
@@ -194,435 +194,307 @@
     .callout .label { font-size: 1.1rem; color: var(--text-muted); }
     .callout .sublabel { font-size: 0.85rem; color: var(--text-muted); opacity: 0.7; margin-top: 6px; }
 
-    /* Final CTA */
-    .cta {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 20px; text-align: center; padding: 48px 32px; margin: 60px 0;
-      position: relative;
+    /* Timeline */
+    .timeline { margin: 40px 0; }
+
+    .phase {
+      display: grid; grid-template-columns: 100px 1fr; gap: 20px;
+      padding: 24px 0; border-bottom: 1px solid var(--border);
     }
-    .cta::before {
+    .phase:last-child { border-bottom: none; }
+
+    .phase-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--accent);
+      padding-top: 4px;
+    }
+
+    .phase h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .phase p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+
+    .phase .result {
+      margin-top: 10px; padding: 10px 14px;
+      background: var(--gold-soft); border-left: 3px solid var(--gold);
+      border-radius: 8px; font-size: 0.85rem; color: var(--gold);
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background: radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 60%);
+      padding: 80px 0;
+    }
+
+    .cta-card {
+      max-width: 540px; margin: 0 auto;
+      background: var(--bg-card); border: 2px solid var(--accent);
+      border-radius: 20px; padding: 40px 32px;
+      position: relative; overflow: hidden;
+    }
+    .cta-card::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
       background: linear-gradient(90deg, var(--accent), var(--accent-hover), var(--gold));
     }
-    .cta h2 {
-      font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 2.5rem);
-      font-weight: 400; margin-bottom: 16px; color: var(--text);
+
+    .cta-card h2 {
+      font-family: var(--font-serif); font-size: 1.8rem;
+      font-weight: 400; margin-bottom: 16px; line-height: 1.2;
     }
-    .cta p {
-      font-size: 1.1rem; color: var(--text-muted);
-      max-width: 500px; margin: 0 auto 32px;
-    }
-    .cta-button {
-      display: inline-block; background: var(--bg-elevated);
-      border: 1px solid var(--border);
-      color: var(--text); text-decoration: none; padding: 14px 28px; border-radius: 10px;
-      font-weight: 600; transition: all 0.3s ease; margin: 0 8px;
-    }
-    .cta-button:hover {
-      background: var(--accent-glow);
-      border-color: rgba(168,85,247,0.2);
-      transform: translateY(-2px);
-    }
-    .cta-button.primary {
+    .cta-card p { color: var(--text-muted); margin-bottom: 28px; font-size: 1rem; }
+
+    .cta-btn {
+      display: inline-block;
       background: linear-gradient(135deg, var(--accent), var(--accent-hover));
-      color: white; border-color: var(--accent);
+      color: white; padding: 16px 40px; border-radius: 10px;
+      font-size: 1.05rem; font-weight: 800; text-decoration: none;
+      transition: all 0.2s ease;
     }
-    .cta-button.primary:hover {
-      background: linear-gradient(135deg, var(--accent-hover), var(--accent));
-      border-color: var(--accent-hover);
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(168,85,247,0.35);
     }
 
+    /* Footer */
     .footer {
-      text-align: center; padding: 40px 0; border-top: 1px solid var(--border);
-      color: var(--text-muted); font-size: 0.85rem;
+      text-align: center; padding: 48px 24px;
+      border-top: 1px solid var(--border);
     }
-    .footer .gullstack-logo {
-      height: 32px; margin-bottom: 16px; opacity: 0.7;
+    .footer p { color: var(--text-muted); font-size: 0.85rem; }
+    .footer .mark {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; margin-bottom: 12px; opacity: 0.5;
     }
+    .footer .mark img { height: 28px; }
+    .footer .mark span { font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; }
 
+    /* Animations */
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      .hero-logos { gap: 16px; flex-wrap: wrap; }
-      .stats-row { grid-template-columns: 1fr; gap: 12px; }
-      section { padding: 60px 0; }
-      .container { padding: 0 20px; }
+      .hero-logos { flex-wrap: wrap; gap: 12px; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .phase { grid-template-columns: 1fr; }
+      .phase-label { padding-top: 0; margin-bottom: -12px; }
     }
   </style>
 </head>
 <body>
-  <div class="hero">
+
+  <!-- Hero -->
+  <section class="hero">
     <div class="container">
-      <div class="badge">Growth Proposal</div>
-      
       <div class="hero-logos">
-        <img src="/atsports-white-logo.png" alt="AT Sports">
-        <span style="font-size: 2rem; opacity: 0.7;">×</span>
+        <img src="https://atsports.com/wp-content/uploads/2024/10/at-sports-full@2x.png" alt="AT Sports" style="height: 44px; background: white; padding: 8px 16px; border-radius: 8px;">
+        <span style="font-size: 1.5rem; opacity: 0.2;">×</span>
         <img src="/gull-logo.png" alt="GullStack">
       </div>
-
-      <h1><span class="glow">Website Rebuild</span> + SEO Domination</h1>
-      <p>Lightning-fast new site + strategic SEO pages to capture high-value contractor searches</p>
-
+      <div class="badge">Strategic Partnership</div>
+      <h1>Turn Your Website Into a <span class="glow">Lead Generation Machine</span></h1>
+      <p>Clean migration + 100+ new SEO pages targeting court installers. 3x better rankings, 2x more organic inquiries.</p>
       <div class="prepared-for">
         <div class="label">Prepared for</div>
-        <div class="name">Brad Carroll & Malory Bateman</div>
-      </div>
-    </div>
-  </div>
-
-  <section>
-    <div class="container">
-      <div class="section-label">Website Rebuild</div>
-      <h2 class="section-title">Speed + SEO = Revenue</h2>
-      <p class="section-sub">Your current site is slow and missing critical SEO pages that contractors actively search for. We'll fix both problems in 2 weeks.</p>
-
-      <div class="stats-row">
-        <div class="stat muted">
-          <div class="number">3.2s</div>
-          <div class="label">Current page load time (Google penalty zone)</div>
-        </div>
-        <div class="stat gold">
-          <div class="number">0.8s</div>
-          <div class="label">New site speed target (mobile optimized)</div>
-        </div>
-        <div class="stat gold">
-          <div class="number">8</div>
-          <div class="label">High-value SEO pages we'll add</div>
-        </div>
+        <div class="name">Brad Carroll & Malory Robinson — AT Sports</div>
       </div>
     </div>
   </section>
 
+  <!-- Current State -->
   <section>
     <div class="container">
-      <div class="section-label">Competitive Traffic Analysis</div>
-      <h2 class="section-title">The Organic Search Revenue Gap</h2>
-      <p class="section-sub">Your competitors are capturing massive search traffic and revenue that should be yours. Here's what AT Sports is losing every month.</p>
+      <div class="fade-in">
+        <div class="section-label">Current Performance</div>
+        <div class="section-title">You're ranking well for brands, missing opportunities with installers.</div>
+        <p class="section-sub">Strong performance for Acrytech, CushionX, and AT Sports branded searches. But court installers searching for solutions aren't finding you first.</p>
 
-      <div style="overflow-x: auto; margin: 40px 0;">
-        <table style="width: 100%; min-width: 700px; background: var(--bg-card); border-radius: 14px; border: 1px solid var(--border); border-collapse: separate; border-spacing: 0;">
-          <thead>
-            <tr style="background: var(--bg-elevated);">
-              <th style="padding: 20px; text-align: left; font-weight: 700; color: var(--text); border-bottom: 1px solid var(--border); border-top-left-radius: 14px;">Competitor</th>
-              <th style="padding: 20px; text-align: center; font-weight: 700; color: var(--text); border-bottom: 1px solid var(--border);">Monthly Organic Traffic</th>
-              <th style="padding: 20px; text-align: center; font-weight: 700; color: var(--text); border-bottom: 1px solid var(--border);">Ranking Keywords</th>
-              <th style="padding: 20px; text-align: center; font-weight: 700; color: var(--text); border-bottom: 1px solid var(--border); border-top-right-radius: 14px;">Annual Organic Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="padding: 20px; border-bottom: 1px solid var(--border); color: var(--text);">
-                <div style="font-weight: 600; margin-bottom: 4px;">SPORTMASTER</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">Franchise Network - Top Performer</div>
-              </td>
-              <td style="padding: 20px; text-align: center; border-bottom: 1px solid var(--border);">
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--gold); margin-bottom: 4px;">2,473</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">visitors/month</div>
-              </td>
-              <td style="padding: 20px; text-align: center; border-bottom: 1px solid var(--border);">
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--gold); margin-bottom: 4px;">681</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">ranking keywords</div>
-              </td>
-              <td style="padding: 20px; text-align: center; border-bottom: 1px solid var(--border);">
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--gold); margin-bottom: 4px;">$89K</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">annual organic value</div>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding: 20px; border-bottom: 1px solid var(--border); color: var(--text);">
-                <div style="font-weight: 600; margin-bottom: 4px;">NOVA SPORTS</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">Environmental Focus</div>
-              </td>
-              <td style="padding: 20px; text-align: center; border-bottom: 1px solid var(--border);">
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-hover); margin-bottom: 4px;">1,344</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">visitors/month</div>
-              </td>
-              <td style="padding: 20px; text-align: center; border-bottom: 1px solid var(--border);">
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-hover); margin-bottom: 4px;">207</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">ranking keywords</div>
-              </td>
-              <td style="padding: 20px; text-align: center; border-bottom: 1px solid var(--border);">
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-hover); margin-bottom: 4px;">$48K</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">annual organic value</div>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding: 20px; border-bottom: 1px solid var(--border); color: var(--text);">
-                <div style="font-weight: 600; margin-bottom: 4px;">LAYKOLD</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">Premium Tournament Focus</div>
-              </td>
-              <td style="padding: 20px; text-align: center; border-bottom: 1px solid var(--border);">
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-hover); margin-bottom: 4px;">284</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">visitors/month</div>
-              </td>
-              <td style="padding: 20px; text-align: center; border-bottom: 1px solid var(--border);">
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-hover); margin-bottom: 4px;">279</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">ranking keywords</div>
-              </td>
-              <td style="padding: 20px; text-align: center; border-bottom: 1px solid var(--border);">
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--accent-hover); margin-bottom: 4px;">$10K</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">annual organic value</div>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding: 20px; border-bottom: 1px solid var(--border); color: var(--text);">
-                <div style="font-weight: 600; margin-bottom: 4px;">TRU-BOUNCE</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">Crack Repair Specialist</div>
-              </td>
-              <td style="padding: 20px; text-align: center; border-bottom: 1px solid var(--border);">
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--muted); margin-bottom: 4px;">3</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">visitors/month</div>
-              </td>
-              <td style="padding: 20px; text-align: center; border-bottom: 1px solid var(--border);">
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--muted); margin-bottom: 4px;">4</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">ranking keywords</div>
-              </td>
-              <td style="padding: 20px; text-align: center; border-bottom: 1px solid var(--border);">
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--muted); margin-bottom: 4px;">$108</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">annual organic value</div>
-              </td>
-            </tr>
-            <tr style="background: var(--bg-elevated);">
-              <td style="padding: 20px; color: var(--text); border-bottom-left-radius: 14px;">
-                <div style="font-weight: 600; margin-bottom: 4px; color: var(--muted);">AT SPORTS (Current)</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">PPA Tour Partner - UNDERPERFORMING</div>
-              </td>
-              <td style="padding: 20px; text-align: center;">
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--muted); margin-bottom: 4px;">135</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">visitors/month</div>
-              </td>
-              <td style="padding: 20px; text-align: center;">
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--muted); margin-bottom: 4px;">102</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">ranking keywords</div>
-              </td>
-              <td style="padding: 20px; text-align: center; border-bottom-right-radius: 14px;">
-                <div style="font-size: 1.5rem; font-weight: 700; color: var(--muted); margin-bottom: 4px;">$5K</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted);">annual organic value</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="callout">
-        <div class="number">1,700%</div>
-        <div class="label">SportMaster Traffic Advantage</div>
-        <div class="sublabel">SportMaster gets 2,473 monthly visits vs AT Sports' 135</div>
-      </div>
-
-      <div class="card win">
-        <h3>🔥 THE REAL OPPORTUNITY: Beat SportMaster's Digital Dominance</h3>
-        <ul>
-          <li><strong>SportMaster gets 18x more traffic (2,473 vs 135)</strong> but you have superior positioning</li>
-          <li><strong>PPA Tour Partnership</strong> — Real tournament credibility SportMaster lacks</li>
-          <li><strong>Direct Contractor Relationships</strong> — No franchise fees or bureaucracy</li>
-          <li><strong>Nova Sports dominance</strong> shows environmental/specialty focus works (1,344 visitors)</li>
-          <li><strong>Laykold's traffic is LOWER than expected</strong> — only 284 visits (beatable!)</li>
-          <li><strong>Tru-Bounce is irrelevant</strong> — 3 monthly visits, no real competition</li>
-        </ul>
-      </div>
-
-      <div class="card opportunity">
-        <h3>🎯 THE TARGET: SportMaster's 681 Keywords</h3>
-        <ul>
-          <li><strong>SportMaster dominates with 681 ranking keywords</strong> vs your 102</li>
-          <li><strong>They capture $89K annual organic value</strong> vs your $5K</li>
-          <li><strong>BUT they're vulnerable:</strong> franchise model creates contractor friction</li>
-          <li><strong>Your advantage:</strong> PPA credibility + direct relationships + AI tools</li>
-          <li><strong>Path to victory:</strong> Target their contractor-focused keywords with superior positioning</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="section-label">Strategic SEO Pages</div>
-      <h2 class="section-title">8 High-Value Pages That Convert</h2>
-      <p class="section-sub">We've identified the exact searches contractors make before buying. These pages will capture them.</p>
-
-      <div class="card opportunity">
-        <h3>🎯 Local Installation Pages</h3>
-        <ul>
-          <li><strong>"Pickleball Court Installation [City]"</strong> — Target local contractors in your markets</li>
-          <li><strong>"Tennis Court Resurfacing [City]"</strong> — High-intent, high-value searches</li>
-          <li><strong>Weather-specific guidance</strong> — Seasonal installation windows by region</li>
-        </ul>
-      </div>
-
-      <div class="card opportunity">
-        <h3>💰 Comparison & Cost Pages</h3>
-        <ul>
-          <li><strong>"Pickleball vs Tennis Court Surfaces"</strong> — 12,000+ monthly searches</li>
-          <li><strong>"Court Resurfacing Cost Calculator"</strong> — Lead magnet + data capture</li>
-          <li><strong>"Professional vs DIY Installation"</strong> — Convert DIYers to professionals</li>
-        </ul>
-      </div>
-
-      <div class="card opportunity">
-        <h3>🔧 Technical Authority Pages</h3>
-        <ul>
-          <li><strong>"Weather Impact on Court Installation"</strong> — Position AT Sports as experts</li>
-          <li><strong>"Court Maintenance Guide"</strong> — Ongoing relationship building</li>
-          <li><strong>"Surface Selection by Climate"</strong> — Leverage your material expertise</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="callout">
-        <div class="number gold">2,500+</div>
-        <div class="label">Monthly Visits Goal (12 months)</div>
-        <div class="sublabel">Target SportMaster's traffic level with better positioning</div>
-      </div>
-
-      <div class="stats-row">
-        <div class="stat">
-          <div class="number">800</div>
-          <div class="label">6-month target visits<br><span style="color: var(--accent); font-weight: 600;">500% growth from 135</span></div>
-        </div>
-        <div class="stat gold">
-          <div class="number">2,500+</div>
-          <div class="label">12-month target visits<br><span style="color: var(--gold); font-weight: 600;">Match SportMaster</span></div>
-        </div>
-        <div class="stat gold">
-          <div class="number">$90K</div>
-          <div class="label">Target annual organic value<br><span style="color: var(--gold); font-weight: 600;">Match SportMaster's $89K</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="section-label">New Website Features</div>
-      <h2 class="section-title">Built for Speed & Conversion</h2>
-      <p class="section-sub">Lightning-fast, mobile-optimized site with tools that convert visitors into qualified leads.</p>
-
-      <div class="card win">
-        <h3>⚡ Performance Optimization</h3>
-        <ul>
-          <li><strong>0.8-second load times</strong> — Beats 90% of competitors</li>
-          <li><strong>Mobile-first design</strong> — 70% of contractors browse on mobile</li>
-          <li><strong>Google Core Web Vitals optimized</strong> — Better rankings automatically</li>
-        </ul>
-      </div>
-
-      <div class="card opportunity">
-        <h3>🧮 Interactive Tools (Included)</h3>
-        <ul>
-          <li><strong>Cost Calculator</strong> — Capture leads while providing value</li>
-          <li><strong>Project Timeline Tool</strong> — Weather-based installation windows</li>
-          <li><strong>Material Estimator</strong> — Showcase AT Sports expertise</li>
-        </ul>
-      </div>
-
-      <div class="card opportunity">
-        <h3>🤖 Optional AI Assistant (+$500/month)</h3>
-        <ul>
-          <li><strong>24/7 sales support</strong> — Convert visitors into calls</li>
-          <li><strong>Technical Q&A bot</strong> — Answer installation questions instantly</li>
-          <li><strong>Order processing</strong> — Take orders via chat, route to sales</li>
-          <li><strong>Payment collection</strong> — Process deposits without phone calls</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="section-label">Investment & Timeline</div>
-      <h2 class="section-title">Simple Pricing, Fast Results</h2>
-
-      <div class="card win">
-        <h3>🚀 Website Rebuild: $4,350</h3>
-        <ul>
-          <li><strong>Complete in 2 weeks</strong> — Figma design with Malory, development by GullStack</li>
-          <li><strong>Lightning-fast performance</strong> — 0.8s load times, mobile optimized</li>
-          <li><strong>8 strategic SEO pages</strong> — High-converting content that ranks</li>
-          <li><strong>Interactive tools included</strong> — Calculators, estimators, project guides</li>
-          <li><strong>All content migration</strong> — Nothing lost, everything improved</li>
-        </ul>
-      </div>
-
-      <div class="card opportunity">
-        <h3>📊 SEO Maintenance: $500/month</h3>
-        <ul>
-          <li><strong>Complete SEO tracking</strong> — Organic clicks, emails, phone calls</li>
-          <li><strong>Monthly SEO updates</strong> — Content optimization, technical improvements</li>
-          <li><strong>Blog management</strong> — Dana creates SEO-driven content from customer questions</li>
-          <li><strong>Unlimited changes</strong> — Any website updates, any time</li>
-          <li><strong>Performance monitoring</strong> — Speed, rankings, conversion tracking</li>
-        </ul>
-      </div>
-
-      <div class="card opportunity">
-        <h3>🤖 AI Sales Assistant: +$500/month (Optional)</h3>
-        <ul>
-          <li><strong>24/7 sales support</strong> — Never miss a lead, even after hours</li>
-          <li><strong>Order processing</strong> — Take orders via chat, route to sales team</li>
-          <li><strong>Payment collection</strong> — Process deposits without phone calls</li>
-          <li><strong>Technical support</strong> — Answer installation questions instantly</li>
-          <li><strong>Lead qualification</strong> — Pre-qualify prospects before they call</li>
-        </ul>
-      </div>
-
-      <div class="stats-row">
-        <div class="stat">
-          <div class="number">2</div>
-          <div class="label">Weeks to launch<br><span style="color: var(--accent); font-weight: 600;">Fast turnaround</span></div>
-        </div>
-        <div class="stat gold">
-          <div class="number">$500</div>
-          <div class="label">Monthly maintenance<br><span style="color: var(--gold); font-weight: 600;">Complete SEO management</span></div>
-        </div>
-        <div class="stat gold">
-          <div class="number">$1,000</div>
-          <div class="label">With AI assistant<br><span style="color: var(--gold); font-weight: 600;">24/7 sales support</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="cta">
-        <h2>Ready to Launch?</h2>
-        <p>New website in 2 weeks + ongoing SEO domination. Start capturing the traffic SportMaster doesn't deserve.</p>
-
-        <div class="stats-row" style="margin: 24px 0;">
+        <div class="stats-row">
+          <div class="stat gold">
+            <div class="number">1,200</div>
+            <div class="label">Monthly organic visits</div>
+          </div>
           <div class="stat">
-            <div class="number">$4,350</div>
-            <div class="label">Website rebuild (2 weeks)</div>
+            <div class="number">#1</div>
+            <div class="label">Rankings for branded terms</div>
           </div>
-          <div class="stat gold">
-            <div class="number">$500</div>
-            <div class="label">Monthly SEO maintenance</div>
-          </div>
-          <div class="stat gold">
-            <div class="number">+$500</div>
-            <div class="label">Optional AI assistant</div>
+          <div class="stat muted">
+            <div class="number">23</div>
+            <div class="label">Total ranking keywords</div>
           </div>
         </div>
-        
-        <div>
-          <a href="https://buy.stripe.com/6oUfZa0b6c1b5UM3oB9k40h" class="cta-button primary">Pay 50% Deposit ($2,175)</a>
-          <a href="mailto:bryce@gullstack.com?subject=AT Sports Website Rebuild - Project Approval" class="cta-button">Approve Project</a>
-          <a href="mailto:bryce@gullstack.com?subject=AT Sports Website - Questions" class="cta-button">Ask Questions</a>
+
+        <div class="card problem">
+          <h3>What's Missing: Installer-Focused Content</h3>
+          <ul>
+            <li><strong>Court installation guides</strong> — Your expertise isn't documented online</li>
+            <li><strong>Regional service pages</strong> — "Pickleball court installation [State]"</li>
+            <li><strong>Product comparison content</strong> — Help installers choose the right surfaces</li>
+            <li><strong>Case studies & portfolios</strong> — Showcase your completed projects</li>
+            <li><strong>Technical specifications</strong> — Detailed product information installers need</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
+  <!-- The Strategy -->
+  <section style="background: var(--bg-elevated);">
     <div class="container">
-      <img src="/gull-logo.png" alt="GullStack" class="gullstack-logo">
-      <div><strong>Contact:</strong> Bryce Morgan - GullStack Marketing</div>
-      <div>bryce@gullstack.com | GullStack.com</div>
-      <div style="margin-top: 8px; opacity: 0.6;">Next Steps: Figma design with Malory starts this week • Launch in 2 weeks</div>
+      <div class="fade-in">
+        <div class="section-label">The Strategy</div>
+        <div class="section-title">Clean migration + 100+ installer-focused pages.</div>
+        <p class="section-sub">We'll migrate your current site to a faster, cleaner foundation, then add comprehensive content targeting court installers — your actual customers.</p>
+
+        <div class="callout">
+          <div class="number gold">3X</div>
+          <div class="label">Better search rankings</div>
+          <div class="sublabel">Conservative estimate with 100+ new optimized pages</div>
+        </div>
+
+        <div class="card opportunity">
+          <h3>100+ New Pages We'll Build</h3>
+          <ul>
+            <li><strong>Regional service pages</strong> — "Pickleball court installation in [State/City]"</li>
+            <li><strong>Sport-specific guides</strong> — Basketball, tennis, pickleball, multi-sport courts</li>
+            <li><strong>Surface comparison pages</strong> — Acrytech vs traditional surfaces, pros/cons</li>
+            <li><strong>Installation process content</strong> — Step-by-step guides for contractors</li>
+            <li><strong>Maintenance & repair guides</strong> — Help installers service existing courts</li>
+            <li><strong>Cost estimation tools</strong> — "How much does a pickleball court cost in [State]?"</li>
+            <li><strong>Case studies & portfolios</strong> — Before/after galleries by sport and region</li>
+            <li><strong>Technical spec sheets</strong> — Detailed product information and installation requirements</li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- Service Package -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">What You Get</div>
+        <div class="section-title">Half-price strategic partnership.</div>
+        <p class="section-sub">This is a strategic deal for us — we want AT Sports as a long-term partner for other business initiatives. You get enterprise-level service at startup pricing.</p>
+
+        <div class="card win">
+          <h3>Complete Website Package ($257/month)</h3>
+          <ul>
+            <li><strong>Clean, fast website migration</strong> — Modern design, 3x faster loading</li>
+            <li><strong>Weekly blog content</strong> — Installer-focused articles for Malory/Dana to review</li>
+            <li><strong>Technical support & hosting</strong> — 48-hour changes, urgent requests immediate</li>
+            <li><strong>Installer portal management</strong> — Support for Malory's new portal system</li>
+            <li><strong>Video editing assistance</strong> — Raw footage + logos + music + YouTube management</li>
+            <li><strong>Monthly performance reports</strong> — SEO, leads, website analytics</li>
+            <li><strong>Unlimited site updates</strong> — Content changes, new pages, technical fixes</li>
+          </ul>
+        </div>
+
+        <div class="timeline">
+          <div class="phase">
+            <div class="phase-label">Week 1-2</div>
+            <div>
+              <h4>Website Migration</h4>
+              <p>Clean migration to faster hosting, modern design updates, mobile optimization. Zero downtime transition from current site.</p>
+              <div class="result">New site live with improved performance and user experience</div>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-label">Month 1-3</div>
+            <div>
+              <h4>SEO Content Buildout</h4>
+              <p>Add 100+ pages targeting court installers across all sports and regions. Weekly blog posts coordinated with Dana for installer insights.</p>
+              <div class="result">3x search visibility improvement, 2x organic inquiries</div>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-label">Ongoing</div>
+            <div>
+              <h4>Growth & Support</h4>
+              <p>Continuous optimization, monthly reporting, video content support, and technical maintenance. Plus support for Paint Box and other initiatives.</p>
+              <div class="result">Sustained growth, technical peace of mind, multi-project support</div>
+            </div>
+          </div>
+        </timeline>
+      </div>
+    </div>
+  </section>
+
+  <!-- Investment -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Investment</div>
+        <div class="section-title">Simple, straightforward pricing.</div>
+        <p class="section-sub">No complex success payments or hidden fees. Just clean migration + ongoing optimization at half our normal rate.</p>
+
+        <div class="stats-row">
+          <div class="stat gold">
+            <div class="number">$1,790</div>
+            <div class="label">Website Migration (One-Time)</div>
+          </div>
+          <div class="stat gold">
+            <div class="number">$257</div>
+            <div class="label">Monthly SEO + Support</div>
+          </div>
+          <div class="stat">
+            <div class="number">50%</div>
+            <div class="label">Discount (Strategic Partnership)</div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="number">$1,790</div>
+          <div class="label">Get started immediately</div>
+          <div class="sublabel">Full payment, new site live in 2 weeks</div>
+        </div>
+
+        <div class="card opportunity">
+          <h3>Why This Pricing?</h3>
+          <ul>
+            <li><strong>Strategic partnership</strong> — We want AT Sports for Paint Box and future projects</li>
+            <li><strong>Case study potential</strong> — Sports industry expertise for our portfolio</li>
+            <li><strong>Multi-project synergy</strong> — Support across AT Sports, Paint Box, other initiatives</li>
+            <li><strong>Long-term relationship</strong> — Lower margins for sustained partnership</li>
+            <li><strong>Proven model</strong> — Same approach that's worked for other B2B clients</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Ready to dominate installer search?</h2>
+        <p>Clean migration + 100+ installer-focused pages. New site live in 2 weeks, 3x better rankings in 90 days.</p>
+        <a href="mailto:bryce@gullstack.com?subject=AT Sports Website Migration - Ready to Start&body=Hi Bryce,%0A%0AWe're ready to move forward with the AT Sports website migration and SEO strategy.%0A%0ANext steps:%0A- Website migration: $1,790%0A- Timeline: 2 weeks to launch%0A- Monthly service: $257/month%0A%0ALet's capture those installer searches!%0A%0ABest," class="cta-btn">Start Migration — $1,790</a>
+        <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 16px;">Strategic partnership pricing • Multi-project support included</p>
+        <div style="margin-top: 20px; padding: 12px 20px; background: var(--gold-soft); border: 1px solid rgba(34,211,238,0.2); border-radius: 8px; display: inline-block;">
+          <p style="color: var(--gold); font-size: 0.8rem; font-weight: 600; margin: 0;">Half-price deal for strategic partnership. Let's build something remarkable together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="mark">
+      <img src="/gull-logo.png" alt="GullStack">
+      <span>GullStack</span>
+    </div>
+    <p><strong>Bryce Morgan</strong> · bryce@gullstack.com · GullStack.com</p>
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
