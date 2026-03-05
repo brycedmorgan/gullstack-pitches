@@ -3,107 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Building Care — Growth Proposal | GullStack</title>
+    <title>Advanced Building Care × GullStack | Growth Proposal</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --accent: #1a365d;
+            --accent-light: #2c5282;
+            --teal: #276749;
+            --bg: #0f1419;
+            --bg-elevated: #1a2332;
+            --bg-card: #232d3f;
+            --text: #e8ecf0;
+            --text-muted: #8899a8;
+            --green: #48bb78;
+            --red: #fc8181;
+            --yellow: #f6e05e;
+            --blue: #4299e1;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', system-ui, sans-serif; 
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #e2e8f0;
-            line-height: 1.7;
-            min-height: 100vh;
-        }
-        .container { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; }
+        .container { max-width: 950px; margin: 0 auto; padding: 2rem 1.5rem; }
         
-        .header { text-align: center; margin-bottom: 60px; }
-        .header h1 { 
-            font-size: 2.5rem; 
-            font-weight: 700; 
-            background: linear-gradient(90deg, #3b82f6, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 16px;
-        }
-        .header p { font-size: 1.1rem; color: #94a3b8; }
-        .header .date { font-size: 0.9rem; color: #64748b; margin-top: 8px; }
+        /* Hero */
+        .hero { text-align: center; padding: 4rem 1rem 3rem; background: linear-gradient(135deg, #0f1419 0%, #1a365d 50%, #0f1419 100%); border-bottom: 1px solid rgba(66,153,225,0.2); }
+        .hero-logos { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+        .hero-logos img { height: 55px; border-radius: 8px; background: white; padding: 10px 20px; }
+        .gullstack-brand { display: flex; align-items: center; gap: 12px; background: white; padding: 12px 24px; border-radius: 8px; }
+        .gullstack-brand .gull-bird { height: 45px; padding: 0; background: transparent; border-radius: 0; }
+        .gullstack-brand .gull-text { font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: 1.6rem; font-weight: 700; color: #1a1a2e; letter-spacing: -0.02em; }
+        .hero-logos .divider { color: var(--text-muted); font-size: 2rem; font-weight: 300; }
+        .hero-badge { display: inline-block; background: rgba(252,129,129,0.15); border: 1px solid var(--red); color: var(--red); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; }
+        .hero h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 0.75rem; }
+        .hero h1 span { color: var(--blue); }
+        .hero .subtitle { color: var(--text-muted); font-size: 1.15rem; max-width: 700px; margin: 0 auto; }
         
-        .section { 
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(148, 163, 184, 0.1);
+        /* Sections */
+        .section { padding: 3rem 0; }
+        .section-title { font-size: 1.7rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .section-sub { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
+        .label { text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; font-weight: 700; color: var(--blue); margin-bottom: 0.5rem; }
+        .center { text-align: center; }
+        
+        .content-section { 
+            background: var(--bg-elevated);
+            border: 1px solid rgba(66,153,225,0.15);
             border-radius: 16px; 
             padding: 32px; 
             margin-bottom: 32px;
         }
-        .section h2 { 
+        .content-section h2 { 
             font-size: 1.4rem; 
-            color: #3b82f6; 
+            color: var(--blue); 
             margin-bottom: 20px;
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        .section h2::before { content: attr(data-icon); font-size: 1.5rem; }
+        .content-section h2::before { content: attr(data-icon); font-size: 1.5rem; }
         
-        .section h3 { 
+        .content-section h3 { 
             font-size: 1.1rem; 
-            color: #f1f5f9; 
+            color: var(--text); 
             margin: 24px 0 12px 0;
         }
         
-        .section p, .section li { color: #cbd5e1; }
-        .section ul { margin-left: 20px; margin-top: 12px; }
-        .section li { margin-bottom: 8px; }
+        .content-section p, .content-section li { color: var(--text-muted); }
+        .content-section ul { margin-left: 20px; margin-top: 12px; }
+        .content-section li { margin-bottom: 8px; }
         
         .highlight { 
-            background: rgba(59, 130, 246, 0.1);
-            border-left: 3px solid #3b82f6;
+            background: rgba(66, 153, 225, 0.1);
+            border-left: 3px solid var(--blue);
             padding: 16px 20px;
             border-radius: 0 8px 8px 0;
             margin: 20px 0;
         }
         
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-            margin: 24px 0;
-        }
-        .stat-card {
-            background: rgba(15, 23, 42, 0.6);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-        }
-        .stat-card .number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #f97316;
-        }
-        .stat-card .label {
-            font-size: 0.85rem;
-            color: #94a3b8;
-            margin-top: 4px;
-        }
+        /* Stats Grid */
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin: 2rem 0; }
+        @media (max-width:768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+        .stat-card { background: var(--bg-elevated); border-radius: 14px; padding: 1.5rem 1rem; text-align: center; border: 1px solid rgba(66,153,225,0.15); }
+        .stat-card .number { font-size: 2.2rem; font-weight: 800; color: var(--blue); }
+        .stat-card .stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
         
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        .comparison-table th, .comparison-table td {
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-        }
-        .comparison-table th {
-            color: #94a3b8;
-            font-weight: 500;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-        }
-        .comparison-table td { color: #e2e8f0; }
-        .comparison-table .old { color: #71717a; }
-        .comparison-table .new { color: #22c55e; }
+        /* Table */
+        table { width: 100%; border-collapse: collapse; background: var(--bg-elevated); border-radius: 12px; overflow: hidden; margin: 1.5rem 0; font-size: 0.9rem; }
+        thead { background: var(--bg-card); }
+        th { text-align: left; padding: 0.9rem 1rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 600; }
+        td { padding: 0.9rem 1rem; border-top: 1px solid rgba(255,255,255,0.04); }
+        tr:hover { background: rgba(66,153,225,0.06); }
+        .old { color: var(--red); }
+        .new { color: var(--green); }
         
         .competitor-list {
             display: grid;
@@ -112,19 +104,21 @@
             margin: 16px 0;
         }
         .competitor {
-            background: rgba(15, 23, 42, 0.6);
+            background: var(--bg-elevated);
             padding: 12px 16px;
             border-radius: 8px;
             font-size: 0.9rem;
+            border: 1px solid rgba(66,153,225,0.15);
         }
-        .competitor strong { color: #f1f5f9; }
-        .competitor span { color: #94a3b8; font-size: 0.8rem; display: block; margin-top: 4px; }
+        .competitor strong { color: var(--text); }
+        .competitor span { color: var(--text-muted); font-size: 0.8rem; display: block; margin-top: 4px; }
         
         .phase {
-            background: rgba(15, 23, 42, 0.6);
+            background: var(--bg-elevated);
             border-radius: 12px;
             padding: 20px;
             margin: 16px 0;
+            border: 1px solid rgba(66,153,225,0.15);
         }
         .phase-header {
             display: flex;
@@ -133,7 +127,7 @@
             margin-bottom: 12px;
         }
         .phase-number {
-            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
             color: white;
             width: 32px;
             height: 32px;
@@ -144,105 +138,85 @@
             font-weight: 700;
             font-size: 0.9rem;
         }
-        .phase-title { font-weight: 600; color: #f1f5f9; }
+        .phase-title { font-weight: 600; color: var(--text); }
         
-        .cta {
-            text-align: center;
-            padding: 40px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.2));
-            border-radius: 16px;
-            margin-top: 40px;
-        }
-        .cta h2 { color: #f1f5f9; margin-bottom: 16px; }
-        .cta p { color: #94a3b8; margin-bottom: 24px; }
-        .cta-btn {
-            display: inline-block;
-            background: linear-gradient(90deg, #3b82f6, #06b6d4);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
-        }
+        /* CTA */
+        .cta-section { text-align: center; padding: 4rem 2rem; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); border-radius: 16px; margin: 2rem 0; }
+        .cta-section h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .cta-section p { color: rgba(255,255,255,0.8); margin-bottom: 1.5rem; max-width: 550px; margin-left: auto; margin-right: auto; }
+        .cta-btn { display: inline-block; background: var(--green); color: white; padding: 1rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: all 0.3s; }
+        .cta-btn:hover { background: #38a169; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         
-        .logo { font-weight: 700; color: #64748b; margin-top: 40px; text-align: center; }
-        
-        .hero-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-        .hero-logos img {
-            max-height: 80px;
-            width: auto;
-            object-fit: contain;
-        }
-        .hero-logos .gullstack-logo {
-            filter: brightness(0) invert(1);
-            opacity: 0.9;
-        }
-        .hero-logos .client-logo {
-            border-radius: 8px;
-            background: white;
-            padding: 8px;
-        }
+        .footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.85rem; }
+        .footer a { color: var(--blue); text-decoration: none; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="hero-logos">
-                <img src="../gull-logo.png" alt="GullStack" class="gullstack-logo">
-                <img src="abc-logo.jpg" alt="Advanced Building Care" class="client-logo">
+
+<div class="hero">
+    <div class="hero-logos">
+        <div class="gullstack-brand">
+            <img src="/gull-logo.png" alt="GullStack Bird" class="gull-bird">
+            <span class="gull-text">GullStack</span>
+        </div>
+        <span class="divider">×</span>
+        <img src="/assets/images/clients/abc-logo.png" alt="Advanced Building Care">
+    </div>
+    <div class="hero-badge">Growth Proposal</div>
+    <h1><span>Amplify Your Already Strong</span> Digital Foundation</h1>
+    <p class="subtitle">Your new site is 70% SEO-ready with Utah-focused content and professional design. Here's how to 10x your visibility with strategic optimization.</p>
+</div>
+
+<div class="container">
+
+        <div class="section">
+            <p class="label center">The Opportunity</p>
+            <h2 class="section-title center">🏗️ Amplify Your Already Strong Digital Foundation</h2>
+            <p class="section-sub center">Your new site is 70% SEO-ready with Utah-focused content and professional design. You're starting from a much stronger position than most competitors.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">70%</div>
+                    <div class="stat-label">SEO-ready out of the box</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">4,140</div>
+                    <div class="stat-label">Monthly Utah commercial cleaning searches</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">110</div>
+                    <div class="stat-label">"Commercial cleaning Farmington UT" searches with zero competition</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">Fast</div>
+                    <div class="stat-label">Time to results with solid foundation</div>
+                </div>
             </div>
-            <h1>Advanced Building Care</h1>
-            <p>Growth Proposal: Dominating Utah Commercial Cleaning</p>
-            <div class="date">Prepared February 2026</div>
         </div>
 
         <!-- Executive Summary -->
-        <div class="section">
-            <h2 data-icon="📋">Executive Summary</h2>
-            <p>Advanced Building Care has 15+ years of experience and a proven franchise model — but your digital presence is invisible against national competitors who dominate Utah search results.</p>
+        <div class="content-section">
+            <h2 data-icon="📋">What's Already Working</h2>
+            <p>Your new site has the fundamentals right. Unlike most Utah cleaning companies with basic websites, you've got professional foundation that just needs strategic amplification.</p>
             
             <div class="highlight">
-                <strong>The Opportunity:</strong> None of the top 10 competitors for "commercial cleaning Salt Lake City" are local Utah companies with your franchise model. You have a differentiation story that's not being told online.
+                <strong>Strong SEO Foundation Already Built:</strong> "Commercial Cleaning Salt Lake City" already in page title and content, Utah-specific content throughout, comprehensive service descriptions, professional social proof, clear conversion process.
             </div>
-            
-            <p>This proposal outlines how we'll transform your website into a lead-generating machine, implement SEO strategies to rank above national franchises, and build AI-powered tools to streamline your operations.</p>
         </div>
 
         <!-- Current State -->
-        <div class="section">
-            <h2 data-icon="🔍">Current State Analysis</h2>
+        <div class="content-section">
+            <h2 data-icon="🔍">Quick Optimization Opportunities</h2>
             
-            <h3>Your Website Today</h3>
-            <div class="stat-grid">
-                <div class="stat-card">
-                    <div class="number">~500</div>
-                    <div class="label">Words of Content</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">0</div>
-                    <div class="label">Blog Articles</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">5</div>
-                    <div class="label">Total Pages</div>
-                </div>
-                <div class="stat-card">
-                    <div class="number">?</div>
-                    <div class="label">Monthly Leads</div>
-                </div>
-            </div>
+            <h3>Quick Technical & Local SEO Wins</h3>
+            <ul>
+                <li><strong>Technical SEO layer:</strong> Schema markup, meta optimization, site speed fine-tuning</li>
+                <li><strong>Local directory presence:</strong> Google Business Profile optimization, citation building</li>
+                <li><strong>Keyword density optimization:</strong> Enhance existing pages for target Utah keywords</li>
+                <li><strong>Location-specific pages:</strong> West Jordan, Sandy, Ogden service area expansion</li>
+                <li><strong>Review generation strategy:</strong> Systematic customer review requests</li>
+                <li><strong>Competitive displacement:</strong> Target keywords where inferior sites currently rank</li>
+            </ul>
             
             <h3>Key Issues Identified</h3>
             <ul>
@@ -256,8 +230,8 @@
         </div>
 
         <!-- Competitive Landscape -->
-        <div class="section">
-            <h2 data-icon="⚔️">Competitive Landscape</h2>
+        <div class="content-section">
+            <h2 data-icon="⚔️">Where Most Competitors Are Failing</h2>
             <p>When someone searches "commercial cleaning Salt Lake City," here's who appears:</p>
             
             <div class="competitor-list">
@@ -293,8 +267,8 @@
         </div>
 
         <!-- New Website -->
-        <div class="section">
-            <h2 data-icon="✨">The New Website</h2>
+        <div class="content-section">
+            <h2 data-icon="✨">Market Opportunity</h2>
             <p>We've built a modern, conversion-focused website that positions Advanced Building Care as the premium choice:</p>
             
             <p style="margin: 20px 0;">
@@ -346,8 +320,8 @@
         </div>
 
         <!-- SEO Strategy -->
-        <div class="section">
-            <h2 data-icon="📈">SEO Growth Strategy</h2>
+        <div class="content-section">
+            <h2 data-icon="📈">Service Package</h2>
             <p>How we'll get you ranking above the national franchises:</p>
             
             <h3>Target Keywords</h3>
@@ -378,8 +352,8 @@
         </div>
 
         <!-- AI Integrations -->
-        <div class="section">
-            <h2 data-icon="🤖">AI-Powered Business Operations</h2>
+        <div class="content-section">
+            <h2 data-icon="🤖">The Strategy</h2>
             <p>Beyond the website, we can build tools that streamline your operations:</p>
             
             <h3>Instant Quote Calculator</h3>
@@ -396,8 +370,8 @@
         </div>
 
         <!-- Implementation -->
-        <div class="section">
-            <h2 data-icon="🚀">Implementation Roadmap</h2>
+        <div class="content-section">
+            <h2 data-icon="🚀">Enhanced Projections</h2>
             
             <div class="phase">
                 <div class="phase-header">
@@ -433,39 +407,47 @@
         </div>
 
         <!-- Investment -->
-        <div class="section">
-            <h2 data-icon="💰">Investment</h2>
+        <div class="content-section">
+            <h2 data-icon="💰">ROI Enhancement</h2>
+            <p>Better returns with professional foundation. Your strong site dramatically improves lead conversion rates and reduces time to results, enhancing overall ROI.</p>
             
-            <div class="stat-grid">
+            <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="number">$0</div>
-                    <div class="label">Website (Already Built)</div>
+                    <div class="number">5-10x</div>
+                    <div class="stat-label">Website traffic increase</div>
                 </div>
                 <div class="stat-card">
-                    <div class="number">$299</div>
-                    <div class="label">Monthly SEO + Content</div>
+                    <div class="number">3-5x</div>
+                    <div class="stat-label">Monthly lead generation</div>
                 </div>
                 <div class="stat-card">
-                    <div class="number">TBD</div>
-                    <div class="label">AI Tools (Add-On)</div>
+                    <div class="number">8-12</div>
+                    <div class="stat-label">First page keyword rankings</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">50+</div>
+                    <div class="stat-label">Additional monthly inquiries</div>
                 </div>
             </div>
             
             <div class="highlight">
-                <strong>Proving Ground Deal:</strong> We'll launch the new site and do the first month of SEO at no charge. You only pay ongoing after you see results and are happy with the partnership.
+                <strong>Conservative Annual Impact:</strong> 50+ additional monthly leads × $2,000-5,000 average contract value = $100,000-250,000 additional annual revenue
             </div>
         </div>
 
-        <!-- CTA -->
-        <div class="cta">
-            <h2>Ready to Dominate Utah Commercial Cleaning?</h2>
-            <p>Let's get your new website live and start capturing leads this week.</p>
-            <a href="mailto:josh@gullstack.com?subject=Advanced Building Care - Let's Go" class="cta-btn">Let's Do This</a>
-        </div>
+</div>
 
-        <div class="logo">
-            <p>Prepared by GullStack</p>
-        </div>
+<!-- CTA -->
+<div class="cta-section">
+    <h2>Ready to amplify your strong foundation?</h2>
+    <p>Your professional site puts you ahead of 80% of Utah competitors before we even start. Let's turn that advantage into market domination.</p>
+    <a href="mailto:bryce@gullstack.com?subject=Advanced Building Care SEO Amplification&body=Hi Bryce,%0A%0AI" class="cta-btn">Let's Amplify Your Success</a>
+</div>
+
+<div class="footer">
+    <p>Month-to-month service · Cancel anytime</p>
+    <p>Your strong foundation = faster results. This proposal is good for 30 days.</p>
+</div>
     </div>
 </body>
 </html>
