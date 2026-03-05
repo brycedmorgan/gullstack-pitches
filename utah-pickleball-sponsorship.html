@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utah Pickleball Center | Sponsorship Opportunity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a1a;
+      --bg-elevated: #111128;
+      --bg-card: #16163a;
+      --text: #f0f0f5;
+      --text-muted: #8888a8;
+      --accent: #16a34a;
+      --accent-hover: #4ade80;
+      --accent-glow: rgba(22, 163, 74, 0.15);
+      --gold: #f59e0b;
+      --gold-soft: rgba(245, 158, 11, 0.10);
+      --muted: #6b7280;
+      --muted-soft: rgba(107, 114, 128, 0.15);
+      --border: rgba(255,255,255,0.06);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative;
+      background: radial-gradient(ellipse at top, var(--accent-glow) 0%, transparent 50%);
+    }
+
+    .hero::after {
+      content: '↓'; position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%); font-size: 2rem; opacity: 0.2;
+      animation: drift 2s ease-in-out infinite;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-weight: 400; line-height: 1.12; margin-bottom: 20px;
+    }
+    .hero h1 .glow {
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p {
+      font-size: 1.15rem; color: var(--text-muted); max-width: 560px; margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent-glow), rgba(22,163,74,0.08));
+      border: 1px solid rgba(22,163,74,0.2);
+      color: var(--accent-hover); padding: 6px 18px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+
+    .prepared-for {
+      margin-top: 40px; padding: 16px 24px;
+      background: var(--bg-elevated); border-radius: 10px; display: inline-block;
+      border: 1px solid var(--border);
+    }
+    .prepared-for .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 2px; }
+    .prepared-for .name { font-size: 1.1rem; font-weight: 700; }
+    .prepared-for .date { font-size: 0.9rem; color: var(--text-muted); margin-top: 4px; }
+
+    /* Sections */
+    section { padding: 80px 0; }
+
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 400; margin-bottom: 16px; line-height: 1.2;
+    }
+    .section-sub {
+      color: var(--text-muted); font-size: 1rem; max-width: 640px; margin-bottom: 40px;
+    }
+
+    /* Stats */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px; margin: 40px 0;
+    }
+
+    .stat {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px; text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-2px);
+      border-color: rgba(22,163,74,0.2);
+    }
+
+    .stat .number {
+      font-family: var(--font-serif); font-size: 2rem; font-weight: 400;
+      color: var(--accent-hover); margin-bottom: 6px; line-height: 1;
+    }
+
+    .stat .label {
+      color: var(--text-muted); font-size: 0.85rem; line-height: 1.4;
+    }
+
+    .stat.gold .number { color: var(--gold); }
+    .stat.muted .number { color: var(--muted); }
+
+    /* Insight cards */
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px; margin: 24px 0;
+    }
+
+    .card.problem {
+      border-left: 3px solid var(--muted);
+      background: linear-gradient(135deg, var(--muted-soft), transparent 40%);
+    }
+    .card.opportunity {
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(135deg, var(--accent-glow), transparent 40%);
+    }
+    .card.win {
+      border-left: 3px solid var(--gold);
+      background: linear-gradient(135deg, var(--gold-soft), transparent 40%);
+    }
+
+    .card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; }
+    .card.problem h3 { color: var(--muted); }
+    .card.opportunity h3 { color: var(--accent-hover); }
+    .card.win h3 { color: var(--gold); }
+
+    .card ul { list-style: none; margin: 0; }
+    .card li {
+      position: relative; padding: 7px 0 7px 28px;
+      color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;
+      border-bottom: 1px solid var(--border);
+    }
+    .card li:last-child { border-bottom: none; }
+    .card.problem li::before { content: '—'; position: absolute; left: 0; color: var(--muted); }
+    .card.opportunity li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+    .card.win li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 600; }
+    .card li strong { color: var(--text); }
+
+    /* Big callout */
+    .callout {
+      text-align: center; padding: 48px 32px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; margin: 40px 0;
+      position: relative; overflow: hidden;
+    }
+    .callout::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-hover), var(--gold));
+    }
+    .callout .number {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 400; margin-bottom: 10px; line-height: 1;
+    }
+    .callout .number.gold { color: var(--gold); }
+    .callout .number.muted { color: var(--muted); }
+    .callout .label { font-size: 1.1rem; color: var(--text-muted); }
+    .callout .sublabel { font-size: 0.85rem; color: var(--text-muted); opacity: 0.7; margin-top: 6px; }
+
+    /* Partnership Options */
+    .tier-cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px; margin: 40px 0;
+    }
+
+    .tier-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 32px 24px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+
+    .tier-card.premium {
+      border: 2px solid var(--gold);
+      background: linear-gradient(135deg, var(--gold-soft), transparent 40%);
+    }
+
+    .tier-card.premium::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--accent));
+    }
+
+    .tier-price {
+      font-family: var(--font-serif);
+      font-size: 2.5rem; font-weight: 400; color: var(--accent-hover);
+      margin-bottom: 8px;
+    }
+
+    .tier-card.premium .tier-price { color: var(--gold); }
+
+    .tier-period {
+      color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;
+    }
+
+    .tier-title {
+      font-size: 1.3rem; font-weight: 700; margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .tier-features {
+      list-style: none; text-align: left;
+    }
+
+    .tier-features li {
+      padding: 8px 0; border-bottom: 1px solid var(--border);
+      font-size: 0.9rem; color: var(--text-muted);
+    }
+
+    .tier-features li:last-child { border-bottom: none; }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background: radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 60%);
+      padding: 80px 0;
+    }
+
+    .cta-card {
+      max-width: 540px; margin: 0 auto;
+      background: var(--bg-card); border: 2px solid var(--accent);
+      border-radius: 20px; padding: 40px 32px;
+      position: relative; overflow: hidden;
+    }
+    .cta-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-hover), var(--gold));
+    }
+
+    .cta-card h2 {
+      font-family: var(--font-serif); font-size: 1.8rem;
+      font-weight: 400; margin-bottom: 16px; line-height: 1.2;
+    }
+    .cta-card p { color: var(--text-muted); margin-bottom: 28px; font-size: 1rem; }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: white; padding: 16px 40px; border-radius: 10px;
+      font-size: 1.05rem; font-weight: 800; text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(22,163,74,0.35);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center; padding: 48px 24px;
+      border-top: 1px solid var(--border);
+    }
+    .footer p { color: var(--text-muted); font-size: 0.85rem; }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .tier-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">Partnership Opportunity</div>
+      <h1>Utah's Premier Pickleball <span class="glow">Sponsorship</span> Opportunity</h1>
+      <p>Premier naming rights, team branding, and hospitality assets at Utah's flagship $35M pickleball facility</p>
+      <div class="prepared-for">
+        <div class="label">Prepared for</div>
+        <div class="name">Select Corporate Partners — Confidential</div>
+        <div class="date">March 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Opportunity -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">The Opportunity</div>
+        <div class="section-title">The fastest-growing sport meets Utah's most ambitious venue.</div>
+        <p class="section-sub">Pickleball participation has exploded from 2.5M to 48.3M players in just five years. The Utah Black Diamonds professional team and Utah Pickleball Center represent the epicenter of this boom — a 47-court, $35M facility opening in 2025-2026 in South Jordan, Utah.</p>
+
+        <div class="stats-row">
+          <div class="stat">
+            <div class="number">48.3M</div>
+            <div class="label">Pickleball players nationwide</div>
+          </div>
+          <div class="stat">
+            <div class="number">47</div>
+            <div class="label">Courts at Utah Pickleball Center</div>
+          </div>
+          <div class="stat gold">
+            <div class="number">$35M</div>
+            <div class="label">Facility investment</div>
+          </div>
+          <div class="stat">
+            <div class="number">2,000+</div>
+            <div class="label">Monthly paying members</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Now -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Why Now</div>
+        <div class="section-title">First-mover advantage in a $1.3B industry</div>
+        <p class="section-sub">Utah Pickleball Center isn't just another recreational facility — it's the premier destination for the sport's most affluent and active demographic.</p>
+
+        <div class="card opportunity">
+          <h3>World-Class Facility Highlights</h3>
+          <ul>
+            <li><strong>47 courts total</strong> — Largest pickleball facility in the Mountain West region</li>
+            <li><strong>Stadium seating for 2,000+ spectators</strong> — Professional tournament-grade viewing</li>
+            <li><strong>Home to Utah Black Diamonds</strong> — Major League Pickleball (MLP) professional team</li>
+            <li><strong>Hosts PPA Tour, MLP events, college tournaments</strong> — National broadcast exposure</li>
+            <li><strong>2,000+ monthly paying members</strong> — Everyday gym model with premium demographics</li>
+            <li><strong>Opening 2025-2026 in South Jordan, Utah</strong> — Affluent suburban location</li>
+            <li><strong>Professional-grade amenities</strong> — Locker rooms, pro shop, food service, hospitality suites</li>
+          </ul>
+        </div>
+
+        <div class="card win">
+          <h3>Perfect Audience Alignment</h3>
+          <ul>
+            <li><strong>Active professionals aged 25-65</strong> — Peak earning years, health-conscious lifestyle</li>
+            <li><strong>Average household income $100K+</strong> — Premium demographic with disposable income</li>
+            <li><strong>Community-focused families</strong> — Multi-generational sport with strong social elements</li>
+            <li><strong>Health & wellness enthusiasts</strong> — Low-impact sport, appeals to fitness-minded individuals</li>
+            <li><strong>6+ major events annually</strong> — National broadcast exposure and social media reach</li>
+            <li><strong>Corporate entertainment ideal</strong> — Perfect for client hosting and employee engagement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facility Partnership Options -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Facility Partnership Options</div>
+        <div class="section-title">Premier positioning at Utah's flagship venue</div>
+        <p class="section-sub">Two tiers of facility partnership, each offering distinct advantages for brand visibility and customer engagement.</p>
+
+        <div class="tier-cards">
+          <div class="tier-card premium">
+            <div class="tier-price">$250K</div>
+            <div class="tier-period">per year</div>
+            <div class="tier-title">Championship Court Naming Rights</div>
+            <ul class="tier-features">
+              <li><strong>Full facility branding</strong> — Exterior + interior signage + digital displays</li>
+              <li><strong>ALL Hospitality Partner assets included</strong> — Complete package</li>
+              <li><strong>Premium court positioning</strong> — Own the premier court experience</li>
+              <li><strong>Championship court naming rights</strong> — Primary venue identification</li>
+              <li><strong>VIP hospitality suite access</strong> — All major events included</li>
+              <li><strong>3-year term</strong> — Starting at grand opening</li>
+            </ul>
+          </div>
+
+          <div class="tier-card">
+            <div class="tier-price">$100K</div>
+            <div class="tier-period">per year</div>
+            <div class="tier-title">Hospitality Partner</div>
+            <ul class="tier-features">
+              <li><strong>Exclusive branded hospitality suite</strong> — All major events (6+ annually)</li>
+              <li><strong>Custom company tournament</strong> — Up to 64 participants</li>
+              <li><strong>Beginner clinics</strong> — 24 people per session</li>
+              <li><strong>Intermediate clinics</strong> — 24 people per session</li>
+              <li><strong>Perfect for client entertainment</strong> — Employee engagement opportunities</li>
+              <li><strong>3-year term</strong> — Predictable partnership investment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Partnership Options -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Team Partnership Options</div>
+        <div class="section-title">Utah Black Diamonds (MLP Pro Team)</div>
+        <p class="section-sub">Partner with Utah's Major League Pickleball professional team for massive visibility during broadcasts, social media, and live events.</p>
+
+        <div class="tier-cards">
+          <div class="tier-card premium">
+            <div class="tier-price">$250K</div>
+            <div class="tier-period">per year</div>
+            <div class="tier-title">Front of Jersey</div>
+            <ul class="tier-features">
+              <li><strong>Prime placement on pro team uniforms</strong> — Maximum visibility</li>
+              <li><strong>Massive visibility during MLP matches</strong> — National broadcast exposure</li>
+              <li><strong>Broadcast coverage</strong> — Every match televised or streamed</li>
+              <li><strong>Social media prominence</strong> — Team posts, highlights, player content</li>
+              <li><strong>Premium brand association</strong> — Professional athletic excellence</li>
+              <li><strong>3-year term</strong> — Starting January 1</li>
+            </ul>
+          </div>
+
+          <div class="tier-card">
+            <div class="tier-price">$100K</div>
+            <div class="tier-period">per year</div>
+            <div class="tier-title">Sleeve Placement</div>
+            <ul class="tier-features">
+              <li><strong>Strong secondary placement</strong> — Prominent sleeve positioning</li>
+              <li><strong>Broadcast visibility</strong> — Clear camera exposure during matches</li>
+              <li><strong>Social media presence</strong> — Team content and player posts</li>
+              <li><strong>Professional association</strong> — Elite athletic brand alignment</li>
+              <li><strong>Multi-platform exposure</strong> — TV, streaming, digital content</li>
+              <li><strong>3-year term</strong> — Consistent brand positioning</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Combined Package Incentive -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="callout">
+          <div class="number gold">20% OFF</div>
+          <div class="label">When you partner in BOTH facility AND team options</div>
+          <div class="sublabel">Example: $250K (Court) + $250K (Jersey) = $500K → $400K total</div>
+          <div style="margin-top: 20px; color: var(--gold); font-weight: 600; font-size: 1.1rem;">Maximum exposure, best value</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activation & Benefits -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Activation & Benefits Summary</div>
+        <div class="section-title">Comprehensive partnership value</div>
+        <p class="section-sub">Every partnership includes extensive activation opportunities and brand alignment with health, community, and active lifestyle values.</p>
+
+        <div class="card win">
+          <h3>Complete Partnership Benefits</h3>
+          <ul>
+            <li><strong>Hospitality suite access</strong> — Exclusive branded space for all major events</li>
+            <li><strong>Custom branded tournament</strong> — 64 participants, perfect for client entertainment</li>
+            <li><strong>Beginner + Intermediate clinics</strong> — 48 total participant slots for employee engagement</li>
+            <li><strong>Social media features</strong> — Regular posts, event promotion, brand visibility</li>
+            <li><strong>Website and marketing materials</strong> — Logo placement across all promotional content</li>
+            <li><strong>Facility signage</strong> — Prominent brand positioning throughout venue</li>
+            <li><strong>VIP experiences and premium event tickets</strong> — Executive hosting opportunities</li>
+            <li><strong>Brand alignment</strong> — Health, community, and active lifestyle association</li>
+            <li><strong>Client hospitality opportunities</strong> — Entertain prospects at high-profile events</li>
+            <li><strong>Community outreach</strong> — Corporate social responsibility alignment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Secure Your Position Before Launch</h2>
+        <p>Limited naming rights and jersey positions available. Priority placement reserved for early partners in Utah's premier pickleball destination.</p>
+        <a href="mailto:bryce@upautah.com?subject=Utah Pickleball Partnership Discussion&body=Hi Bryce,%0A%0AI'd like to discuss partnership opportunities at Utah Pickleball Center.%0A%0ABest regards" class="cta-btn">Schedule a Partnership Discussion</a>
+        <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 16px;">Priority placement available — limited partnerships</p>
+        <div style="margin-top: 20px; padding: 12px 20px; background: var(--gold-soft); border: 1px solid rgba(245,158,11,0.2); border-radius: 8px; display: inline-block;">
+          <p style="color: var(--gold); font-size: 0.8rem; font-weight: 600; margin: 0;">Contact: Bryce Morgan · bryce@upautah.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p><strong>Utah Pickleball Center</strong> · South Jordan, Utah</p>
+    <p style="margin-top: 8px;">Confidential — For Discussion Purposes Only</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
