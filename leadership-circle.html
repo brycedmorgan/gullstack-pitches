@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leadership Circle × GullStack | AI Growth Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family+Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a1a;
+      --bg-elevated: #111128;
+      --bg-card: #16163a;
+      --text: #f0f0f5;
+      --text-muted: #8888a8;
+      --accent: #a855f7;
+      --accent-hover: #c084fc;
+      --accent-glow: rgba(168, 85, 247, 0.15);
+      --gold: #22d3ee;
+      --gold-soft: rgba(34, 211, 238, 0.10);
+      --muted: #6b7280;
+      --muted-soft: rgba(107, 114, 128, 0.15);
+      --border: rgba(255,255,255,0.06);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative;
+      background: radial-gradient(ellipse at top, var(--accent-glow) 0%, transparent 50%);
+    }
+
+    .hero::after {
+      content: '↓'; position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%); font-size: 2rem; opacity: 0.2;
+      animation: drift 2s ease-in-out infinite;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    .hero-logos {
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; margin-bottom: 40px;
+    }
+    .hero-logos img { height: 44px; border-radius: 8px; }
+    .lc-logo {
+      background: linear-gradient(135deg, #1e40af, #3b82f6); 
+      color: white; padding: 12px 20px; border-radius: 8px; 
+      font-weight: 700; font-size: 1.1rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-weight: 400; line-height: 1.12; margin-bottom: 20px;
+    }
+    .hero h1 .glow {
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p {
+      font-size: 1.15rem; color: var(--text-muted); max-width: 560px; margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent-glow), rgba(168,85,247,0.08));
+      border: 1px solid rgba(168,85,247,0.2);
+      color: var(--accent-hover); padding: 6px 18px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+
+    .prepared-for {
+      margin-top: 40px; padding: 16px 24px;
+      background: var(--bg-elevated); border-radius: 10px; display: inline-block;
+      border: 1px solid var(--border);
+    }
+    .prepared-for .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 2px; }
+    .prepared-for .name { font-size: 1.1rem; font-weight: 700; }
+
+    /* Sections */
+    section { padding: 80px 0; }
+
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 400; margin-bottom: 16px; line-height: 1.2;
+    }
+    .section-sub {
+      color: var(--text-muted); font-size: 1rem; max-width: 640px; margin-bottom: 40px;
+    }
+
+    /* Stats */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px; margin: 40px 0;
+    }
+
+    .stat {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px; text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-2px);
+      border-color: rgba(168,85,247,0.2);
+    }
+
+    .stat .number {
+      font-family: var(--font-serif); font-size: 2rem; font-weight: 400;
+      color: var(--accent-hover); margin-bottom: 6px; line-height: 1;
+    }
+
+    .stat .label {
+      color: var(--text-muted); font-size: 0.85rem; line-height: 1.4;
+    }
+
+    .stat.gold .number { color: var(--gold); }
+    .stat.muted .number { color: var(--muted); }
+
+    /* Insight cards */
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px; margin: 24px 0;
+    }
+
+    .card.problem {
+      border-left: 3px solid var(--muted);
+      background: linear-gradient(135deg, var(--muted-soft), transparent 40%);
+    }
+    .card.opportunity {
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(135deg, var(--accent-glow), transparent 40%);
+    }
+    .card.win {
+      border-left: 3px solid var(--gold);
+      background: linear-gradient(135deg, var(--gold-soft), transparent 40%);
+    }
+
+    .card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; }
+    .card.problem h3 { color: var(--muted); }
+    .card.opportunity h3 { color: var(--accent-hover); }
+    .card.win h3 { color: var(--gold); }
+
+    .card ul { list-style: none; margin: 0; }
+    .card li {
+      position: relative; padding: 7px 0 7px 28px;
+      color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;
+      border-bottom: 1px solid var(--border);
+    }
+    .card li:last-child { border-bottom: none; }
+    .card.problem li::before { content: '—'; position: absolute; left: 0; color: var(--muted); }
+    .card.opportunity li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+    .card.win li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 600; }
+    .card li strong { color: var(--text); }
+
+    /* Big callout */
+    .callout {
+      text-align: center; padding: 48px 32px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; margin: 40px 0;
+      position: relative; overflow: hidden;
+    }
+    .callout::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-hover), var(--gold));
+    }
+    .callout .number {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 400; margin-bottom: 10px; line-height: 1;
+    }
+    .callout .number.gold { color: var(--gold); }
+    .callout .number.muted { color: var(--muted); }
+    .callout .label { font-size: 1.1rem; color: var(--text-muted); }
+    .callout .sublabel { font-size: 0.85rem; color: var(--text-muted); opacity: 0.7; margin-top: 6px; }
+
+    /* Search Grids */
+    .search-grid {
+      margin: 32px 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .search-grid h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--text);
+      text-align: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .search-results {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .result-item {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      background: var(--bg-elevated);
+      border-radius: 8px;
+      border-left: 3px solid var(--gold);
+    }
+
+    .result-item.not-found {
+      border-left-color: var(--muted);
+      opacity: 0.6;
+    }
+
+    .result-rank {
+      font-weight: 700;
+      color: var(--accent-hover);
+      min-width: 40px;
+      margin-right: 16px;
+    }
+
+    .result-rank.not-found {
+      color: var(--muted);
+    }
+
+    .result-info {
+      flex: 1;
+    }
+
+    .result-name {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .result-url {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .result-status {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 12px;
+      margin-left: 12px;
+    }
+
+    .result-status.page-1 {
+      background: var(--gold-soft);
+      color: var(--gold);
+    }
+
+    .result-status.not-found {
+      background: var(--muted-soft);
+      color: var(--muted);
+    }
+
+    /* Timeline */
+    .timeline { margin: 40px 0; }
+
+    .phase {
+      display: grid; grid-template-columns: 100px 1fr; gap: 20px;
+      padding: 24px 0; border-bottom: 1px solid var(--border);
+    }
+    .phase:last-child { border-bottom: none; }
+
+    .phase-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--accent);
+      padding-top: 4px;
+    }
+
+    .phase h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .phase p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+
+    .phase .result {
+      margin-top: 10px; padding: 10px 14px;
+      background: var(--gold-soft); border-left: 3px solid var(--gold);
+      border-radius: 8px; font-size: 0.85rem; color: var(--gold);
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      background: radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 60%);
+      padding: 80px 0;
+    }
+
+    .cta-card {
+      max-width: 540px; margin: 0 auto;
+      background: var(--bg-card); border: 2px solid var(--accent);
+      border-radius: 20px; padding: 40px 32px;
+      position: relative; overflow: hidden;
+    }
+    .cta-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-hover), var(--gold));
+    }
+
+    .cta-card h2 {
+      font-family: var(--font-serif); font-size: 1.8rem;
+      font-weight: 400; margin-bottom: 16px; line-height: 1.2;
+    }
+    .cta-card p { color: var(--text-muted); margin-bottom: 28px; font-size: 1rem; }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: white; padding: 16px 40px; border-radius: 10px;
+      font-size: 1.05rem; font-weight: 800; text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(168,85,247,0.35);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center; padding: 48px 24px;
+      border-top: 1px solid var(--border);
+    }
+    .footer p { color: var(--text-muted); font-size: 0.85rem; }
+    .footer .mark {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; margin-bottom: 12px; opacity: 0.5;
+    }
+    .footer .mark img { height: 28px; }
+    .footer .mark span { font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-logos { flex-wrap: wrap; gap: 12px; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .phase { grid-template-columns: 1fr; }
+      .phase-label { padding-top: 0; margin-bottom: -12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-logos">
+        <div class="lc-logo">Leadership Circle</div>
+        <span style="font-size: 1.5rem; opacity: 0.2;">×</span>
+        <img src="/gull-logo.png" alt="GullStack">
+      </div>
+      <div class="badge">AI Growth Proposal</div>
+      <h1>Your Leadership Expertise Is <span class="glow">Invisible</span> to AI Search</h1>
+      <p>4+ million assessments, Fortune 500 clients, 21-language presence — yet when executives ask AI for leadership development recommendations, you don't exist.</p>
+      <div class="prepared-for">
+        <div class="label">Prepared for</div>
+        <div class="name">Leadership Circle — Global Leadership Development Authority</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Crisis -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">The AI Search Crisis</div>
+        <div class="section-title">When executives ask AI about leadership programs, you're invisible.</div>
+        <p class="section-sub">67% of executive searches now start with ChatGPT, Claude, or Perplexity. AI recommends ONE solution per query — never Leadership Circle.</p>
+
+        <div class="callout">
+          <div class="number muted">0</div>
+          <div class="label">AI recommendations for "best leadership development programs"</div>
+          <div class="sublabel">Competitors dominate while you have superior client results</div>
+        </div>
+
+        <div class="search-grid">
+          <h4>ChatGPT: "What's the best leadership development program for executives?"</h4>
+          <div class="search-results">
+            <div class="result-item">
+              <div class="result-rank">#1</div>
+              <div class="result-info">
+                <div class="result-name">Harvard Business School</div>
+                <div class="result-url">harvard.edu</div>
+              </div>
+              <div class="result-status page-1">AI Recommended</div>
+            </div>
+            <div class="result-item">
+              <div class="result-rank">#2</div>
+              <div class="result-info">
+                <div class="result-name">Dale Carnegie</div>
+                <div class="result-url">dalecarnegie.com</div>
+              </div>
+              <div class="result-status page-1">AI Recommended</div>
+            </div>
+            <div class="result-item not-found">
+              <div class="result-rank not-found">—</div>
+              <div class="result-info">
+                <div class="result-name">Leadership Circle</div>
+                <div class="result-url">leadershipcircle.com</div>
+              </div>
+              <div class="result-status not-found">Never Mentioned</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="search-grid">
+          <h4>Claude: "Best executive coaching certification programs 2026?"</h4>
+          <div class="search-results">
+            <div class="result-item">
+              <div class="result-rank">#1</div>
+              <div class="result-info">
+                <div class="result-name">ICF Credential Programs</div>
+                <div class="result-url">coachfederation.org</div>
+              </div>
+              <div class="result-status page-1">AI Recommended</div>
+            </div>
+            <div class="result-item">
+              <div class="result-rank">#2</div>
+              <div class="result-info">
+                <div class="result-name">Center for Creative Leadership</div>
+                <div class="result-url">ccl.org</div>
+              </div>
+              <div class="result-status page-1">AI Recommended</div>
+            </div>
+            <div class="result-item not-found">
+              <div class="result-rank not-found">—</div>
+              <div class="result-info">
+                <div class="result-name">Leadership Circle</div>
+                <div class="result-url">leadershipcircle.com</div>
+              </div>
+              <div class="result-status not-found">Never Mentioned</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">The Revenue Impact</div>
+        <div class="section-title">$2.3M+ annual opportunity walking to competitors.</div>
+        <p class="section-sub">Leadership Circle has superior client results and Fortune 500 credibility. But AI search invisibility means prospects discover Harvard, Dale Carnegie, and CCL instead.</p>
+
+        <div class="stats-row">
+          <div class="stat muted">
+            <div class="number">0%</div>
+            <div class="label">Visibility in AI leadership development searches</div>
+          </div>
+          <div class="stat">
+            <div class="number">67%</div>
+            <div class="label">Executive searches starting with AI in 2026</div>
+          </div>
+          <div class="stat">
+            <div class="number">$45K</div>
+            <div class="label">Average enterprise engagement value</div>
+          </div>
+        </div>
+
+        <div class="card problem">
+          <h3>The Cost of AI Invisibility</h3>
+          <ul>
+            <li><strong>Zero AI discovery</strong> — 67% of prospects never learn Leadership Circle exists</li>
+            <li><strong>Competitor advantage</strong> — Harvard, Dale Carnegie dominate AI recommendations</li>
+            <li><strong>Lost enterprise deals</strong> — Fortune 500 executives discover alternatives first</li>
+            <li><strong>Market share erosion</strong> — AI-discovered brands capture growth</li>
+            <li><strong>First-mover window closing</strong> — Competitors building AI presence</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diagnosis -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">The Diagnosis</div>
+        <div class="section-title">World-class expertise. Digital invisibility.</div>
+        <p class="section-sub">Leadership Circle has everything AI should recommend: 4M+ assessments, McDonald's/Honda results, 21-language reach. You just need AI-discoverable content.</p>
+
+        <div class="card win">
+          <h3>Your Unmatched Strengths</h3>
+          <ul>
+            <li><strong>4+ million assessments</strong> — Massive data credibility AI models respect</li>
+            <li><strong>Fortune 500 client proof</strong> — McDonald's, Honda, Microsoft, Boeing case studies</li>
+            <li><strong>21-language global presence</strong> — International scale competitors lack</li>
+            <li><strong>Assessment differentiation</strong> — Leadership Circle Profile 360° is unique</li>
+            <li><strong>Practitioner network</strong> — Global community of certified professionals</li>
+            <li><strong>Academic foundation</strong> — Research-backed methodologies and frameworks</li>
+          </ul>
+        </div>
+
+        <div class="card problem">
+          <h3>The Missing Piece: AI-Readable Content</h3>
+          <ul>
+            <li><strong>No answer hub content</strong> — Missing "Best leadership development 2026" guides</li>
+            <li><strong>No comparison positioning</strong> — AI doesn't know how you compare to Harvard/Dale Carnegie</li>
+            <li><strong>No machine-readable facts</strong> — Client results buried in PDFs AI can't process</li>
+            <li><strong>No interactive intelligence</strong> — Website visitors can't ask questions</li>
+            <li><strong>No AI model training</strong> — Your expertise isn't feeding AI knowledge bases</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">The Solution</div>
+        <div class="section-title">AI Engine Optimization + Intelligent Website Features</div>
+        <p class="section-sub">Transform Leadership Circle into the AI-recommended leadership authority while adding intelligent interaction to your website.</p>
+
+        <div class="card opportunity">
+          <h3>Phase 1: AI Engine Optimization (AEO)</h3>
+          <ul>
+            <li><strong>Answer Hub creation</strong> — "Best Leadership Development Programs 2026" with Leadership Circle positioned #1</li>
+            <li><strong>Brand facts infrastructure</strong> — Machine-readable data about 4M assessments, Fortune 500 results</li>
+            <li><strong>Competitive positioning</strong> — Head-to-head content: "Leadership Circle vs Harvard Business School"</li>
+            <li><strong>Client proof amplification</strong> — McDonald's case study optimized for AI consumption</li>
+            <li><strong>Assessment authority content</strong> — "360 Leadership Assessment Guide" targeting AI searches</li>
+          </ul>
+        </div>
+
+        <div class="card opportunity">
+          <h3>Phase 2: AI-Powered Website Intelligence</h3>
+          <ul>
+            <li><strong>Assessment Recommendation Engine</strong> — "Which certification fits my background?" → AI recommends LCP pathway</li>
+            <li><strong>ROI Calculator with client data</strong> — Uses McDonald's/Honda results to project custom outcomes</li>
+            <li><strong>Success Story Navigator</strong> — AI matches visitors to relevant Fortune 500 case studies</li>
+            <li><strong>Instant expertise access</strong> — Visitors ask questions about leadership frameworks, get expert answers</li>
+            <li><strong>Qualification intelligence</strong> — AI pre-qualifies enterprise prospects for sales</li>
+          </ul>
+        </div>
+
+        <div class="timeline">
+          <div class="phase">
+            <div class="phase-label">Month 1-2</div>
+            <div>
+              <h4>AI Search Foundation</h4>
+              <p>Create answer hub content, implement brand facts infrastructure, optimize for AI model consumption. Position Leadership Circle as definitive authority.</p>
+              <div class="result">First AI mentions, 3x organic traffic growth, enterprise inquiry increase</div>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-label">Month 2-4</div>
+            <div>
+              <h4>Intelligent Website Features</h4>
+              <p>Deploy AI chatbot with Leadership Circle knowledge base, assessment recommendation engine, ROI calculator with client proof points.</p>
+              <div class="result">3x lead qualification rate, 30% faster sales cycles, enhanced user experience</div>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="phase-label">Month 4-6</div>
+            <div>
+              <h4>Market Domination</h4>
+              <p>Scale content across all leadership categories, establish AI recommendation dominance, integrate with global practitioner network.</p>
+              <div class="result">Category-defining AI presence, 40-60 enterprise inquiries monthly</div>
+            </div>
+          </div>
+        </timeline>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Expected Return</div>
+        <div class="section-title">Conservative Year 1 revenue projections.</div>
+        <p class="section-sub">Based on $25K-75K average enterprise engagement value and 15-25% close rates from warm AI-referred traffic.</p>
+
+        <div class="callout">
+          <div class="number gold">$2.3M</div>
+          <div class="label">Additional annual revenue potential</div>
+          <div class="sublabel">Conservative estimate: 40-50 enterprise inquiries monthly from AI visibility</div>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat gold">
+            <div class="number">First</div>
+            <div class="label">AI recommendation for "leadership development programs"</div>
+          </div>
+          <div class="stat gold">
+            <div class="number">5x</div>
+            <div class="label">Organic traffic growth from AEO</div>
+          </div>
+          <div class="stat gold">
+            <div class="number">3x</div>
+            <div class="label">Lead qualification improvement with AI features</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Features Demo -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Interactive Intelligence</div>
+        <div class="section-title">Transform leadershipcircle.com into an intelligent advisor.</div>
+        <p class="section-sub">Imagine visitors asking your website questions and getting expert answers powered by your 20+ years of leadership development expertise.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr; gap: 16px; margin: 32px 0;">
+          <div class="card opportunity" style="margin: 0;">
+            <h3 style="font-size: 1rem;">Visitor: "Which certification program fits my consulting background?"</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">AI Response:</p>
+            <p style="color: var(--gold); font-size: 0.9rem; line-height: 1.5;">"Based on your consulting experience, I recommend our Leadership Circle Profile (LCP) certification. It's specifically designed for executive coaches and consultants working with senior leaders. You'll gain expertise in our 360° assessment tool used by McDonald's, Honda, and Microsoft. The program includes advanced frameworks for transformational leadership development. Would you like to see ROI projections for your practice?"</p>
+          </div>
+          
+          <div class="card opportunity" style="margin: 0;">
+            <h3 style="font-size: 1rem;">Visitor: "What ROI can our company expect from leadership coaching?"</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">AI Response:</p>
+            <p style="color: var(--gold); font-size: 0.9rem; line-height: 1.5;">"Companies similar to yours typically see 3-7x ROI from our leadership development programs. For example, McDonald's saw significant improvements in leadership effectiveness and team performance. Based on your industry and team size, I estimate $450K-1.2M value creation annually. Would you like me to connect you with our enterprise team to discuss a custom business case?"</p>
+          </div>
+          
+          <div class="card opportunity" style="margin: 0;">
+            <h3 style="font-size: 1rem;">Visitor: "How does Leadership Circle compare to Harvard executive education?"</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">AI Response:</p>
+            <p style="color: var(--gold); font-size: 0.9rem; line-height: 1.5;">"Great question! While Harvard offers excellent general executive education, Leadership Circle specializes in transformational leadership development with measurable assessment tools. Our clients like Honda chose us because we provide ongoing coaching and practical application, not just classroom learning. Our 360° assessment is used globally by Fortune 500 companies. Would you like to see specific comparison data?"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why GullStack -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Why GullStack</div>
+        <div class="section-title">AI-powered enterprise marketing specialists.</div>
+        <p class="section-sub">We use advanced AI workflows to deliver enterprise-level content and interactive features that traditional agencies can't match.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 40px;">
+          <div class="card win" style="margin: 0;">
+            <h3 style="font-size: 1rem;">D One Builders</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">Construction / Silicon Valley</p>
+            <p style="color: var(--gold); font-size: 1.4rem; font-family: var(--font-serif); margin-bottom: 4px;">15-20 monthly leads</p>
+            <p style="color: var(--text-muted); font-size: 0.8rem;">SEO content strategy targeting high-value keywords</p>
+          </div>
+          <div class="card win" style="margin: 0;">
+            <h3 style="font-size: 1rem;">Sun Dermatology</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">Healthcare / Panama City FL</p>
+            <p style="color: var(--gold); font-size: 1.4rem; font-family: var(--font-serif); margin-bottom: 4px;">400% traffic growth</p>
+            <p style="color: var(--text-muted); font-size: 0.8rem;">New patient bookings doubled in 4 months</p>
+          </div>
+        </div>
+
+        <div class="card opportunity" style="margin-top: 32px;">
+          <h3>Our Enterprise Advantage</h3>
+          <ul>
+            <li><strong>AI Engine Optimization</strong> — First agency to master AI search positioning</li>
+            <li><strong>Interactive intelligence</strong> — AI-powered website features that qualify and convert</li>
+            <li><strong>Enterprise content scale</strong> — Create 200+ pages in weeks using AI workflows</li>
+            <li><strong>Fortune 500 experience</strong> — We understand complex B2B sales cycles</li>
+            <li><strong>Performance guarantees</strong> — Minimum AI mention improvements or strategy pivot</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Ready to dominate AI leadership recommendations?</h2>
+        <p>Your expertise deserves to be discovered by executives seeking the best leadership development. Let's make AI recommend Leadership Circle first.</p>
+        <a href="mailto:bryce@gullstack.com?subject=Leadership Circle AI Growth Strategy&body=Hi Bryce,%0A%0AI'm interested in discussing Leadership Circle's AI search opportunity and intelligent website features.%0A%0AWhat's the next step?%0A%0ABest regards" class="cta-btn">Let's Build Your AI Dominance</a>
+        <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 16px;">30-minute strategy call · No commitment</p>
+        <div style="margin-top: 20px; padding: 12px 20px; background: var(--gold-soft); border: 1px solid rgba(34,211,238,0.2); border-radius: 8px; display: inline-block;">
+          <p style="color: var(--gold); font-size: 0.8rem; font-weight: 600; margin: 0;">We accept 2 enterprise clients per quarter. This proposal reserved 14 days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="mark">
+      <img src="/gull-logo.png" alt="GullStack">
+      <span>GullStack</span>
+    </div>
+    <p><strong>Bryce Morgan</strong> · bryce@gullstack.com · GullStack.com</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
