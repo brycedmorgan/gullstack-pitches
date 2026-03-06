@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SunWest Bank × Utah Pickleball Center | Sponsorship Proposal</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700;900&display=swap');
+
+    /* Print-optimized CSS */
+    @media print {
+      * { -webkit-print-color-adjust: exact !important; }
+      body { margin: 0; font-size: 12pt; }
+      .page-break { page-break-before: always; }
+      .no-break { page-break-inside: avoid; }
+      .hero { min-height: 90vh; }
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: #1e293b;
+      line-height: 1.5;
+      background: white;
+    }
+
+    /* Page styles */
+    .page {
+      padding: 40px;
+      max-width: 8.5in;
+      margin: 0 auto;
+      background: white;
+    }
+
+    /* Hero Page */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 40px;
+    }
+
+    .hero-content h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero-content .subtitle {
+      font-size: 1.5rem;
+      opacity: 0.9;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 40px;
+    }
+
+    .project-info {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 32px;
+      margin-top: 40px;
+    }
+
+    .project-info .label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+
+    .project-info .name {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    /* Section styles */
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2563eb;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+      color: #64748b;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Stats grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 32px 20px;
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+    }
+
+    .stat .number {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #2563eb;
+      margin-bottom: 8px;
+    }
+
+    .stat .label {
+      color: #64748b;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Package cards */
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin: 48px 0;
+    }
+
+    .package {
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      position: relative;
+    }
+
+    .package.featured {
+      border-color: #2563eb;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+    }
+
+    .package.featured .badge {
+      background: #2563eb;
+      color: white;
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 8px 24px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .package h3 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #1e293b;
+    }
+
+    .package .price {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #2563eb;
+      margin-bottom: 8px;
+    }
+
+    .package .duration {
+      color: #64748b;
+      font-size: 1rem;
+      margin-bottom: 32px;
+    }
+
+    .package ul {
+      list-style: none;
+      text-align: left;
+    }
+
+    .package li {
+      padding: 8px 0;
+      position: relative;
+      padding-left: 24px;
+      color: #374151;
+    }
+
+    .package li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    .package li strong {
+      color: #1e293b;
+      font-weight: 600;
+    }
+
+    /* Images */
+    .hero-image {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin: 32px 0;
+    }
+
+    .facility-showcase {
+      position: relative;
+      margin: 48px 0;
+    }
+
+    .facility-showcase img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .facility-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      color: white;
+      padding: 48px 40px 32px;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .facility-overlay h3 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .facility-overlay p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 24px;
+    }
+
+    .facility-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 600px;
+    }
+
+    .facility-stats .stat-item {
+      text-align: center;
+    }
+
+    .facility-stats .number {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #d1d5db;
+      margin-bottom: 4px;
+    }
+
+    .facility-stats .label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Call to action */
+    .cta {
+      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+      color: white;
+      padding: 60px 40px;
+      border-radius: 16px;
+      text-align: center;
+      margin: 48px 0;
+    }
+
+    .cta h2 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .cta p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+
+    .contact-info {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 24px;
+      display: inline-block;
+    }
+
+    .contact-info .label {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .contact-info .value {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    /* Print adjustments */
+    @media print {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .packages {
+        grid-template-columns: 1fr;
+      }
+      .facility-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Page -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="badge">Premier Opportunity</div>
+      <h1>SunWest Bank<br>Utah Pickleball Center</h1>
+      <p class="subtitle">Partner with Utah's Premier Pickleball Destination</p>
+      
+      <div class="project-info">
+        <div class="label">Prepared For</div>
+        <div class="name">SunWest Bank</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Market Overview -->
+  <div class="page page-break">
+    <div class="section-header">
+      <div class="section-label">Market Opportunity</div>
+      <div class="section-title">The Fastest-Growing Sport in America</div>
+      <p class="section-subtitle">Pickleball has exploded from 3.5 million to 36.5 million players, creating unprecedented sponsorship opportunities in a premium demographic market.</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="number">36.5M</div>
+        <div class="label">Projected players by 2030</div>
+      </div>
+      <div class="stat">
+        <div class="number">$2.8B</div>
+        <div class="label">Industry economic impact</div>
+      </div>
+      <div class="stat">
+        <div class="number">$75K+</div>
+        <div class="label">Average household income</div>
+      </div>
+      <div class="stat">
+        <div class="number">158%</div>
+        <div class="label">Growth rate (3 years)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Facility Overview -->
+  <div class="page page-break">
+    <div class="facility-showcase">
+      <img src="pickleball-tournament-stadium.jpg" alt="Championship Stadium with Thousands of Fans">
+      <div class="facility-overlay">
+        <h3>This Is What You're Sponsoring</h3>
+        <p>Thousands of passionate fans, national broadcast coverage, and the most exciting professional pickleball in the world.</p>
+        
+        <div class="facility-stats">
+          <div class="stat-item">
+            <div class="number">2,000+</div>
+            <div class="label">Stadium Seats</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">50M+</div>
+            <div class="label">TV Impressions</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">365</div>
+            <div class="label">Days Per Year</div>
+          </div>
+          <div class="stat-item">
+            <div class="number">47</div>
+            <div class="label">Pro Courts</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Partnership Options -->
+  <div class="page page-break">
+    <div class="section-header">
+      <div class="section-label">Partnership Opportunities</div>
+      <div class="section-title">Choose Your Investment Level</div>
+      <p class="section-subtitle">Three partnership tiers designed to maximize your marketing budget and objectives.</p>
+    </div>
+
+    <div class="packages">
+      <!-- Premier Option -->
+      <div class="package featured">
+        <div class="badge">Our Recommendation</div>
+        <h3>SunWest Bank Utah Pickleball Center</h3>
+        <div class="price">$2.8M</div>
+        <div class="duration">over 4 years</div>
+        
+        <ul>
+          <li><strong>Naming Rights</strong> to the entire facility</li>
+          <li><strong>Exterior signage</strong> with freeway visibility</li>
+          <li><strong>Interior branding</strong> throughout facility</li>
+          <li><strong>Digital displays</strong> and LED boards</li>
+          <li><strong>Logo placement</strong> on team apparel</li>
+          <li><strong>MLP broadcast exposure</strong> during games</li>
+          <li><strong>Tournament visibility</strong> at all events</li>
+          <li><strong>Social media integration</strong></li>
+          <li><strong>National television</strong> broadcast coverage</li>
+          <li><strong>Streaming platform</strong> coverage</li>
+          <li><strong>Digital content integration</strong></li>
+          <li><strong>Press and media mentions</strong></li>
+        </ul>
+      </div>
+
+      <!-- Team Jersey Option -->
+      <div class="package">
+        <h3>Team Jersey Sponsor</h3>
+        <div class="price">$850K</div>
+        <div class="duration">over 4 years</div>
+        
+        <ul>
+          <li><strong>Logo placement</strong> on all team gear</li>
+          <li><strong>National television</strong> exposure</li>
+          <li><strong>Streaming platform</strong> coverage</li>
+          <li><strong>Digital content integration</strong></li>
+          <li><strong>Social media</strong> mentions</li>
+          <li><strong>Press coverage</strong> inclusion</li>
+          <li><strong>Tournament appearances</strong></li>
+          <li><strong>Player partnerships</strong></li>
+        </ul>
+      </div>
+
+      <!-- Hospitality Option -->
+      <div class="package">
+        <h3>Hospitality Only</h3>
+        <div class="price">$460K</div>
+        <div class="duration">over 4 years</div>
+        
+        <ul>
+          <li><strong>Premium hospitality</strong> suite access</li>
+          <li><strong>VIP seating</strong> for major events</li>
+          <li><strong>Corporate entertainment</strong> packages</li>
+          <li><strong>Client hosting</strong> opportunities</li>
+          <li><strong>Tournament tickets</strong> allocation</li>
+          <li><strong>Food & beverage</strong> included</li>
+          <li><strong>Networking events</strong> access</li>
+          <li><strong>Executive experiences</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Utah Black Diamonds Partnership -->
+  <div class="page page-break">
+    <div class="section-header">
+      <div class="section-label">Professional Team Partnership</div>
+      <div class="section-title">Utah Black Diamonds Partnership</div>
+      <p class="section-subtitle">Official Major League Pickleball team integration with national broadcast exposure.</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="number">12</div>
+        <div class="label">Major tournaments per year</div>
+      </div>
+      <div class="stat">
+        <div class="number">50M+</div>
+        <div class="label">National broadcast reach</div>
+      </div>
+      <div class="stat">
+        <div class="number">365</div>
+        <div class="label">Days of year-round exposure</div>
+      </div>
+      <div class="stat">
+        <div class="number">250K+</div>
+        <div class="label">Annual facility visitors</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="page page-break">
+    <div class="cta">
+      <h2>Ready to Partner with Utah's Premier Pickleball Destination?</h2>
+      <p>Join us in creating the most comprehensive pickleball facility in the western United States. Contact us today to discuss your partnership opportunity.</p>
+      
+      <div class="contact-info">
+        <div class="label">Contact Information</div>
+        <div class="value">pitches.gullstack.com</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
