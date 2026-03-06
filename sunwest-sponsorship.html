@@ -352,6 +352,13 @@
       .event-date { padding-top: 0; margin-bottom: -8px; }
       .package.featured { transform: none; }
       .facility-showcase { grid-template-columns: 1fr !important; height: auto !important; min-height: 300px; }
+      .tournament-showcase { grid-template-columns: 1fr !important; height: auto !important; }
+      .tournament-showcase > div { min-height: 200px; }
+    }
+
+    .tournament-showcase {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; 
+      height: 50vh; min-height: 400px;
     }
 
     .facility-showcase {
@@ -478,12 +485,17 @@
   </section>
 
   <!-- Audience Profile -->
-  <section>
+  <section style="
+    background: 
+      linear-gradient(rgba(30, 41, 59, 0.85), rgba(30, 41, 59, 0.85)),
+      url('./utah-market-aerial.jpg') center/cover;
+    color: white;
+  ">
     <div class="container">
       <div class="fade-in">
-        <div class="section-label">Target Audience</div>
-        <div class="section-title">Reach Utah's most affluent and engaged community</div>
-        <p class="section-sub">Pickleball players represent an ideal demographic for SunWest Bank — high income, community-focused, and actively seeking financial services for their active lifestyles.</p>
+        <div class="section-label" style="color: var(--accent);">Target Audience</div>
+        <div class="section-title" style="color: white;">Reach Utah's most affluent and engaged community</div>
+        <p class="section-sub" style="color: rgba(255,255,255,0.9);">Pickleball players represent an ideal demographic for SunWest Bank — high income, community-focused, and actively seeking financial services for their active lifestyles.</p>
 
         <div class="card accent">
           <h3>Player Demographics</h3>
@@ -505,7 +517,46 @@
             <li><strong>Active lifestyle culture</strong> — Outdoor recreation and fitness-focused community</li>
             <li><strong>Family-oriented values</strong> — Multi-generational activities and youth development</li>
             <li><strong>Community investment mindset</strong> — Supporting local businesses and institutions</li>
+            <li><strong>Established pickleball community</strong> — Utah Pickleball Club Black Diamonds and growing league play</li>
           </ul>
+        </div>
+
+        <!-- Utah Pickleball Community -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 48px; margin: 48px 0; padding: 32px; background: rgba(255,255,255,0.1); border-radius: 16px;">
+          <div style="text-align: center;">
+            <img src="./black-diamonds-logo.webp" alt="Utah Pickleball Club Black Diamonds" style="height: 80px; margin-bottom: 16px;">
+            <h4 style="color: white; font-family: var(--font-primary); margin-bottom: 8px;">Utah Pickleball Club</h4>
+            <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Established community presence</p>
+          </div>
+          <div style="text-align: center;">
+            <img src="./ppa-tour-logo.webp" alt="PPA Pickleball Tour" style="height: 80px; margin-bottom: 16px;">
+            <h4 style="color: white; font-family: var(--font-primary); margin-bottom: 8px;">Professional Tour Association</h4>
+            <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Championship-level tournaments</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tournament Atmosphere -->
+  <section style="padding: 0; margin: 0;">
+    <div class="tournament-showcase">
+      <div style="background: url('./player-action-1.jpg') center/cover; position: relative;">
+        <div style="position: absolute; bottom: 24px; left: 24px; background: rgba(37, 99, 235, 0.9); color: white; padding: 16px 24px; border-radius: 8px;">
+          <h4 style="font-family: var(--font-primary); font-size: 1.1rem; font-weight: 700; margin-bottom: 4px;">Professional Players</h4>
+          <p style="font-size: 0.9rem; margin: 0;">Elite tournament competition</p>
+        </div>
+      </div>
+      <div style="background: url('./tournament-venue.jpg') center/cover; position: relative;">
+        <div style="position: absolute; bottom: 24px; left: 24px; background: rgba(37, 99, 235, 0.9); color: white; padding: 16px 24px; border-radius: 8px;">
+          <h4 style="font-family: var(--font-primary); font-size: 1.1rem; font-weight: 700; margin-bottom: 4px;">Packed Venues</h4>
+          <p style="font-size: 0.9rem; margin: 0;">Engaged spectators and fans</p>
+        </div>
+      </div>
+      <div style="background: url('./mixed-doubles-action.jpg') center/cover; position: relative;">
+        <div style="position: absolute; bottom: 24px; left: 24px; background: rgba(37, 99, 235, 0.9); color: white; padding: 16px 24px; border-radius: 8px;">
+          <h4 style="font-family: var(--font-primary); font-size: 1.1rem; font-weight: 700; margin-bottom: 4px;">Championship Moments</h4>
+          <p style="font-size: 0.9rem; margin: 0;">Victory celebrations and team spirit</p>
         </div>
       </div>
     </div>
