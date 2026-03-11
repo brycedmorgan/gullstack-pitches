@@ -24,16 +24,17 @@
       --muted: #6b7280;
       --muted-soft: rgba(107, 114, 128, 0.15);
       --border: rgba(255,255,255,0.06);
-      --font-heading: 'Open Sans', -apple-system, sans-serif;
+      --font-heading: 'Open Sans', Inter, -apple-system, "system-ui", sans-serif;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', -apple-system, sans-serif;
+      font-family: 'Open Sans', Inter, -apple-system, "system-ui", sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      font-weight: 400;
     }
 
     .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
@@ -75,7 +76,7 @@
     .hero-logos .creamies-text {
       font-family: var(--font-heading);
       font-size: 1.6rem;
-      font-weight: 800;
+      font-weight: 700;
       color: #dc2626;
       letter-spacing: -0.5px;
       background: white;
@@ -86,7 +87,7 @@
     .hero h1 {
       font-family: var(--font-heading);
       font-size: clamp(2.5rem, 5.5vw, 4rem);
-      font-weight: 800; line-height: 1.12; margin-bottom: 20px;
+      font-weight: 300; line-height: 1.12; margin-bottom: 20px;
     }
     .hero h1 .glow {
       background: linear-gradient(135deg, var(--accent), var(--accent-hover));
@@ -122,7 +123,7 @@
     }
     .section-title {
       font-family: var(--font-heading); font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-      font-weight: 800; margin-bottom: 16px; line-height: 1.2;
+      font-weight: 300; margin-bottom: 16px; line-height: 1.2;
     }
     .section-sub {
       color: var(--text-muted); font-size: 1rem; max-width: 640px; margin-bottom: 40px;
@@ -146,7 +147,7 @@
     }
 
     .stat .number {
-      font-family: var(--font-heading); font-size: 2rem; font-weight: 800;
+      font-family: var(--font-heading); font-size: 2rem; font-weight: 300;
       color: var(--accent-hover); margin-bottom: 6px; line-height: 1;
     }
 
@@ -207,7 +208,7 @@
     .callout .number {
       font-family: var(--font-heading);
       font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 800; margin-bottom: 10px; line-height: 1;
+      font-weight: 300; margin-bottom: 10px; line-height: 1;
     }
     .callout .number.gold { color: var(--gold); }
     .callout .number.muted { color: var(--muted); }
@@ -290,7 +291,7 @@
 
     .cta-card h2 {
       font-family: var(--font-heading); font-size: 1.8rem;
-      font-weight: 800; margin-bottom: 16px; line-height: 1.2;
+      font-weight: 300; margin-bottom: 16px; line-height: 1.2;
     }
     .cta-card p { color: var(--text-muted); margin-bottom: 28px; font-size: 1rem; }
 
@@ -298,7 +299,7 @@
       display: inline-block;
       background: linear-gradient(135deg, var(--accent), var(--accent-hover));
       color: white; padding: 16px 40px; border-radius: 10px;
-      font-size: 1.05rem; font-weight: 800; text-decoration: none;
+      font-size: 1.05rem; font-weight: 600; text-decoration: none;
       transition: all 0.2s ease;
     }
     .cta-btn:hover {
@@ -725,13 +726,13 @@
           <div class="card win" style="margin: 0;">
             <h3 style="font-size: 1rem;">D One Builders</h3>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">Construction / Silicon Valley, CA</p>
-            <p style="color: var(--gold); font-size: 1.4rem; font-family: var(--font-heading); font-weight: 800; margin-bottom: 4px;">15-20 new monthly leads</p>
+            <p style="color: var(--gold); font-size: 1.4rem; font-family: var(--font-heading); font-weight: 300; margin-bottom: 4px;">15-20 new monthly leads</p>
             <p style="color: var(--text-muted); font-size: 0.8rem;">SEO content strategy driving qualified leads in 90 days</p>
           </div>
           <div class="card win" style="margin: 0;">
             <h3 style="font-size: 1rem;">Gold Wash Plants</h3>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">Manufacturing / Colorado</p>
-            <p style="color: var(--gold); font-size: 1.4rem; font-family: var(--font-heading); font-weight: 800; margin-bottom: 4px;">First revenue from organic</p>
+            <p style="color: var(--gold); font-size: 1.4rem; font-family: var(--font-heading); font-weight: 300; margin-bottom: 4px;">First revenue from organic</p>
             <p style="color: var(--text-muted); font-size: 0.8rem;">Manufacturing leads from Google search within 60 days</p>
           </div>
         </div>
@@ -762,7 +763,7 @@
           <div class="card opportunity" style="margin: 0;">
             <h3 style="font-size: 1.2rem; color: var(--accent-hover);">Foundation Package</h3>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px;">Fix what's broken, build what's missing</p>
-            <p style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--accent-hover); margin-bottom: 16px;">$2,997<span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 400;">/month</span></p>
+            <p style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 300; color: var(--accent-hover); margin-bottom: 16px;">$2,997<span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 400;">/month</span></p>
             <ul>
               <li><strong>Site overhaul</strong> — Homepage, About, flavor pages</li>
               <li><strong>SEO foundation</strong> — Schema, content, keywords</li>
@@ -775,7 +776,7 @@
           <div class="card win" style="margin: 0; border: 2px solid var(--gold);">
             <h3 style="font-size: 1.2rem; color: var(--gold);">Growth Package</h3>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px;">Full DTC transformation + AI search dominance</p>
-            <p style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: var(--gold); margin-bottom: 16px;">$4,997<span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 400;">/month</span></p>
+            <p style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 300; color: var(--gold); margin-bottom: 16px;">$4,997<span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 400;">/month</span></p>
             <ul>
               <li><strong>Everything in Foundation</strong> — Plus advanced features</li>
               <li><strong>Full AEO implementation</strong> — AI search optimization</li>
