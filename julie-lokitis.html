@@ -195,44 +195,59 @@
     .callout .sublabel { font-size: 0.85rem; color: var(--text-muted); opacity: 0.7; margin-top: 6px; }
 
     /* Competitive Analysis */
-    .competitive-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px; margin: 32px 0;
+    .competitive-table {
+      overflow-x: auto;
+      margin: 32px 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
     }
-
-    .competitor-card {
-      background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 24px;
+    
+    .competitive-table table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
     }
-
-    .competitor-card.highlighted {
+    
+    .competitive-table th {
+      background: var(--accent);
+      color: white;
+      padding: 16px 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .competitive-table td {
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+      vertical-align: top;
+    }
+    
+    .competitive-table tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    
+    .competitive-table .winner {
+      background: var(--gold-soft);
       border-left: 3px solid var(--gold);
-      background: linear-gradient(135deg, var(--gold-soft), transparent 40%);
-    }
-
-    .competitor-name {
-      font-size: 1.1rem; font-weight: 700; margin-bottom: 16px;
-      color: var(--text);
-    }
-
-    .competitor-card.highlighted .competitor-name {
+      font-weight: 600;
       color: var(--gold);
     }
-
-    .strength-list, .weakness-list {
-      margin: 12px 0;
+    
+    .competitive-table .weak {
+      color: var(--muted);
     }
-
-    .strength-list li {
-      color: var(--gold); font-size: 0.85rem; margin-bottom: 6px;
+    
+    @media (max-width: 768px) {
+      .competitive-table {
+        margin: 20px -24px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+      }
     }
-
-    .weakness-list li {
-      color: var(--muted); font-size: 0.85rem; margin-bottom: 6px;
-    }
-
-    .strength-list li::before { content: '✓ '; font-weight: 600; }
-    .weakness-list li::before { content: '✗ '; font-weight: 600; }
 
     /* Timeline */
     .timeline { margin: 40px 0; }
@@ -361,59 +376,55 @@
     <div class="section-title">Superior credentials, inferior digital presence.</div>
     <p class="section-sub">Dr. Lokitis has the best qualifications in Vienna — we just need to make sure AI search engines know it.</p>
 
-    <div class="competitive-grid">
-      <div class="competitor-card">
-        <div class="competitor-name">Tysons Corner Dentists</div>
-        <ul class="strength-list">
-          <li>Strong online presence</li>
-          <li>Multiple language support</li>
-        </ul>
-        <ul class="weakness-list">
-          <li>Generic corporate feel</li>
-          <li>No advanced technology callouts</li>
-          <li>Limited emergency positioning</li>
-        </ul>
-      </div>
-      
-      <div class="competitor-card">
-        <div class="competitor-name">Tysons Dentistry</div>
-        <ul class="strength-list">
-          <li>Husband-wife team positioning</li>
-          <li>Comfort-focused messaging</li>
-        </ul>
-        <ul class="weakness-list">
-          <li>Outdated website design</li>
-          <li>No AI search optimization</li>
-          <li>Limited specialty services</li>
-        </ul>
-      </div>
-      
-      <div class="competitor-card">
-        <div class="competitor-name">Tysons Elite Dental</div>
-        <ul class="strength-list">
-          <li>Modern technology focus</li>
-          <li>State-of-the-art positioning</li>
-        </ul>
-        <ul class="weakness-list">
-          <li>Generic practitioner branding</li>
-          <li>No emergency specialization</li>
-          <li>Limited local content depth</li>
-        </ul>
-      </div>
-      
-      <div class="competitor-card highlighted">
-        <div class="competitor-name">Northern Virginia Dental</div>
-        <ul class="strength-list">
-          <li>Dr. Lokitis: 15+ years experience</li>
-          <li>Advanced tech: iTero, Oral ID</li>
-          <li>Same-day emergency care</li>
-          <li>Therapeutic Botox certification</li>
-          <li>Genuine comfort-focused approach</li>
-        </ul>
-        <ul class="weakness-list">
-          <li>Hidden from AI search results</li>
-        </ul>
-      </div>
+    <div class="competitive-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th>Tysons Corner Dentists</th>
+            <th>Tysons Dentistry</th>
+            <th>Tysons Elite</th>
+            <th style="background: var(--gold);">Northern Virginia Dental</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Doctor Experience</strong></td>
+            <td class="weak">Multiple practitioners</td>
+            <td class="weak">Husband-wife team</td>
+            <td class="weak">Single practitioner</td>
+            <td class="winner">Dr. Lokitis: 15+ years specialized</td>
+          </tr>
+          <tr>
+            <td><strong>Advanced Technology</strong></td>
+            <td class="weak">Basic equipment</td>
+            <td>Laser dentistry</td>
+            <td>Digital scanning</td>
+            <td class="winner">iTero 3D + Oral ID cancer screening</td>
+          </tr>
+          <tr>
+            <td><strong>Emergency Care</strong></td>
+            <td>Available</td>
+            <td>Same-day slots</td>
+            <td class="weak">Standard hours</td>
+            <td class="winner">Same-day + emergency specialization</td>
+          </tr>
+          <tr>
+            <td><strong>Unique Services</strong></td>
+            <td>Implants, dentures</td>
+            <td>Laser treatments</td>
+            <td class="weak">Basic services</td>
+            <td class="winner">Therapeutic Botox + TMJ specialist</td>
+          </tr>
+          <tr>
+            <td><strong>AI Search Presence</strong></td>
+            <td class="weak">Limited</td>
+            <td class="weak">Minimal</td>
+            <td class="weak">Basic</td>
+            <td style="color: var(--muted);">NONE (Huge opportunity!)</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="callout">
