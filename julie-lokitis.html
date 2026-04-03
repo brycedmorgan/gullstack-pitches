@@ -1,637 +1,556 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Northern Virginia Dental Solutions - Digital Dominance Strategy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Young+Serif:wght@400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
-            color: #e0e6ed;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Northern Virginia Dental Solutions × GullStack | Growth Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+    :root {
+      --bg: #0a0a1a;
+      --bg-elevated: #111128;
+      --bg-card: #16163a;
+      --text: #f0f0f5;
+      --text-muted: #8888a8;
+      --accent: #a855f7;
+      --accent-hover: #c084fc;
+      --accent-glow: rgba(168, 85, 247, 0.15);
+      --gold: #22d3ee;
+      --gold-soft: rgba(34, 211, 238, 0.10);
+      --muted: #6b7280;
+      --muted-soft: rgba(107, 114, 128, 0.15);
+      --border: rgba(255,255,255,0.06);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
+    html { scroll-behavior: smooth; }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(147, 51, 234, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 50%);
-            z-index: -1;
-        }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            width: 100%;
-        }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
 
-        .hero-text {
-            z-index: 2;
-        }
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative;
+      background: radial-gradient(ellipse at top, var(--accent-glow) 0%, transparent 50%);
+    }
 
-        .badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #9333ea, #0ea5e9);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+    .hero::after {
+      content: '↓'; position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%); font-size: 2rem; opacity: 0.2;
+      animation: drift 2s ease-in-out infinite;
+    }
 
-        .hero h1 {
-            font-family: 'Young Serif', serif;
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #e0e6ed 0%, #9333ea 50%, #0ea5e9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    @keyframes drift {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: #94a3b8;
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
+    .hero-logos {
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; margin-bottom: 40px;
+    }
+    .hero-logos img { height: 44px; border-radius: 8px; }
 
-        .dual-outlook {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-weight: 400; line-height: 1.12; margin-bottom: 20px;
+    }
+    .hero h1 .glow {
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p {
+      font-size: 1.15rem; color: var(--text-muted); max-width: 560px; margin: 0 auto;
+    }
 
-        .outlook-card {
-            padding: 2rem;
-            border-radius: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent-glow), rgba(168,85,247,0.08));
+      border: 1px solid rgba(168,85,247,0.2);
+      color: var(--accent-hover); padding: 6px 18px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
 
-        .status-quo {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
-            border-left: 4px solid #ef4444;
-        }
+    .prepared-for {
+      margin-top: 40px; padding: 16px 24px;
+      background: var(--bg-elevated); border-radius: 10px; display: inline-block;
+      border: 1px solid var(--border);
+    }
+    .prepared-for .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 2px; }
+    .prepared-for .name { font-size: 1.1rem; font-weight: 700; }
 
-        .growth-path {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
-            border-left: 4px solid #22c55e;
-        }
+    /* Sections */
+    section { padding: 80px 0; }
 
-        .outlook-title {
-            font-family: 'Young Serif', serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 400; margin-bottom: 16px; line-height: 1.2;
+    }
+    .section-sub {
+      color: var(--text-muted); font-size: 1rem; max-width: 640px; margin-bottom: 40px;
+    }
 
-        .section {
-            padding: 6rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    /* Stats */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px; margin: 40px 0;
+    }
 
-        .section-title {
-            font-family: 'Young Serif', serif;
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, #e0e6ed 0%, #9333ea 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    .stat {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px; text-align: center;
+      transition: all 0.3s ease;
+    }
 
-        .competitive-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
+    .stat:hover {
+      transform: translateY(-2px);
+      border-color: rgba(168,85,247,0.2);
+    }
 
-        .competitor-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1rem;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-        }
+    .stat .number {
+      font-family: var(--font-serif); font-size: 2rem; font-weight: 400;
+      color: var(--accent-hover); margin-bottom: 6px; line-height: 1;
+    }
 
-        .competitor-name {
-            font-family: 'Young Serif', serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #9333ea;
-        }
+    .stat .label {
+      color: var(--text-muted); font-size: 0.85rem; line-height: 1.4;
+    }
 
-        .strength-weakness {
-            margin: 1rem 0;
-        }
+    .stat.gold .number { color: var(--gold); }
+    .stat.muted .number { color: var(--muted); }
 
-        .strength {
-            color: #22c55e;
-            margin-bottom: 0.5rem;
-        }
+    /* Insight cards */
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px; margin: 24px 0;
+    }
 
-        .weakness {
-            color: #ef4444;
-            margin-bottom: 0.5rem;
-        }
+    .card.problem {
+      border-left: 3px solid var(--muted);
+      background: linear-gradient(135deg, var(--muted-soft), transparent 40%);
+    }
+    .card.opportunity {
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(135deg, var(--accent-glow), transparent 40%);
+    }
+    .card.win {
+      border-left: 3px solid var(--gold);
+      background: linear-gradient(135deg, var(--gold-soft), transparent 40%);
+    }
 
-        .comparison-table {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 1rem;
-            overflow: hidden;
-            margin: 3rem 0;
-        }
+    .card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; }
+    .card.problem h3 { color: var(--muted); }
+    .card.opportunity h3 { color: var(--accent-hover); }
+    .card.win h3 { color: var(--gold); }
 
-        .comparison-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+    .card ul { list-style: none; margin: 0; }
+    .card li {
+      position: relative; padding: 7px 0 7px 28px;
+      color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;
+      border-bottom: 1px solid var(--border);
+    }
+    .card li:last-child { border-bottom: none; }
+    .card.problem li::before { content: '—'; position: absolute; left: 0; color: var(--muted); }
+    .card.opportunity li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+    .card.win li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 600; }
+    .card li strong { color: var(--text); }
 
-        .comparison-table th {
-            background: linear-gradient(135deg, #9333ea, #0ea5e9);
-            color: white;
-            padding: 1rem;
-            text-align: left;
-            font-weight: 600;
-        }
+    /* Big callout */
+    .callout {
+      text-align: center; padding: 48px 32px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; margin: 40px 0;
+      position: relative; overflow: hidden;
+    }
+    .callout::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-hover), var(--gold));
+    }
+    .callout .number {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 400; margin-bottom: 10px; line-height: 1;
+    }
+    .callout .number.gold { color: var(--gold); }
+    .callout .number.muted { color: var(--muted); }
+    .callout .label { font-size: 1.1rem; color: var(--text-muted); }
+    .callout .sublabel { font-size: 0.85rem; color: var(--text-muted); opacity: 0.7; margin-top: 6px; }
 
-        .comparison-table td {
-            padding: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    /* Competitive Analysis */
+    .competitive-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; margin: 32px 0;
+    }
 
-        .comparison-table tr:nth-child(even) {
-            background: rgba(255, 255, 255, 0.02);
-        }
+    .competitor-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px;
+    }
 
-        .highlight {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1));
-            border-left: 4px solid #22c55e;
-        }
+    .competitor-card.highlighted {
+      border-left: 3px solid var(--gold);
+      background: linear-gradient(135deg, var(--gold-soft), transparent 40%);
+    }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
+    .competitor-name {
+      font-size: 1.1rem; font-weight: 700; margin-bottom: 16px;
+      color: var(--text);
+    }
 
-        .stat-card {
-            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(14, 165, 233, 0.1));
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 1rem;
-            padding: 2rem;
-            text-align: center;
-            backdrop-filter: blur(10px);
-        }
+    .competitor-card.highlighted .competitor-name {
+      color: var(--gold);
+    }
 
-        .stat-number {
-            font-family: 'Young Serif', serif;
-            font-size: 2.5rem;
-            color: #0ea5e9;
-            margin-bottom: 0.5rem;
-        }
+    .strength-list, .weakness-list {
+      margin: 12px 0;
+    }
 
-        .stat-label {
-            color: #94a3b8;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+    .strength-list li {
+      color: var(--gold); font-size: 0.85rem; margin-bottom: 6px;
+    }
 
-        .investment-section {
-            text-align: center;
-            padding: 4rem 0;
-            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(14, 165, 233, 0.1));
-            border-radius: 2rem;
-            margin: 3rem 0;
-        }
+    .weakness-list li {
+      color: var(--muted); font-size: 0.85rem; margin-bottom: 6px;
+    }
 
-        .price {
-            font-family: 'Young Serif', serif;
-            font-size: 4rem;
-            color: #22c55e;
-            margin: 2rem 0;
-        }
+    .strength-list li::before { content: '✓ '; font-weight: 600; }
+    .weakness-list li::before { content: '✗ '; font-weight: 600; }
 
-        .family-note {
-            background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(14, 165, 233, 0.2));
-            padding: 2rem;
-            border-radius: 1rem;
-            text-align: center;
-            margin: 2rem 0;
-            border: 2px solid #22c55e;
-        }
+    /* Timeline */
+    .timeline { margin: 40px 0; }
 
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #9333ea, #0ea5e9);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 2rem;
-            transition: transform 0.2s ease;
-        }
+    .phase {
+      display: grid; grid-template-columns: 100px 1fr; gap: 20px;
+      padding: 24px 0; border-bottom: 1px solid var(--border);
+    }
+    .phase:last-child { border-bottom: none; }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-        }
+    .phase-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--accent);
+      padding-top: 4px;
+    }
 
-        .footer {
-            text-align: center;
-            padding: 4rem 0;
-            color: #64748b;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    .phase h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .phase p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
 
-        .prepared-for {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 1rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+    .phase .result {
+      margin-top: 10px; padding: 10px 14px;
+      background: var(--gold-soft); border-left: 3px solid var(--gold);
+      border-radius: 8px; font-size: 0.85rem; color: var(--gold);
+    }
 
-        @media (max-width: 768px) {
-            .hero-content { grid-template-columns: 1fr; gap: 2rem; }
-            .dual-outlook { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.5rem; }
-            .section-title { font-size: 2rem; }
-            .competitive-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    /* Investment Section */
+    .investment {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 40px; text-align: center; margin: 40px 0;
+      position: relative; overflow: hidden;
+    }
+
+    .investment::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--accent));
+    }
+
+    .price {
+      font-family: var(--font-serif); font-size: 4rem; font-weight: 400;
+      color: var(--gold); margin: 20px 0;
+    }
+
+    .family-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold-soft), rgba(34,211,238,0.08));
+      border: 1px solid rgba(34,211,238,0.2);
+      color: var(--gold); padding: 8px 20px; border-radius: 100px;
+      font-size: 0.9rem; font-weight: 600; margin-bottom: 20px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center; padding: 60px 0 40px;
+      color: var(--text-muted); font-size: 0.85rem;
+    }
+
+    .footer .gullstack {
+      color: var(--accent-hover); font-weight: 600;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="prepared-for">
-                <strong>Strategic Analysis Prepared for:</strong><br>
-                <span style="color: #9333ea; font-size: 1.25rem; font-family: 'Young Serif', serif;">Dr. Julia Lokitis & Northern Virginia Dental Solutions</span><br>
-                <small style="color: #64748b;">Vienna, VA • April 2026</small>
-            </div>
-            
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="badge">🚀 Growth Proposal</div>
-                    <h1>Vienna's Digital Dental Dominance</h1>
-                    <p>Transform Northern Virginia Dental Solutions from a hidden gem into the AI-recommended choice for quality dental care in Vienna.</p>
-                    
-                    <div class="dual-outlook">
-                        <div class="outlook-card status-quo">
-                            <div class="outlook-title" style="color: #ef4444;">Status Quo Path</div>
-                            <ul style="color: #94a3b8; line-height: 1.8;">
-                                <li>Invisible in AI search results</li>
-                                <li>Losing patients to inferior competitors</li>
-                                <li>$300K+ annual opportunity cost</li>
-                                <li>Emergency appointments going elsewhere</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="outlook-card growth-path">
-                            <div class="outlook-title" style="color: #22c55e;">Growth Path</div>
-                            <ul style="color: #94a3b8; line-height: 1.8;">
-                                <li>AI-first search domination</li>
-                                <li>40+ new patients monthly</li>
-                                <li>$600K+ revenue increase</li>
-                                <li>Northern Virginia's #1 choice</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="container">
+    <div class="badge">🚀 Growth Proposal</div>
+    <div class="hero-logos">
+      <img src="nvd-logo.png" alt="Northern Virginia Dental Solutions">
+      <span style="color: var(--text-muted); font-size: 2rem;">×</span>
+      <img src="gullstack-logo.png" alt="GullStack">
+    </div>
+    <h1>Vienna's <span class="glow">Digital Dental Dominance</span></h1>
+    <p>Transform Northern Virginia Dental Solutions from a hidden gem into the AI-recommended choice for quality dental care in Vienna.</p>
+    
+    <div class="prepared-for">
+      <div class="label">Prepared for</div>
+      <div class="name">Dr. Julia Lokitis • Northern Virginia Dental Solutions</div>
+    </div>
+  </div>
+</div>
+
+<!-- Market Reality -->
+<section>
+  <div class="container">
+    <div class="section-label">Market Reality</div>
+    <div class="section-title">Vienna's dental landscape is ripe for disruption.</div>
+    <p class="section-sub">127,000+ monthly searches for dental services in Northern Virginia, but zero competitors optimized for AI search engines.</p>
+
+    <div class="stats-row">
+      <div class="stat">
+        <div class="number">127K</div>
+        <div class="label">Monthly searches<br>"dentist Vienna VA"</div>
+      </div>
+      <div class="stat">
+        <div class="number">$2,847</div>
+        <div class="label">Average patient<br>lifetime value</div>
+      </div>
+      <div class="stat">
+        <div class="number">73%</div>
+        <div class="label">Patients using AI search<br>for healthcare decisions</div>
+      </div>
+      <div class="stat gold">
+        <div class="number">4.4x</div>
+        <div class="label">AI-referred traffic<br>conversion rate</div>
+      </div>
+    </div>
+
+    <div class="card problem">
+      <h3>The Critical Gap</h3>
+      <ul>
+        <li><strong>AI invisibility:</strong> When patients ask ChatGPT/Claude "best dentist near Tysons Corner," Dr. Lokitis doesn't appear</li>
+        <li><strong>Inferior recommendations:</strong> AI systems recommend competitors with weaker credentials</li>
+        <li><strong>Lost emergency patients:</strong> Same-day dental emergencies going to less qualified practices</li>
+        <li><strong>$300K+ opportunity cost:</strong> Annual revenue lost to digitally-savvy competitors</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Competitive Intelligence -->
+<section style="background: var(--bg-elevated);">
+  <div class="container">
+    <div class="section-label">Competitive Intelligence</div>
+    <div class="section-title">Superior credentials, inferior digital presence.</div>
+    <p class="section-sub">Dr. Lokitis has the best qualifications in Vienna — we just need to make sure AI search engines know it.</p>
+
+    <div class="competitive-grid">
+      <div class="competitor-card">
+        <div class="competitor-name">Tysons Corner Dentists</div>
+        <ul class="strength-list">
+          <li>Strong online presence</li>
+          <li>Multiple language support</li>
+        </ul>
+        <ul class="weakness-list">
+          <li>Generic corporate feel</li>
+          <li>No advanced technology callouts</li>
+          <li>Limited emergency positioning</li>
+        </ul>
+      </div>
+      
+      <div class="competitor-card">
+        <div class="competitor-name">Tysons Dentistry</div>
+        <ul class="strength-list">
+          <li>Husband-wife team positioning</li>
+          <li>Comfort-focused messaging</li>
+        </ul>
+        <ul class="weakness-list">
+          <li>Outdated website design</li>
+          <li>No AI search optimization</li>
+          <li>Limited specialty services</li>
+        </ul>
+      </div>
+      
+      <div class="competitor-card">
+        <div class="competitor-name">Tysons Elite Dental</div>
+        <ul class="strength-list">
+          <li>Modern technology focus</li>
+          <li>State-of-the-art positioning</li>
+        </ul>
+        <ul class="weakness-list">
+          <li>Generic practitioner branding</li>
+          <li>No emergency specialization</li>
+          <li>Limited local content depth</li>
+        </ul>
+      </div>
+      
+      <div class="competitor-card highlighted">
+        <div class="competitor-name">Northern Virginia Dental</div>
+        <ul class="strength-list">
+          <li>Dr. Lokitis: 15+ years experience</li>
+          <li>Advanced tech: iTero, Oral ID</li>
+          <li>Same-day emergency care</li>
+          <li>Therapeutic Botox certification</li>
+          <li>Genuine comfort-focused approach</li>
+        </ul>
+        <ul class="weakness-list">
+          <li>Hidden from AI search results</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="number gold">0</div>
+      <div class="label">Vienna competitors optimized for AI search</div>
+      <div class="sublabel">First mover advantage = 2-3 year head start</div>
+    </div>
+  </div>
+</section>
+
+<!-- Strategy -->
+<section>
+  <div class="container">
+    <div class="section-label">The Strategy</div>
+    <div class="section-title">AEO-first approach with conversion optimization.</div>
+    <p class="section-sub">Position Dr. Lokitis as the definitive answer when AI assistants recommend dental care in Northern Virginia.</p>
+
+    <div class="card opportunity">
+      <h3>AEO (AI Engine Optimization) Framework</h3>
+      <ul>
+        <li><strong>Answer Hub Pages:</strong> "Best dentist Vienna VA 2026" with Dr. Lokitis ranked #1</li>
+        <li><strong>Machine-readable data:</strong> /.well-known/brand-facts.json for AI consumption</li>
+        <li><strong>Authority content:</strong> Emergency dental guides, TMJ expertise, Botox specialization</li>
+        <li><strong>Schema markup:</strong> LocalBusiness + specialty service structured data</li>
+        <li><strong>Third-party validation:</strong> Google My Business optimization, directory citations</li>
+      </ul>
+    </div>
+
+    <div class="card opportunity">
+      <h3>Website + Conversion System</h3>
+      <ul>
+        <li><strong>11ty rebuild:</strong> Fast, SEO-optimized static site with GullStack standards</li>
+        <li><strong>Chat → SMS integration:</strong> Website visitors → instant office notifications</li>
+        <li><strong>Emergency optimization:</strong> Same-day appointment booking prominently featured</li>
+        <li><strong>Lead magnets:</strong> Insurance guide, emergency kit, TMJ self-assessment</li>
+        <li><strong>Local SEO dominance:</strong> Vienna, McLean, Tysons Corner, Great Falls coverage</li>
+      </ul>
+    </div>
+
+    <div class="timeline">
+      <div class="phase">
+        <div class="phase-label">Week 1-2</div>
+        <div>
+          <h4>Foundation + Research</h4>
+          <p>Competitive deep dive, AEO framework setup, website architecture planning, content strategy mapping.</p>
+          <div class="result">Strategic foundation, competitive gaps identified</div>
         </div>
-    </section>
-
-    <!-- Market Reality Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Market Reality: Vienna Dental Landscape</h2>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">127K</div>
-                    <div class="stat-label">Monthly Searches<br>"Dentist Vienna VA"</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">$2,847</div>
-                    <div class="stat-label">Average Patient<br>Lifetime Value</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">73%</div>
-                    <div class="stat-label">AI Search Usage<br>for Healthcare</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">4.4x</div>
-                    <div class="stat-label">AI-Referred Traffic<br>Conversion Rate</div>
-                </div>
-            </div>
-
-            <div style="background: rgba(239, 68, 68, 0.1); padding: 2rem; border-radius: 1rem; border-left: 4px solid #ef4444; margin: 3rem 0;">
-                <h3 style="color: #ef4444; margin-bottom: 1rem; font-family: 'Young Serif', serif;">Critical Gap Analysis</h3>
-                <p style="color: #94a3b8;">When patients ask ChatGPT/Claude "best dentist near Tysons Corner," Dr. Lokitis doesn't appear. Meanwhile, inferior competitors with weaker credentials dominate because they invested in AI optimization early.</p>
-            </div>
+      </div>
+      <div class="phase">
+        <div class="phase-label">Week 3-4</div>
+        <div>
+          <h4>Build + Integration</h4>
+          <p>11ty website development, chat integration setup, local SEO optimization, AEO content creation.</p>
+          <div class="result">Modern website, appointment system integration</div>
         </div>
-    </section>
-
-    <!-- Competitive Analysis Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Competitive Intelligence</h2>
-            
-            <div class="competitive-grid">
-                <div class="competitor-card">
-                    <div class="competitor-name">Tysons Corner Dentists</div>
-                    <div class="strength-weakness">
-                        <div class="strength">✓ Strong online presence</div>
-                        <div class="strength">✓ Multiple language support</div>
-                        <div class="weakness">✗ Generic corporate feel</div>
-                        <div class="weakness">✗ No advanced technology callouts</div>
-                        <div class="weakness">✗ Limited emergency positioning</div>
-                    </div>
-                </div>
-                
-                <div class="competitor-card">
-                    <div class="competitor-name">Tysons Dentistry</div>
-                    <div class="strength-weakness">
-                        <div class="strength">✓ Husband-wife team positioning</div>
-                        <div class="strength">✓ Comfort-focused messaging</div>
-                        <div class="weakness">✗ Outdated website design</div>
-                        <div class="weakness">✗ No AI search optimization</div>
-                        <div class="weakness">✗ Limited specialty callouts</div>
-                    </div>
-                </div>
-                
-                <div class="competitor-card">
-                    <div class="competitor-name">Tysons Elite Dental</div>
-                    <div class="strength-weakness">
-                        <div class="strength">✓ Modern technology focus</div>
-                        <div class="strength">✓ State-of-the-art positioning</div>
-                        <div class="weakness">✗ Generic practitioner branding</div>
-                        <div class="weakness">✗ No emergency specialization</div>
-                        <div class="weakness">✗ Limited local content depth</div>
-                    </div>
-                </div>
-                
-                <div class="competitor-card highlight">
-                    <div class="competitor-name" style="color: #22c55e;">Northern Virginia Dental</div>
-                    <div class="strength-weakness">
-                        <div class="strength">✓ Dr. Lokitis: 15+ years experience</div>
-                        <div class="strength">✓ Advanced tech: iTero, Oral ID</div>
-                        <div class="strength">✓ Same-day emergency care</div>
-                        <div class="strength">✓ Therapeutic Botox certification</div>
-                        <div class="strength">✓ Genuine comfort-focused approach</div>
-                        <div class="weakness">✗ Hidden from AI search results</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Head-to-Head Comparison Table -->
-            <div class="comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Factor</th>
-                            <th>Tysons Corner Dentists</th>
-                            <th>Tysons Dentistry</th>
-                            <th>Tysons Elite</th>
-                            <th style="background: linear-gradient(135deg, #22c55e, #16a34a);">NVD Solutions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Doctor Experience</strong></td>
-                            <td>Multiple practitioners</td>
-                            <td>Husband-wife team</td>
-                            <td>Dr. Bahrami</td>
-                            <td class="highlight"><strong>15+ years, specialized training</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Advanced Technology</strong></td>
-                            <td>Basic</td>
-                            <td>Laser dentistry</td>
-                            <td>Digital scanning</td>
-                            <td class="highlight"><strong>iTero 3D + Oral ID cancer screening</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Emergency Care</strong></td>
-                            <td>Available</td>
-                            <td>Same-day slots</td>
-                            <td>Standard</td>
-                            <td class="highlight"><strong>Same-day + urgent specialization</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Unique Services</strong></td>
-                            <td>Implants, dentures</td>
-                            <td>Laser treatment</td>
-                            <td>Pediatric focus</td>
-                            <td class="highlight"><strong>Therapeutic Botox + TMJ specialist</strong></td>
-                        </tr>
-                        <tr>
-                            <td><strong>AI Search Presence</strong></td>
-                            <td>Limited</td>
-                            <td>Minimal</td>
-                            <td>Basic</td>
-                            <td style="color: #ef4444;"><strong>NONE (Opportunity!)</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      </div>
+      <div class="phase">
+        <div class="phase-label">Week 5-6</div>
+        <div>
+          <h4>Launch + Optimization</h4>
+          <p>Site deployment, AI search optimization, performance monitoring setup, team training.</p>
+          <div class="result">Live system, AI search visibility, measurable results</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Keyword Opportunity Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Keyword Domination Strategy</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0;">
-                <div style="background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(14, 165, 233, 0.1)); padding: 2rem; border-radius: 1rem; border: 1px solid rgba(255, 255, 255, 0.1);">
-                    <h3 style="color: #9333ea; margin-bottom: 1rem; font-family: 'Young Serif', serif;">Primary Targets</h3>
-                    <ul style="color: #94a3b8; line-height: 2;">
-                        <li>"dentist vienna va" (1,200/mo)</li>
-                        <li>"emergency dentist tysons" (800/mo)</li>
-                        <li>"invisalign vienna virginia" (600/mo)</li>
-                        <li>"cosmetic dentist northern virginia" (900/mo)</li>
-                    </ul>
-                </div>
-                
-                <div style="background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(14, 165, 233, 0.1)); padding: 2rem; border-radius: 1rem; border: 1px solid rgba(255, 255, 255, 0.1);">
-                    <h3 style="color: #0ea5e9; margin-bottom: 1rem; font-family: 'Young Serif', serif;">AI Search Queries</h3>
-                    <ul style="color: #94a3b8; line-height: 2;">
-                        <li>"best dentist near tysons corner"</li>
-                        <li>"emergency dental care vienna va"</li>
-                        <li>"TMJ specialist northern virginia"</li>
-                        <li>"dentist with botox certification"</li>
-                    </ul>
-                </div>
-                
-                <div style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1)); padding: 2rem; border-radius: 1rem; border: 1px solid rgba(255, 255, 255, 0.1);">
-                    <h3 style="color: #22c55e; margin-bottom: 1rem; font-family: 'Young Serif', serif;">Competitive Advantage</h3>
-                    <p style="color: #94a3b8; line-height: 1.8;"><strong>ZERO competitors</strong> are optimized for AI search. First mover advantage = 2-3 year head start in dominating Vienna market.</p>
-                </div>
-            </div>
+<!-- ROI -->
+<section style="background: var(--bg-elevated);">
+  <div class="container">
+    <div class="section-label">Projected Impact</div>
+    <div class="section-title">Conservative Year 1 projections.</div>
+    <p class="section-sub">Based on average patient lifetime value and AI search conversion rates.</p>
+
+    <div class="callout">
+      <div class="number gold">$600K+</div>
+      <div class="label">Additional annual revenue</div>
+      <div class="sublabel">40-60 new patients monthly × $2,847 lifetime value</div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat gold">
+        <div class="number">12K</div>
+        <div class="label">Monthly website visitors<br><span style="font-size:0.75rem;">(Month 12 target)</span></div>
+      </div>
+      <div class="stat gold">
+        <div class="number">40-60</div>
+        <div class="label">Additional new patients<br><span style="font-size:0.75rem;">monthly (Year 1)</span></div>
+      </div>
+      <div class="stat gold">
+        <div class="number">2,847%</div>
+        <div class="label">Conservative 6-month ROI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Investment -->
+<section>
+  <div class="container">
+    <div class="section-label">Investment</div>
+    <div class="section-title">Family gets the Tier-S treatment.</div>
+    
+    <div class="investment">
+      <div class="family-badge">💝 Family Project</div>
+      <div class="price">$0</div>
+      <div class="label" style="font-size: 1.2rem; margin-bottom: 30px;">Complete digital transformation package</div>
+      
+      <div style="text-align: left; max-width: 500px; margin: 0 auto;">
+        <div class="card win" style="margin: 20px 0;">
+          <h3 style="text-align: center; margin-bottom: 20px;">What's Included</h3>
+          <ul>
+            <li>AEO (AI Engine Optimization) framework</li>
+            <li>Complete website rebuild (11ty)</li>
+            <li>Chat → SMS appointment system</li>
+            <li>Local SEO domination strategy</li>
+            <li>Content creation & optimization</li>
+            <li>Performance monitoring & maintenance</li>
+          </ul>
         </div>
-    </section>
+      </div>
+      
+      <p style="color: var(--text-muted); font-style: italic; margin-top: 20px;">
+        "Family gets the Tier-S treatment. No shortcuts, no compromises." — Bogey 🐶
+      </p>
+    </div>
+  </div>
+</section>
 
-    <!-- Expected Impact Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Projected Impact</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                <div class="stat-card" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.1));">
-                    <div class="stat-number" style="color: #22c55e;">40-60</div>
-                    <div class="stat-label">Additional New Patients<br>Monthly (Year 1)</div>
-                </div>
-                <div class="stat-card" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.1));">
-                    <div class="stat-number" style="color: #22c55e;">$600K+</div>
-                    <div class="stat-label">Additional Annual<br>Revenue</div>
-                </div>
-                <div class="stat-card" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.1));">
-                    <div class="stat-number" style="color: #22c55e;">12,000</div>
-                    <div class="stat-label">Monthly Website<br>Visitors (Month 12)</div>
-                </div>
-                <div class="stat-card" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.1));">
-                    <div class="stat-number" style="color: #22c55e;">2-3 Years</div>
-                    <div class="stat-label">Market Dominance<br>Head Start</div>
-                </div>
-            </div>
+<!-- Footer -->
+<div class="footer">
+  <div class="container">
+    <p>Prepared with ❤️ by <a href="https://gullstack.com" class="gullstack">GullStack</a> for the Lokitis family</p>
+    <p style="margin-top: 8px; opacity: 0.7;">Build Once. Scale Forever.</p>
+  </div>
+</div>
 
-            <div style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.05)); padding: 3rem; border-radius: 2rem; margin: 3rem 0; text-align: center; border: 2px solid #22c55e;">
-                <h3 style="color: #22c55e; margin-bottom: 1.5rem; font-family: 'Young Serif', serif; font-size: 2rem;">ROI Analysis</h3>
-                <p style="color: #94a3b8; font-size: 1.25rem; line-height: 1.8;">Each new patient = $2,847 lifetime value. 40 additional patients monthly = $1.37M annual patient value. Conservative 6-month ROI of 2,847%.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Investment Section -->
-    <section class="section">
-        <div class="container">
-            <div class="investment-section">
-                <h2 style="font-family: 'Young Serif', serif; font-size: 2.5rem; color: #e0e6ed; margin-bottom: 1rem;">Investment</h2>
-                
-                <div class="family-note">
-                    <h3 style="color: #22c55e; margin-bottom: 1rem; font-family: 'Young Serif', serif;">Family Project</h3>
-                    <p style="color: #94a3b8; font-size: 1.25rem; line-height: 1.7;">This is a gift for Julie. Our investment in her success and the future of Northern Virginia Dental Solutions.</p>
-                </div>
-                
-                <div class="price">$0</div>
-                <p style="color: #94a3b8; font-size: 1.25rem;">Complete digital transformation package</p>
-                
-                <div style="margin: 3rem 0; padding: 2rem; background: rgba(255, 255, 255, 0.05); border-radius: 1rem;">
-                    <h3 style="color: #9333ea; margin-bottom: 1.5rem; font-family: 'Young Serif', serif;">What's Included:</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; text-align: left;">
-                        <ul style="color: #94a3b8; line-height: 2;">
-                            <li>✓ AEO (AI Engine Optimization)</li>
-                            <li>✓ Complete website rebuild</li>
-                            <li>✓ Local SEO domination</li>
-                            <li>✓ Content strategy & creation</li>
-                        </ul>
-                        <ul style="color: #94a3b8; line-height: 2;">
-                            <li>✓ Chat → SMS integration</li>
-                            <li>✓ Appointment booking system</li>
-                            <li>✓ Emergency conversion optimization</li>
-                            <li>✓ Performance monitoring & optimization</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <p style="color: #64748b; margin-top: 2rem; font-style: italic;">"Family gets the Tier-S treatment. No shortcuts, no compromises." - Bogey 🐶</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Timeline Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Timeline to Dominance</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0;">
-                <div style="background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(14, 165, 233, 0.1)); padding: 2rem; border-radius: 1rem; border-left: 4px solid #9333ea;">
-                    <h3 style="color: #9333ea; font-family: 'Young Serif', serif; margin-bottom: 1rem;">Weeks 1-2: Foundation</h3>
-                    <ul style="color: #94a3b8; line-height: 1.8;">
-                        <li>Competitive analysis deep dive</li>
-                        <li>AEO framework setup</li>
-                        <li>Website architecture planning</li>
-                        <li>Content strategy mapping</li>
-                    </ul>
-                </div>
-                
-                <div style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(147, 51, 234, 0.1)); padding: 2rem; border-radius: 1rem; border-left: 4px solid #0ea5e9;">
-                    <h3 style="color: #0ea5e9; font-family: 'Young Serif', serif; margin-bottom: 1rem;">Weeks 3-4: Build</h3>
-                    <ul style="color: #94a3b8; line-height: 1.8;">
-                        <li>Website development (11ty)</li>
-                        <li>Chat integration setup</li>
-                        <li>Local SEO optimization</li>
-                        <li>Content creation & optimization</li>
-                    </ul>
-                </div>
-                
-                <div style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1)); padding: 2rem; border-radius: 1rem; border-left: 4px solid #22c55e;">
-                    <h3 style="color: #22c55e; font-family: 'Young Serif', serif; margin-bottom: 1rem;">Weeks 5-6: Launch</h3>
-                    <ul style="color: #94a3b8; line-height: 1.8;">
-                        <li>Site deployment & testing</li>
-                        <li>AI search optimization</li>
-                        <li>Performance monitoring setup</li>
-                        <li>Team training & handoff</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div style="background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(14, 165, 233, 0.1)); padding: 3rem; border-radius: 2rem; margin-bottom: 3rem;">
-                <h3 style="color: #9333ea; margin-bottom: 1.5rem; font-family: 'Young Serif', serif; font-size: 1.75rem;">Ready to Dominate Vienna's Dental Market?</h3>
-                <p style="color: #94a3b8; font-size: 1.125rem; line-height: 1.7; margin-bottom: 2rem;">Dr. Lokitis has the credentials, experience, and patient care philosophy to be Northern Virginia's #1 dental choice. We just need to make sure AI knows it.</p>
-                <div style="background: rgba(34, 197, 94, 0.1); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #22c55e;">
-                    <p style="color: #22c55e; font-weight: 600;">This proposal is reserved for 14 days while we finalize the strategy details.</p>
-                </div>
-            </div>
-            
-            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem;">
-                <p>Prepared with ❤️ by GullStack for the Lokitis family</p>
-                <p style="margin-top: 0.5rem; font-size: 0.875rem;">Build Once. Scale Forever.</p>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>
