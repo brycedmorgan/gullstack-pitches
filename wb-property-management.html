@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WB Property Management × GullStack | Website + Ongoing SEO Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Young+Serif&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a1a;
+      --bg-elevated: #111128;
+      --bg-card: #16163a;
+      --text: #f0f0f5;
+      --text-muted: #8888a8;
+      --accent: #a855f7;
+      --accent-hover: #c084fc;
+      --accent-glow: rgba(168, 85, 247, 0.15);
+      --gold: #22d3ee;
+      --gold-soft: rgba(34, 211, 238, 0.10);
+      --muted: #6b7280;
+      --muted-soft: rgba(107, 114, 128, 0.15);
+      --border: rgba(255,255,255,0.06);
+      --font-serif: 'Young Serif', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6;
+    }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; position: relative;
+      background: radial-gradient(ellipse at top, var(--accent-glow) 0%, transparent 50%);
+    }
+    .hero::after {
+      content: '↓'; position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%); font-size: 2rem; opacity: 0.2;
+      animation: drift 2s ease-in-out infinite;
+    }
+    @keyframes drift {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+    .hero-logos {
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; margin-bottom: 40px;
+    }
+    .hero-logos img { height: 44px; border-radius: 8px; }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5.5vw, 4rem);
+      font-weight: 400; line-height: 1.12; margin-bottom: 20px;
+    }
+    .hero h1 .glow {
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 620px; margin: 0 auto; }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent-glow), rgba(168,85,247,0.08));
+      border: 1px solid rgba(168,85,247,0.2);
+      color: var(--accent-hover); padding: 6px 18px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .prepared-for {
+      margin-top: 40px; padding: 16px 24px;
+      background: var(--bg-elevated); border-radius: 10px; display: inline-block;
+      border: 1px solid var(--border);
+    }
+    .prepared-for .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 2px; }
+    .prepared-for .name { font-size: 1.1rem; font-weight: 700; }
+
+    section { padding: 80px 0; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 400; margin-bottom: 16px; line-height: 1.2;
+    }
+    .section-sub { color: var(--text-muted); font-size: 1rem; max-width: 640px; margin-bottom: 40px; }
+
+    .stats-row {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px; margin: 40px 0;
+    }
+    .stat {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px; text-align: center;
+      transition: all 0.3s ease;
+    }
+    .stat:hover { transform: translateY(-2px); border-color: rgba(168,85,247,0.2); }
+    .stat .number {
+      font-family: var(--font-serif); font-size: 2rem; font-weight: 400;
+      color: var(--accent-hover); margin-bottom: 6px; line-height: 1;
+    }
+    .stat .label { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; }
+    .stat.gold .number { color: var(--gold); }
+    .stat.muted .number { color: var(--muted); }
+
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px; margin: 24px 0;
+    }
+    .card.problem {
+      border-left: 3px solid var(--muted);
+      background: linear-gradient(135deg, var(--muted-soft), transparent 40%);
+    }
+    .card.opportunity {
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(135deg, var(--accent-glow), transparent 40%);
+    }
+    .card.win {
+      border-left: 3px solid var(--gold);
+      background: linear-gradient(135deg, var(--gold-soft), transparent 40%);
+    }
+    .card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; }
+    .card.problem h3 { color: var(--muted); }
+    .card.opportunity h3 { color: var(--accent-hover); }
+    .card.win h3 { color: var(--gold); }
+    .card ul { list-style: none; margin: 0; }
+    .card li {
+      position: relative; padding: 7px 0 7px 28px;
+      color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;
+      border-bottom: 1px solid var(--border);
+    }
+    .card li:last-child { border-bottom: none; }
+    .card.problem li::before { content: '—'; position: absolute; left: 0; color: var(--muted); }
+    .card.opportunity li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-weight: 600; }
+    .card.win li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: 600; }
+    .card li strong { color: var(--text); }
+
+    .callout {
+      text-align: center; padding: 48px 32px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; margin: 40px 0;
+      position: relative; overflow: hidden;
+    }
+    .callout::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-hover), var(--gold));
+    }
+    .callout .number {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 400; margin-bottom: 10px; line-height: 1;
+    }
+    .callout .number.gold { color: var(--gold); }
+    .callout .label { font-size: 1.1rem; color: var(--text-muted); }
+    .callout .sublabel { font-size: 0.85rem; color: var(--text-muted); opacity: 0.7; margin-top: 6px; }
+
+    .timeline { margin: 40px 0; }
+    .phase {
+      display: grid; grid-template-columns: 110px 1fr; gap: 20px;
+      padding: 24px 0; border-bottom: 1px solid var(--border);
+    }
+    .phase:last-child { border-bottom: none; }
+    .phase-label {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--accent); padding-top: 4px;
+    }
+    .phase h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .phase p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; }
+    .phase .result {
+      margin-top: 10px; padding: 10px 14px;
+      background: var(--gold-soft); border-left: 3px solid var(--gold);
+      border-radius: 8px; font-size: 0.85rem; color: var(--gold);
+    }
+
+    .choose-price {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 12px; margin: 24px 0 12px;
+    }
+    @media (max-width: 680px) { .choose-price { grid-template-columns: repeat(2, 1fr); } }
+    .chip {
+      background: var(--bg-elevated); border: 1px solid var(--border);
+      border-radius: 12px; padding: 18px 12px; text-align: center;
+      transition: all 0.2s ease;
+    }
+    .chip:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .chip .price {
+      font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400;
+      color: var(--accent-hover); line-height: 1;
+    }
+    .chip .note {
+      font-size: 0.7rem; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 1px; margin-top: 6px;
+    }
+
+    .cta {
+      text-align: center;
+      background: radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 60%);
+      padding: 80px 0;
+    }
+    .cta-card {
+      max-width: 560px; margin: 0 auto;
+      background: var(--bg-card); border: 2px solid var(--accent);
+      border-radius: 20px; padding: 40px 32px;
+      position: relative; overflow: hidden;
+    }
+    .cta-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-hover), var(--gold));
+    }
+    .cta-card h2 {
+      font-family: var(--font-serif); font-size: 1.8rem;
+      font-weight: 400; margin-bottom: 16px; line-height: 1.2;
+    }
+    .cta-card p { color: var(--text-muted); margin-bottom: 28px; font-size: 1rem; }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: white; padding: 16px 40px; border-radius: 10px;
+      font-size: 1.05rem; font-weight: 800; text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(168,85,247,0.35); }
+
+    .footer {
+      text-align: center; padding: 48px 24px;
+      border-top: 1px solid var(--border);
+    }
+    .footer p { color: var(--text-muted); font-size: 0.85rem; }
+    .footer .mark {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; margin-bottom: 12px; opacity: 0.5;
+    }
+    .footer .mark img { height: 28px; }
+    .footer .mark span { font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; }
+
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .hero-logos { flex-wrap: wrap; gap: 12px; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .phase { grid-template-columns: 1fr; }
+      .phase-label { padding-top: 0; margin-bottom: -12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-logos">
+        <!-- TODO: swap in WB Property Management logo -->
+        <span style="font-family: var(--font-serif); font-size: 2rem; color: var(--text);">WB Property Management</span>
+        <span style="font-size: 1.5rem; opacity: 0.2;">×</span>
+        <img src="gull-logo.png" alt="GullStack">
+      </div>
+      <div class="badge">Proposal</div>
+      <h1>A new site. Live listings. <span class="glow">Leads that come to you.</span></h1>
+      <p>A complete website for WB Property Management — built around your AppFolio setup, tuned for Utah Valley and Salt Lake Valley search, and wired to capture leads the moment a would-be client lands on it. Shipped in weeks. You pay what it's worth to you.</p>
+      <div class="prepared-for">
+        <div class="label">Prepared for</div>
+        <div class="name">Gilbert Burns — WB Property Management</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Current State -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Where Things Stand</div>
+        <div class="section-title">We looked at whitmanburns.com. Here's the honest take.</div>
+
+        <div class="stats-row">
+          <div class="stat gold"><div class="number">AppFolio</div><div class="label">Solid PMS — same platform top-ranking Utah PM competitors use</div></div>
+          <div class="stat muted"><div class="number">1</div><div class="label">Page on the current site — it redirects straight to listings</div></div>
+          <div class="stat muted"><div class="number">0</div><div class="label">Lead-capture forms, reviews, or trust signals on the site today</div></div>
+          <div class="stat muted"><div class="number">~0</div><div class="label">Pages indexed for Utah Valley / SLC rental-search queries</div></div>
+        </div>
+
+        <div class="card problem">
+          <h3>What's missing today</h3>
+          <ul>
+            <li><strong>No front door.</strong> The site skips straight to the AppFolio listings page. A prospective owner who just Googled "property manager Lehi" hits a rentals list with no idea who you are, what you offer, or why to call.</li>
+            <li><strong>No lead capture.</strong> No form, no "Free Rental Analysis" CTA, no way to turn a visitor into an inquiry. Every click is a guess.</li>
+            <li><strong>No social proof.</strong> No Google Reviews on-site, no testimonials, no staff photos, nothing that says "you can trust us with a six-figure asset."</li>
+            <li><strong>No SEO footprint.</strong> Zero pages targeting the searches that matter — "property management Utah Valley," "short-term rental manager Provo," "rental manager Salt Lake City." Competitors with one location outrank you because they have content. You don't.</li>
+            <li><strong>No portal prominence.</strong> Current and prospective residents/owners have to dig to find the login. It should be the most visible element in the header.</li>
+            <li><strong>No story.</strong> The copy doesn't say you focus on rentals, that you can handle any property type, that you serve two valleys, or anything that sets WB apart from the franchises.</li>
+          </ul>
+        </div>
+
+        <div class="card win">
+          <h3>What you have going for you</h3>
+          <ul>
+            <li><strong>AppFolio.</strong> Clean widget-based listings + portals. Same platform Bradley Properties uses — and it's the reason their site (the one you sent me) works. We plug into what you already pay for; no PMS switching.</li>
+            <li><strong>Rentals-focused, full-capability.</strong> "We do rentals but can handle any property you own" is a better positioning than most PM sites. It qualifies the fit without closing the door.</li>
+            <li><strong>Two-valley service area.</strong> Utah Valley + Salt Lake Valley is a real, searchable market. Every named city is a keyword opportunity.</li>
+            <li><strong>A real lead magnet.</strong> The Utah Landlord Survival Guide is exactly the right top-of-funnel asset for your best-fit prospect — the private landlord who just realized they're in over their head.</li>
+            <li><strong>A referral pipeline that's already working.</strong> Trent and Wes at Arrow of Light sent you to me. Owners talk to owners. A site that looks as competent as you are turns more of those referrals into booked calls.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Exactly What You Get -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Exactly What You Get</div>
+        <div class="section-title">Here is every deliverable, listed out.</div>
+
+        <div class="card opportunity">
+          <h3>1. A complete website — six pages, built from scratch</h3>
+          <ul>
+            <li><strong>Home</strong> — clean hero with your service area called out, four quick-action buttons (Browse Rentals, Pay Rent, Request Maintenance, Contact), services overview, Google Reviews block, cycling lead-magnet form, resident + owner portal buttons, footer. Every section earns its space.</li>
+            <li><strong>Listings</strong> — your AppFolio listings embed dropped into a container that actually matches your brand. Filters by beds, baths, price, city. Map/grid toggle. No more landing-on-a-raw-listing-page experience.</li>
+            <li><strong>Listing detail</strong> — photo gallery, price, specs, amenities, neighborhood, sticky "Apply Now" / "Schedule Tour" / "Contact Agent" column. Styled to match the rest of the site.</li>
+            <li><strong>Owners</strong> — the pitch to prospective clients. Benefits strip, "What we manage" row (single-family / condos / multi-family / short-term / anything else — ask), pricing teaser, the free rental analysis form, Owner Portal login button, FAQ.</li>
+            <li><strong>Residents</strong> — Pay Rent / Request Maintenance / Resident Portal as full-card buttons. Common questions accordion. Self-help repair-video slots for future use.</li>
+            <li><strong>Contact</strong> — embedded map, phone/email/office hours, contact form with an "I am a…" dropdown that routes inquiries by type (Renter / Owner / STR Guest).</li>
+          </ul>
+        </div>
+
+        <div class="card opportunity">
+          <h3>2. AppFolio integration — done right</h3>
+          <ul>
+            <li><strong>Listings widget</strong> — AppFolio's Property Website module dropped on /listings, styled to inherit your site's typography, colors, radii, and spacing. Feels native, not bolted on.</li>
+            <li><strong>Resident &amp; Owner portal buttons</strong> — surfaced in the top nav, hero quick-actions, a dedicated home-page split block, and the footer. On mobile, a sticky bottom bar keeps both portals one tap away.</li>
+            <li><strong>Single source of truth</strong> — you keep managing properties in AppFolio; the website always reflects what's live. No double-entry. No sync delays. No extra tool to learn.</li>
+          </ul>
+        </div>
+
+        <div class="card opportunity">
+          <h3>3. Google Reviews — on every relevant page</h3>
+          <ul>
+            <li><strong>Live reviews block</strong> — your Google Business Profile reviews pulled via the Google Places API and rendered in a 3-card row with average rating + count. Auto-refreshes.</li>
+            <li><strong>Placed where it matters</strong> — home page (above the lead form), owners page (above the analysis form), contact page footer.</li>
+            <li><strong>Review generation flow</strong> — a simple after-lease-signing and after-maintenance-fix text/email template we set up with you, so the review count keeps growing.</li>
+          </ul>
+        </div>
+
+        <div class="card opportunity">
+          <h3>4. Lead capture that actually converts</h3>
+          <ul>
+            <li><strong>Cycling lead-magnet form</strong> — home page block that rotates through your assets. The Utah Landlord Survival Guide leads (targeting the new private landlord who's in over their head). Headline, cover, and form field defaults all sync to the active magnet.</li>
+            <li><strong>"I currently own…" qualifier</strong> — every form capture tags the submitter as 1 rental / 2–4 / 5+ / planning-my-first, so you know who you're calling before you call.</li>
+            <li><strong>Instant email to Gilbert</strong> — every submission lands in your inbox with the magnet requested, owner segment, and contact info. Prospect gets the PDF auto-delivered. No CRM required, but we can wire one up later if you want.</li>
+            <li><strong>Free Rental Analysis form</strong> — dedicated version on the Owners page, with address + unit count + target start date. Routes straight to you.</li>
+          </ul>
+        </div>
+
+        <div class="card opportunity">
+          <h3>5. SEO foundation — and it keeps working after launch</h3>
+          <ul>
+            <li><strong>Location pages</strong> — each city you serve gets a dedicated page ("Property Management in Provo," "Rental Management in Draper," etc.). That's how competitors with one office outrank you today.</li>
+            <li><strong>Technical SEO on every page</strong> — meta titles and descriptions, XML sitemap, internal linking, schema markup (LocalBusiness + RealEstateAgent + FAQ), image optimization, canonical URLs.</li>
+            <li><strong>Google Business Profile optimization</strong> — claimed, verified, fully filled-in profile with consistent NAP, photos, Q&amp;A, and a review-response template in your voice.</li>
+            <li><strong>Ongoing monthly content + rank tracking</strong> — see the Monthly section below. This is where rankings actually compound.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">The Build</div>
+        <div class="section-title">Three phases. About three weeks to live.</div>
+        <p class="section-sub">Short, honest timeline. Each phase has a single checkpoint with you.</p>
+
+        <div class="card opportunity" style="margin-top: 32px;">
+          <h3>Phase 1 — Discovery &amp; direction (Week 1)</h3>
+          <ul>
+            <li><strong>45-minute call</strong> — walk through your voice, service area, positioning, what makes you different from the franchise PMs. Recorded.</li>
+            <li><strong>Brand direction</strong> — colors, logo treatment, typography. If you have assets we use them; if not, we propose a palette and font pair for sign-off.</li>
+            <li><strong>AppFolio details gathered</strong> — your database slug + confirmation of portal URLs.</li>
+            <li><strong>Copy draft</strong> — home, owners, and residents pages written in your voice, delivered for comments before any design happens.</li>
+          </ul>
+          <div class="result" style="margin-top: 16px;">End of Week 1: direction signed off, copy approved, zero surprises.</div>
+        </div>
+
+        <div class="card opportunity">
+          <h3>Phase 2 — Build (Weeks 2–3)</h3>
+          <ul>
+            <li><strong>All six pages built</strong> — custom-coded on a modern stack (Next.js on Vercel). Fast, responsive, accessible.</li>
+            <li><strong>AppFolio widget dropped in</strong> — listings and portals wired to your database.</li>
+            <li><strong>Google Reviews connected</strong> — live feed, auto-refreshing.</li>
+            <li><strong>Lead forms wired</strong> — cycling lead magnet + rental analysis + contact form all route to your inbox. PDF auto-delivery configured.</li>
+            <li><strong>Preview link shared</strong> — password-protected staging URL. You review, we tweak, nobody sees it but us until you say go.</li>
+          </ul>
+          <div class="result" style="margin-top: 16px;">End of Week 3: staging site reviewed, revisions in, ready for launch.</div>
+        </div>
+
+        <div class="card opportunity">
+          <h3>Phase 3 — Launch &amp; go (Week 4)</h3>
+          <ul>
+            <li><strong>Site goes live</strong> at whitmanburns.com (or wherever you want it pointed).</li>
+            <li><strong>Google Business Profile optimized</strong> — NAP consistency, photos, services, Q&amp;A, review template.</li>
+            <li><strong>Search Console + Analytics wired</strong> — we set it up, you get login access.</li>
+            <li><strong>Monthly maintenance + SEO begins</strong> (see below).</li>
+            <li><strong>30-day check-in</strong> — look at traffic, leads, what's ranking, what needs a nudge.</li>
+          </ul>
+          <div class="result" style="margin-top: 16px;">End of Week 4: live, indexed, capturing leads, and on a monthly rhythm.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section style="background: var(--bg-elevated);">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Pricing</div>
+        <div class="section-title">You decide what the site is worth. The monthly is where we earn our keep.</div>
+        <p class="section-sub">Two line items. That's it.</p>
+
+        <!-- The Build -->
+        <div class="card" style="margin-top: 32px;">
+          <h3 style="color: var(--text);">The build — pay what it's worth to you</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px;">See the finished site. Click through it. Submit a test lead. Share it with your team. Then you decide what it was worth.</p>
+          <div class="choose-price">
+            <div class="chip"><div class="price">$50</div><div class="note">Fair start</div></div>
+            <div class="chip"><div class="price">$250</div><div class="note">Thank you</div></div>
+            <div class="chip"><div class="price">$500</div><div class="note">Appreciated</div></div>
+            <div class="chip"><div class="price">$1,000+</div><div class="note">Whatever feels right</div></div>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 12px;">No invoice pressure. No "it's actually $X." The number on the left is genuinely up to you. We're confident enough in the work that we'd rather earn the monthly relationship than argue over a build fee.</p>
+        </div>
+
+        <!-- Monthly -->
+        <div class="callout" style="margin-top: 16px;">
+          <div class="number gold">$273<span style="font-size: 1.2rem; color: var(--text-muted);">/mo</span></div>
+          <div class="label">Hosting + maintenance + SEO — the part that compounds</div>
+          <div class="sublabel" style="margin-top: 12px; color: var(--text);">Month-to-month. No contract.</div>
+        </div>
+
+        <div class="card" style="margin-top: 16px;">
+          <h3 style="color: var(--text);">What $273/mo includes</h3>
+          <ul>
+            <li><strong>Hosting + uptime monitoring</strong> — on Vercel, fast everywhere, TLS, backups, 99.99% SLA class.</li>
+            <li><strong>Minor content updates</strong> — swap photos, tweak copy, add a service, edit team bios. Reasonable turnaround, no ticketing-system runaround.</li>
+            <li><strong>SEO work, monthly</strong> — rank tracking on your core keywords (property management Provo / Lehi / SLC / etc.), meta tuning, internal linking improvements, schema updates, fix anything Google flags.</li>
+            <li><strong>Listings SEO</strong> — we track how individual AppFolio listing pages are performing in search, and feed you which cities / keywords are under-serving you so you can price accordingly.</li>
+            <li><strong>Google Business Profile management</strong> — review responses, Q&amp;A, photo updates, posts.</li>
+            <li><strong>Monthly 1-pager report</strong> — traffic, lead volume by source, keywords moving up/down, reviews gained, things we fixed, what we're testing next.</li>
+            <li><strong>First dibs on new features</strong> — if you want a blog, a second lead magnet, an STR direct-booking page, we build it inside this rate (within reason). Bigger asks, we quote separately.</li>
+          </ul>
+        </div>
+
+        <div class="card win" style="margin-top: 16px;">
+          <h3>What this would cost at an agency</h3>
+          <ul>
+            <li><strong>Property management website build</strong> — $5K–$15K typical for a small PM firm</li>
+            <li><strong>SEO retainer</strong> — $500–$2,000/month at standard rates</li>
+            <li><strong>Google Business Profile management</strong> — typically a separate $150–$400/month line item</li>
+            <li><strong>Technical maintenance + hosting</strong> — usually billed on top</li>
+            <li><strong>Year-1 agency cost: $11,000–$39,000</strong></li>
+            <li><strong>Year-1 with us: whatever you pay for the build + $3,276.</strong> That's it.</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top: 16px;">
+          <h3 style="color: var(--text);">If you ever want to leave</h3>
+          <ul>
+            <li>You own the site, the copy, the content, the Google Business Profile — everything.</li>
+            <li>Month-to-month monthly. Cancel anytime, no penalty, no "you owe us the build fee we deferred." There is no deferred build fee.</li>
+            <li>If you do cancel, we hand off hosting instructions + any credentials and wish you well.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Past Work -->
+  <section>
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Past Work</div>
+        <div class="section-title">A few sites we've built.</div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 32px;">
+          <div class="card win" style="margin: 0;">
+            <h3 style="font-size: 1rem;">Arrow of Light</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">Trent &amp; Wes's site — the one that got you to reach out.</p>
+          </div>
+          <div class="card win" style="margin: 0;">
+            <h3 style="font-size: 1rem;">Capital Wealth</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">SEC-regulated financial advisor in Lehi, UT. Full site + SEO + AI.</p>
+            <p style="color: var(--gold); font-size: 1.2rem; font-family: var(--font-serif);">3 → 17 new clients / wk</p>
+          </div>
+          <div class="card win" style="margin: 0;">
+            <h3 style="font-size: 1rem;">Miller-Bates</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">Investor &amp; borrower portal — the demo I sent you.</p>
+          </div>
+          <div class="card win" style="margin: 0;">
+            <h3 style="font-size: 1rem;">Dwell Paint</h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 8px;">Interior paint brand — e-commerce + content hub.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Ready when you are, Gilbert.</h2>
+        <p>If this all sounds right: three weeks from our kickoff call to a live site. $273/mo after that. The build price is up to you.</p>
+        <a href="mailto:bryce@gullstack.com?subject=WB%20Property%20Management%20-%20Let%27s%20Go&body=Hi%20Bryce%2C%0A%0ALet%27s%20get%20started.%20Available%20times%20this%20week%3A%0A%0A" class="cta-btn">Let's go →</a>
+        <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 16px;">Month-to-month · You own everything we build · No lock-in</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="mark">
+      <img src="gull-logo.png" alt="GullStack">
+      <span>GullStack</span>
+    </div>
+    <p><strong>Bryce Morgan</strong> · bryce@gullstack.com · GullStack.com</p>
+    <p style="margin-top: 8px; opacity: 0.5; font-size: 0.75rem;">Prepared April 2026 · WB Property Management × GullStack</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
