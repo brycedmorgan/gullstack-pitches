@@ -1,0 +1,8 @@
+{
+  "name": "gullstack-pitches",
+  "private": true,
+  "description": "Static HTML pitch/demo library",
+  "scripts": {
+    "typecheck": "node scripts/typecheck.mjs"
+  }
+}
