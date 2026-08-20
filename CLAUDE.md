@@ -20,6 +20,40 @@ but note that only re-gates `*.vercel.app`, not the custom domain.
 
 ## Session Log
 
+### 2026-08-20 — Wealth-management one-pager for a Texas prospect (Bret McCormack intro)
+
+- **Shipped `/wealth-management`** (commit `145c78d`, NOT pushed — see below). A
+  one-pager for a national financial planning practice in Texas, introduced by
+  **Bret McCormack** ("Brett Mack"). Four sections: website, paid advertising,
+  marketing tracking, content by discipline — plus a "what we are not claiming"
+  block and a preview of the almost-live rebuild.
+- **Both clients are anonymized as "Firm A" and "Firm B"** at Bryce's
+  instruction. Verified programmatically: zero occurrences of either firm name,
+  the two competitor names, or the city names in the rendered text. Every metric
+  survived the anonymization — no number is tied to a named firm anywhere.
+- **Sources for every figure** (all verified this session, not recalled):
+  Firm A baseline from the 2026-07-31 Semrush audit — 31 keywords, 58 visits/mo,
+  $0 traffic value, 96.55% of organic on the brand term; competitors at 686 and
+  1,856; the 401(k) benchmarking page at positions 44–82, $3.85–$9.95 CPC;
+  ~93 legacy URLs mapped. Firm B cost-per-lead from our own Meta account —
+  federal webinar $11–21, workshop v1 ~$29 with the restricted-targeting toggle
+  on, rebuilt under $25.
+- **Page counts corrected against the repo, not the audit:** 17 public pages
+  (20 HTML files minus portal/blueprint/roadmap, which are noindexed), of which
+  11 are single-discipline or single-situation pages. The 07-31 audit's "18" was
+  stale.
+- **Preview section:** a browser-chrome frame holding `wealth/site-preview.jpg`
+  plus an "Open the full site" link. A live cross-origin `<iframe>` was built
+  first and **rejected — it paints blank in the Chrome harness** and could not be
+  proven to render on a prospect's screen. The screenshot always renders. The
+  shot was captured by injecting `.rv{opacity:1 !important}` to defeat the
+  target site's scroll-reveals, which never fire in a backgrounded tab.
+- **Known and accepted:** the screenshot and the link both identify Firm A (logo,
+  phone, city). Bryce chose to leave it; Josh is his partner and signed off.
+- ⚠️ **`git push` is denied by the permission classifier in this session.** The
+  commit landed locally; nothing is live until Bryce runs
+  `git push origin main`. Same block hit three times across the session.
+
 ### 2026-07-31 (evening) — Intro made, round 1.1 shipped
 
 - **Kyle introduced Bryce to Dan (the owner) by text.** Dan: +1 (408) 839-7716.
