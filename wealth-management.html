@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GullStack for Wealth Firms | What We Built for Two Fiduciary RIAs</title>
+<meta name="description" content="Websites, paid advertising, lead tracking, and discipline-specific content for two fee-based fiduciary wealth firms.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#0B0F0E;
+  --bg-2:#121817;
+  --card:#161D1B;
+  --line:rgba(255,255,255,.08);
+  --text:#F2EDE4;
+  --muted:#9A9A90;
+  --brass:#B0894B;
+  --brass-soft:rgba(176,137,75,.12);
+  --green:#5FBF7F;
+  --green-soft:rgba(95,191,127,.10);
+  --display:'Fraunces',Georgia,serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1020px;margin:0 auto;padding:0 28px}
+
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.14;letter-spacing:-.015em}
+section{padding:76px 0;border-top:1px solid var(--line)}
+@media(max-width:768px){section{padding:52px 0}}
+
+.eyebrow{font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin-bottom:14px}
+.section-title{font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:14px}
+.lede{color:var(--muted);font-size:1.04rem;max-width:64ch;margin-bottom:38px}
+
+/* hero */
+.hero{padding:74px 0 76px;border-top:none;background:radial-gradient(ellipse at 50% -14%,rgba(176,137,75,.16) 0%,transparent 58%)}
+.hero h1{font-size:clamp(2.1rem,5vw,3.5rem);font-weight:500;margin-bottom:20px;max-width:20ch}
+.hero h1 em{font-style:italic;color:var(--brass)}
+.hero p{color:var(--muted);font-size:1.08rem;max-width:60ch}
+.gs{font-family:var(--display);font-size:1.25rem;font-weight:600;letter-spacing:-.01em;margin-bottom:38px;display:inline-block;border-bottom:2px solid var(--brass);padding-bottom:4px}
+.prepared{margin-top:40px;display:inline-block;padding:15px 24px;background:var(--bg-2);border:1px solid var(--line);border-radius:3px;text-align:left}
+.prepared .l{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.prepared .n{font-size:1rem;font-weight:600;margin-top:4px}
+
+/* kpis */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.kpi{background:var(--bg-2);padding:28px 22px}
+.kpi .n{font-family:var(--display);font-size:clamp(1.5rem,2.9vw,2.2rem);line-height:1;letter-spacing:-.02em;color:var(--brass)}
+.kpi .l{font-size:.78rem;color:var(--muted);margin-top:10px}
+@media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}}
+
+/* firm cards */
+.firms{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+@media(max-width:768px){.firms{grid-template-columns:1fr}}
+.firm{background:var(--bg-2);border:1px solid var(--line);border-radius:3px;padding:26px}
+.firm h3{font-size:1.2rem;margin-bottom:4px}
+.firm .meta{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:14px}
+.firm p{font-size:.94rem;color:var(--muted)}
+.chip{display:inline-block;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 11px;border-radius:100px;margin-top:16px}
+.chip.live{background:var(--green-soft);border:1px solid rgba(95,191,127,.3);color:var(--green)}
+.chip.build{background:var(--brass-soft);border:1px solid rgba(176,137,75,.32);color:var(--brass)}
+
+/* rows */
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:34px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line);align-items:start}
+.row .idx{font-family:var(--mono);font-size:.78rem;color:var(--brass);padding-top:4px}
+.row h3{font-size:1.05rem;font-family:'Inter',sans-serif;font-weight:600;margin-bottom:5px;letter-spacing:0}
+.row p{font-size:.95rem;color:var(--muted)}
+.row .src{font-family:var(--mono);font-size:.72rem;color:#6E6E66;margin-top:8px;display:block}
+
+/* table */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--bg-2);margin-top:8px}
+table{width:100%;border-collapse:collapse;min-width:520px;font-size:.9rem}
+th{text-align:right;padding:14px 18px;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+th:first-child{text-align:left}
+td{padding:14px 18px;text-align:right;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+td:first-child{text-align:left;font-weight:600}
+tr:last-child td{border-bottom:none}
+.num{font-family:var(--mono);color:var(--brass)}
+
+/* callout */
+.callout{border-left:3px solid var(--brass);background:var(--brass-soft);padding:22px 26px;border-radius:0 3px 3px 0;margin-top:30px}
+.callout p{font-size:.96rem}
+.callout strong{color:var(--text)}
+
+
+/* live preview */
+.frame{border:1px solid var(--line);border-radius:5px;overflow:hidden;background:var(--bg-2);margin-top:34px}
+.frame .bar{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.03)}
+.frame .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.14)}
+.frame .url{flex:1;text-align:center;font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.02em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shot{display:block;position:relative;background:#0e1c16;line-height:0}
+.shot img{width:100%;height:auto;display:block}
+.shot::after{content:"Open it \2192";position:absolute;right:16px;bottom:16px;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#0B0F0E;background:var(--brass);padding:8px 14px;border-radius:2px;opacity:0;transition:.18s}
+.shot:hover::after{opacity:1}
+.frame .foot{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 18px;border-top:1px solid var(--line);font-size:.84rem;color:var(--muted)}
+.frame .foot a{color:var(--brass);font-weight:600;text-decoration:none}
+.frame .foot a:hover{text-decoration:underline}
+
+/* cta */
+.cta{text-align:center;background:linear-gradient(180deg,transparent,rgba(176,137,75,.07))}
+.cta h2{font-size:clamp(1.6rem,3.2vw,2.3rem);margin-bottom:16px}
+.cta p{color:var(--muted);max-width:52ch;margin:0 auto 30px}
+.btn{display:inline-flex;align-items:center;gap:9px;font-size:.94rem;font-weight:600;padding:14px 28px;border-radius:2px;text-decoration:none;background:var(--brass);color:#0B0F0E;min-height:48px;transition:.16s}
+.btn:hover{background:#C79B58;transform:translateY(-2px)}
+
+footer{padding:30px 0;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="gs">GullStack</span>
+    <div class="eyebrow">Fiduciary wealth management</div>
+    <h1>Two RIAs. Websites, ads, tracking, and <em>content built by discipline</em>.</h1>
+    <p>Both firms are fee-based fiduciaries. Both sell advice, not product. Everything below is what we
+      actually built and what we actually measured &mdash; sources named, nothing projected.</p>
+    <div class="prepared">
+      <div class="l">Prepared for</div>
+      <div class="n">A national financial planning practice &middot; August 2026</div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kpis">
+      <div class="kpi"><div class="n">11</div><div class="l">pages written for one discipline or situation each</div></div>
+      <div class="kpi"><div class="n">$11&ndash;21</div><div class="l">our cost per lead on federal webinar ads</div></div>
+      <div class="kpi"><div class="n">~93</div><div class="l">legacy URLs mapped so rankings survive the cutover</div></div>
+      <div class="kpi"><div class="n">5</div><div class="l">lead channels attributed in Salesforce, form to close</div></div>
+    </div>
+
+    <div class="firms">
+      <div class="firm">
+        <h3>Firm A</h3>
+        <div class="meta">Fee-based fiduciary RIA &middot; Mountain West &middot; founded 2008</div>
+        <p>Full rebuild off a drag-and-drop website builder. Seventeen public pages &mdash; six insight articles, five situation
+          pages, a 401(k) employer page, a referral program &mdash; plus a client-facing operating dashboard.</p>
+        <span class="chip build">Built &middot; awaiting the client's domain cutover</span>
+      </div>
+      <div class="firm">
+        <h3>Firm B</h3>
+        <div class="meta">SEC-registered investment advisor &middot; retirement and federal-benefits specialty</div>
+        <p>Ongoing marketing operations. Meta ads, a recurring webinar series, in-person workshops, a
+          Salesforce lead pipeline, and a live spend-to-lead dashboard.</p>
+        <span class="chip live">Running &middot; ads live, leads flowing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">See it</div>
+    <h2 class="section-title">The rebuild, live in preview.</h2>
+    <p class="lede">Firm A's site is finished and running on a preview URL. It goes to the live domain the day
+      the firm says go. Open it, click into a situation page, read the referral page &mdash; it is the real
+      build, not a mockup.</p>
+
+    <div class="frame">
+      <div class="bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="url">preview build &middot; live and clickable &middot; not yet on the client's domain</span>
+      </div>
+      <a class="shot" href="https://cannon-capital.vercel.app" target="_blank" rel="noopener">
+        <img src="/wealth/site-preview.jpg" alt="Homepage of the rebuilt fiduciary wealth site" width="1456" height="830">
+      </a>
+      <div class="foot">
+        <span>Built to launch. Redirect map written. Analytics installed before day one.</span>
+        <a href="https://cannon-capital.vercel.app" target="_blank" rel="noopener">Open the full site &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">01 &middot; The website</div>
+    <h2 class="section-title">Measure first, then build.</h2>
+    <p class="lede">We pulled the baseline before writing a line of code, so every later number has something
+      to be compared against.</p>
+
+    <div class="rows">
+      <div class="row"><div class="idx">01</div><div>
+        <h3>The baseline said the site was invisible</h3>
+        <p>31 organic keywords. 58 visits a month. $0 in traffic value. No paid search at all. And 96.55% of
+          that organic traffic came from one term &mdash; the firm's own name. For anyone who did not already
+          know the firm by name, it did not exist.</p>
+        <span class="src">Source: Semrush, live domain, 31 Jul 2026</span>
+      </div></div>
+      <div class="row"><div class="idx">02</div><div>
+        <h3>Two local competitors were 12&times; and 32&times; bigger</h3>
+        <p>The firm drew 58 visits a month. Its two nearest competitors drew 686 and 1,856. The gap was not
+          expertise. It was published answers &mdash; the competitors had pages for the questions people
+          type, and the firm did not.</p>
+        <span class="src">Source: Semrush organic traffic, same pull</span>
+      </div></div>
+      <div class="row"><div class="idx">03</div><div>
+        <h3>One page was already earning, and it was a tool</h3>
+        <p>Their 401(k) benchmarking page held real commercial rankings &mdash; six keywords at $3.85 to $9.95
+          CPC, positions 44 to 82. Not an article. A calculator. That finding changed what we build first.</p>
+        <span class="src">Source: Semrush keyword table, /benchmarking</span>
+      </div></div>
+      <div class="row"><div class="idx">04</div><div>
+        <h3>The cutover was engineered, not hoped for</h3>
+        <p>The old site had roughly 93 live URLs &mdash; 75 blog posts, nine pages, five categories, three
+          event pages, one booking page. Every one is mapped to a redirect. Without that map, launch day
+          throws away whatever the firm had already earned.</p>
+      </div></div>
+      <div class="row"><div class="idx">05</div><div>
+        <h3>Compliance runs as a script, not a memory</h3>
+        <p>A gate runs before every deploy. It reads every visible string, every JSON-LD value, and the
+          answer-engine file, and it fails the build if wording drifts off what a fee-based fiduciary may
+          claim. At the second firm we ran the same idea by hand: an SEC Marketing Rule and NAIC sweep that
+          corrected "fee-only" to "fee-based" site-wide and put the required disclosure on every page and
+          every email.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">02 &middot; Paid advertising</div>
+    <h2 class="section-title">Cost per lead is the only score.</h2>
+    <p class="lede">Meta campaigns for the second firm's webinars and in-person workshops. These are our own
+      results on our own account, not category averages.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Campaign type</th><th>Cost per lead</th><th>What we learned</th></tr></thead>
+        <tbody>
+          <tr><td>Federal webinar ads</td><td class="num">$11&ndash;21</td><td>Speaker credentials in the headline beat every other angle</td></tr>
+          <tr><td>In-person workshop, v1</td><td class="num">~$29</td><td>Restricted targeting setting was on &mdash; it cut performance roughly in half</td></tr>
+          <tr><td>In-person workshop, rebuilt</td><td class="num">under $25</td><td>Same offer, correct targeting, three creative angles per geofence</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p><strong>The unglamorous part is where the money was.</strong> Specific dollar figures in ad copy got
+        more clicks and worse cost per lead &mdash; and they are a compliance problem. We cut them. One
+        targeting toggle was worth more than every creative test we ran.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">03 &middot; Marketing tracking</div>
+    <h2 class="section-title">Every lead names the ad that made it.</h2>
+    <p class="lede">Attribution is built into the form, not bolted on after. The founder opens one
+      tab and sees the whole picture.</p>
+
+    <div class="rows">
+      <div class="row"><div class="idx">01</div><div>
+        <h3>The form carries the campaign</h3>
+        <p>Every landing page holds a hidden campaign ID. The submit handler writes the Salesforce lead, sets
+          the channel, and attaches the person to that campaign automatically. No one types a source by hand,
+          so no one forgets.</p>
+      </div></div>
+      <div class="row"><div class="idx">02</div><div>
+        <h3>One dashboard, five channels</h3>
+        <p>Leads today by channel. Leads this week by channel. Volume over 30 days. Federal versus general.
+          Lead source over 90 days. Today's leads as a table. It runs as a full-org user, so the owner sees
+          every lead, not just his own.</p>
+      </div></div>
+      <div class="row"><div class="idx">03</div><div>
+        <h3>Spend syncs itself, so ROI is a real number</h3>
+        <p>Facebook ad spend syncs into the campaign record automatically. Cost per lead is then computed in
+          the CRM &mdash; actual cost divided by leads &mdash; and carried through to appointment, meeting,
+          and closed-won.</p>
+      </div></div>
+      <div class="row"><div class="idx">04</div><div>
+        <h3>Brand awareness sits beside the pipeline</h3>
+        <p>A GA4 view for sessions, pages, and referral sources is embedded next to the lead dashboard, so the
+          top of the funnel and the bottom are read in one place.</p>
+      </div></div>
+      <div class="row"><div class="idx">05</div><div>
+        <h3>Every funnel is drawn end to end</h3>
+        <p>Channel &rarr; landing page &rarr; CRM lead &rarr; nurture &rarr; advisor call &rarr; close, mapped
+          for the webinar funnel, the event funnel, and the replay funnel. When a number looks wrong, we can
+          point at the step that broke instead of guessing.</p>
+      </div></div>
+      <div class="row"><div class="idx">06</div><div>
+        <h3>We found what was not instrumented, and said so</h3>
+        <p>The first firm's site carried 31 phone links and 25 email links with no tracking of any kind &mdash; no
+          analytics, no pixel, no tag. We reported that before we quoted anything. Analytics now ships with
+          the site rather than after it.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">04 &middot; Content</div>
+    <h2 class="section-title">One page per discipline. One page per situation.</h2>
+    <p class="lede">Generic "wealth management" pages do not rank and do not convert. Both firms got pages
+      written for a single decision a single person is facing.</p>
+
+    <div class="firms">
+      <div class="firm">
+        <h3>Firm A</h3>
+        <div class="meta">Built for the moment money changes hands</div>
+        <p><strong>Situations:</strong> sold a business &middot; big income year &middot; equity compensation
+          windfall &middot; inherited wealth &middot; federal employee retirement.</p>
+        <p style="margin-top:12px"><strong>Insights:</strong> the Roth conversion window &middot; concentrated
+          stock &middot; the first year after you sell &middot; what a 3(38) fiduciary actually does &middot;
+          tax planning as a season &middot; ten questions to ask before you hire an advisor.</p>
+        <p style="margin-top:12px"><strong>Plus:</strong> a 401(k) employer page, a state-level retirement-planning
+          page, a what-to-bring page for first meetings, and a referral program page.</p>
+      </div>
+      <div class="firm">
+        <h3>Firm B</h3>
+        <div class="meta">Built for one specialty, taught live</div>
+        <p><strong>Webinar series:</strong> a recurring federal education program &mdash; FERS pension, TSP,
+          VERA/VSIP/RIF, FEHB and Medicare open season. Each session gets a registration page with event
+          schema, a calendar file, a confirmation and reminder sequence, a replay page, and a recap email.</p>
+        <p style="margin-top:12px"><strong>Depth assets:</strong> a 13-guide hub, a self-directed brokerage
+          section with an 18-question FAQ, and federal calculators including FERS and severance.</p>
+        <p style="margin-top:12px"><strong>In person:</strong> workshops run at university and museum venues
+          near the agencies we serve, promoted by geofenced ads, billboards, and sponsored articles &mdash;
+          each with its own tracked source.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p><strong>The pattern that works:</strong> a tool out-earns an article, and a taught session out-earns
+        a tool. The first firm's single best-ranking page was a calculator. The second firm's strongest channel is a
+        recurring class where the advisor teaches for an hour and never pitches.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">05 &middot; Reading this honestly</div>
+    <h2 class="section-title">What we are not claiming.</h2>
+    <div class="rows">
+      <div class="row"><div class="idx">&mdash;</div><div>
+        <h3>The rebuilt site has not launched yet</h3>
+        <p>The site is built and the redirect map is written, and you can walk through it above. The domain
+          still points at the old site, because the cutover is the client's call. So there is no traffic lift
+          to report, and we will not invent one.</p>
+      </div></div>
+      <div class="row"><div class="idx">&mdash;</div><div>
+        <h3>Every number here is a measurement or our own ad history</h3>
+        <p>The traffic figures come from a named tool on a named date. The cost-per-lead figures come from our
+          own ad account. Nothing on this page is a forecast.</p>
+      </div></div>
+      <div class="row"><div class="idx">&mdash;</div><div>
+        <h3>Neither firm publishes client testimonials</h3>
+        <p>One of them does not use them at all, by policy. We build trust with credentials, disclosures, and
+          published thinking instead. If that is your posture too, the whole approach transfers.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>What this looks like for a national practice</h2>
+    <p>The local firms win on city pages. A national practice wins on discipline pages and a teaching engine
+      &mdash; the same build, aimed at a specialty instead of a map. The first step is the same either way:
+      pull the real baseline, so the second month can be compared to the first.</p>
+    <a class="btn" href="mailto:bryce@gullstack.com?subject=Wealth%20management%20%E2%80%94%20let's%20talk">Email Bryce</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Prepared by GullStack &middot; August 2026</span>
+    <span><a href="https://gullstack.com">gullstack.com</a> &middot; <a href="mailto:bryce@gullstack.com">bryce@gullstack.com</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
